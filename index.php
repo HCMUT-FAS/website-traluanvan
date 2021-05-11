@@ -7,6 +7,8 @@
     <title>Tra Luan Van</title>
 </head>
 <body>
-    hello
+    <?php
+    include "index.html";
+    ?>
 </body>
 </html>
