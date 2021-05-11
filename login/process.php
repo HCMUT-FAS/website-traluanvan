@@ -33,8 +33,17 @@
   $result = $conn->query($sql);
   echo $result->num_rows . "<br>";
   $row = $result->fetch_assoc();
+
+  /*
+  TASK FOR 12/5/2021
+  set cookie for success login and set exspired time
+
+  Watch User Authentication
+  */
+
   if ($user == $row["username"] and $pass == $row["password"]) {
     echo "Login succesfully!";
+    //reload to the main page and open admin feature
   } else {
     echo "Wrong username or password";
   }
