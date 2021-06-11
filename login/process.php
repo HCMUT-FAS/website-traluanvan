@@ -29,16 +29,15 @@
   $user = $conn->real_escape_string($user);
   $pass = $conn->real_escape_string($pass);
 
-  $sql = "select * from login where username='admin' and password='admin'";
+  $sql = "select * from $loginTable where username='$user' and password='$pass'";
   $result = $conn->query($sql);
   echo $result->num_rows . "<br>";
   $row = $result->fetch_assoc();
 
   /*
   TASK FOR 12/5/2021
-  set cookie for success login and set exspired time
+  set cookie for success login and set expired time
 
-  Watch User Authentication
   */
 
   if ($user == $row["username"] and $pass == $row["password"]) {
