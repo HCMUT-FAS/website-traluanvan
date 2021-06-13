@@ -1,6 +1,5 @@
 <?php
 function displayData($LV_Ma, $LV_Ten, $LV_E, $SV1_Ten, $MSSV1, $SV2_Ten, $MSSV2, $GV1_Ten, $GV2_Ten){
-        
         echo "<tr>";
         echo "<th>$LV_Ma</th>";
         echo "<th>$LV_Ten</th>";
