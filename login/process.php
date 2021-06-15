@@ -1,54 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Process</title>
-</head>
+<?php
 
-<body>
-  <h1>hello</h1>
-  <?php
-  // Database info
-  $servername = "remotemysql.com";
-  $username = "11pvv4O6sJ";
-  $password = "NWnV8A7TuL";
-  $dbname = "11pvv4O6sJ";
-  $port = 3306;
-  $table = "luanVan";
-  $conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-  $loginTable = "login";
+if (isset($_POST['login-submit'])) {
+  require '../Database/conn.php';
   $user = $_POST['user'];
-  $pass = $_POST['password'];
+  $pass = $_POST['pwd'];
 
-  $user = stripslashes($user);
-  $pass = stripslashes($pass);
-  $user = $conn->real_escape_string($user);
-  $pass = $conn->real_escape_string($pass);
+  if (empty($user) || empty($pass)) {
+    header("Location: login.php?error=emptyfields1");
+    exit();
+  } else {
+    //lam gi cai string
+    $user = stripslashes($user);
+    $pass = stripslashes($pass);
+    $user = $conn->real_escape_string($user);
+    $pass = $conn->real_escape_string($pass);
+    $sql = "select * from $loginTable where username='$user' and password='$pass'";
+    // $result = $conn->query($sql);
+    // $row = $result->fetch_assoc();
+    $row = $conn->query($sql)->fetch_assoc();
 
-  $sql = "select * from $loginTable where username='$user' and password='$pass'";
-  $result = $conn->query($sql);
-  echo $result->num_rows . "<br>";
-  $row = $result->fetch_assoc();
 
   /*
   TASK FOR 12/5/2021
   set cookie for success login and set expired time
-
   */
 
-  if ($user == $row["username"] and $pass == $row["password"]) {
-    echo "Login succesfully!";
-    //reload to the main page and open admin feature
-  } else {
-    echo "Wrong username or password";
+    if ($user == $row["username"] and $pass == $row["password"]) {
+      echo "Login succesfully!";
+      //reload to the main page and open admin feature
+    } else {
+      header("Location: login.php?error=wrong");
+      exit();
+    }
+
+    $conn->close();
   }
-
-  $conn->close();
-  ?>
-</body>
-
-</html>
+} else {
+  header("Location: ../login.php?error=emptyfields2");
+  exit();
+}
+?>
