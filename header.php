@@ -13,7 +13,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md no-gutters">
                 <div class="col-2 text-left">
-                    <a href="http://traluanvan">
+                    <a href="http://localhost:4000">
                         <img src="imgs/logo.png" height="30" alt="image">
                     </a>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
                     <ul class="navbar-nav justify-content-center">
                         <li class="nav-item active">
-                            <a class="nav-link" href="http://traluanvan">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="http://localhost:4000">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#feature">Features</a>
@@ -34,10 +34,10 @@
                             <a class="nav-link" href="https:/.froala.com">Pricing</a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="http://traluanvan/html/teams.html">Team</a>
+                            <a class="nav-link" href="http://localhost:4000/html/teams.html">Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://traluanvan/html/contact.html">Đóng góp ý kiến</a>
+                            <a class="nav-link" href="http://localhost:4000/html/contact.html">Đóng góp ý kiến</a>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://traluanvan/login/login.html">Log In <i class="fas fa-sign-in-alt"></i></a>
+                            <a class="nav-link" href="http://localhost:4000/login/login.php">Log In <i class="fas fa-sign-in-alt"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -61,7 +61,7 @@
                         <div class="input-group mt-4 mb-4">
                             <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="search">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">Tìm Kiếm</button>
+                                <button class="btn btn-primary" type="submit" name="search-submit">Tìm Kiếm</button>
                             </div>
                         </div>
                     </form>

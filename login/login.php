@@ -44,7 +44,9 @@
 
 
 <body>
-
+    <?php
+    include "../header.php";
+    ?>
     <section class="fdb-block py-0">
         <div class="container py-5 my-5" style="background-image: url(../imgs/shapes/4.svg);">
             <div class=" row justify-content-end">
@@ -56,15 +58,15 @@
                                 <p class="lead">Right at the coast of the Semantics, a large language ocean. A small river named Duden.</p>
                             </div>
                         </div>
-                        <form action="process.php" method="post">
+                        <form action="process.php" method="POST">
                             <div class="row">
                                 <div class="col mt-4"><input type="text" class="form-control" placeholder="Username" name="user"></div>
                             </div>
                             <div class="row mt-4">
-                                <div class="col"><input type="password" class="form-control" placeholder="Password" name="password"></div>
+                                <div class="col"><input type="password" class="form-control" placeholder="Password" name="pwd"></div>
                             </div>
                             <div class="row mt-4">
-                                <div class="col"><button class="btn btn-secondary" type="submit">Login</button></div>
+                                <div class="col"><button class="btn btn-secondary" type="submit" name="login-submit">Login</button></div>
                             </div>
                         </form>
                     </div>
@@ -72,6 +74,9 @@
             </div>
         </div>
     </section>
+    <?php
+    include "../footer.php";
+    ?>
 </body>
 
 </html>
