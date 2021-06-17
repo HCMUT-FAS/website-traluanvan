@@ -7,11 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    include "function.php";
-    echo "<table>";
-    displayData();
-    echo "</table>";
-    ?>
+    
 </body>
 </html>

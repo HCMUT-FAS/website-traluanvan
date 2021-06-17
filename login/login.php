@@ -11,42 +11,54 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link type="text/css" rel="stylesheet" href="../css/froala_blocks.min.css">
     <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
-    <style>
-        .fdb-block {
-            border-bottom: 1px solid var(--light);
-        }
-
-        #navigator {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        #navigator .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
-
-        @media (max-width: 720px) {
-            #navigator {
-                border-bottom: 1px solid #ccc;
-            }
-        }
-
-        #navigator a {
-            font-size: 14px;
-        }
-
-        #navigator+section {
-            padding: 250px 0;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="../css/skeleton.css">
 </head>
 
 
 <body>
-    <?php
-    include "../header.php";
-    ?>
+<header>
+        <div class="container">
+            <nav class="navbar navbar-expand-md no-gutters">
+                <div class="col-2 text-left">
+                    <a href="http://traluanvan">
+                        <img src="../imgs/logo.png" height="30" alt="image">
+                    </a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
+                    <ul class="navbar-nav justify-content-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="http://traluanvan">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#feature">Features</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="https:/.froala.com">Pricing</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://traluanvan/html/teams.html">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://traluanvan/html/contact.html">Đóng góp ý kiến</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://traluanvan/login/login.php">Log In <i class="fas fa-sign-in-alt"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
     <section class="fdb-block py-0">
         <div class="container py-5 my-5" style="background-image: url(../imgs/shapes/4.svg);">
             <div class=" row justify-content-end">
@@ -75,7 +87,7 @@
         </div>
     </section>
     <?php
-    include "../footer.php";
+    include "../include/footer.php";
     ?>
 </body>
 

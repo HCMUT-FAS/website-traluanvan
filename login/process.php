@@ -1,4 +1,3 @@
-
 <?php
 
 if (isset($_POST['login-submit'])) {
@@ -20,14 +19,9 @@ if (isset($_POST['login-submit'])) {
     // $row = $result->fetch_assoc();
     $row = $conn->query($sql)->fetch_assoc();
 
-
-  /*
-  TASK FOR 12/5/2021
-  set cookie for success login and set expired time
-  */
-
     if ($user == $row["username"] and $pass == $row["password"]) {
       echo "Login succesfully!";
+      // session_start();
       //reload to the main page and open admin feature
     } else {
       header("Location: login.php?error=wrong");
@@ -40,4 +34,3 @@ if (isset($_POST['login-submit'])) {
   header("Location: ../login.php?error=emptyfields2");
   exit();
 }
-?>

@@ -1,4 +1,7 @@
-table {
+/* Zebra Striped Table https://www.w3schools.com/howto/howto_css_table_zebra.asp */
+
+
+/* table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -13,4 +16,22 @@ th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+} */
+
+
+/* Responsive Tables */
+
+border-collapse: collapse;
+border-spacing: 0;
+width: 100%;
+border: 1px solid #ddd;
+
+}
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
 }
