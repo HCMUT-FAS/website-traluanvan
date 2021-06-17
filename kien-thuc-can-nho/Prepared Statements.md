@@ -37,8 +37,7 @@ Thay dong lenh sau:
 
 Trong lenh MySQL dau '?' thay the cho mot `interger`, `string`, `double` hay la `blob value`
 
-Gio nhin vo cai dong 
-`$stmt->bind_param("sss", $firstname, $lastname, $email);`
+Gio nhin vo cai dong `$stmt->bind_param("sss", $firstname, $lastname, $email);`
 
 Luu y ham nay la de ket hop parameters toi MySQL query va noi toi thang database la may cai parameters nay la gi.
 
