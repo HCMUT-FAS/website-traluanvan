@@ -13,17 +13,27 @@ if (isset($_POST['login-submit'])) {
     $pwd = stripslashes($pwd);
     $user = $conn->real_escape_string($user);
     $pwd = $conn->real_escape_string($pwd);
-    $sql = "SELECT * FROM $loginTable WHERE username='$user' AND PASSWORD='$pwd'";
+    $sql = "SELECT * FROM $loginTable WHERE username='$user'";
     // $result = $conn->query($sql);
     // $row = $result->fetch_assoc();
     $row = $conn->query($sql)->fetch_assoc();
 
-    if ($user == $row["username"] and $pwd == $row["password"]) {
-      echo "Login succesfully!";
-      // session_start();
-      //reload to the main page and open admin feature
+    //Trong video thi or day nen them 1 dong if($row = $conn->query($sql)->fetch_assoc())
+    $hashPassword = password_hash($row["password"], PASSWORD_DEFAULT);
+    // password_verify(string $password, string $hash): bool
+    $pwdCheck = password_verify($pwd, $hashPassword);
+    if ($pwdCheck == false) {
+      header("Location: login.php?error=wrongPwd1");
+      exit();
+    } elseif ($pwdCheck == true) {
+      session_start();
+      //2 thang nay la nam trong ban login voi 3 cot id, username, password
+      $_SESSION['id'] = $row["id"];
+      $_SESSION['username'] = $row["username"];
+      header("Location: ../index.php?login=success");
+      exit();
     } else {
-      header("Location: login.php?error=wrong");
+      header("Location: login.php?error=wrongPwd2");
       exit();
     }
 

@@ -1,81 +1,6 @@
 <?php
 // include "include/header.php";
 include "include/searchbox-view.php";
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        #myInput {
-            background-image: url("imgs/icons/searchicon.png");
-            background-position: 10px 10px;
-            background-repeat: no-repeat;
-            width: 100%;
-            font-size: 16px;
-            padding: 12px 20px 12px 40px;
-            border: 1px solid #ddd;
-            margin-bottom: 12px;
-        }
-
-        #myTable {
-            border-collapse: collapse;
-            width: 100%;
-            border: 1px solid #ddd;
-            font-size: 18px;
-        }
-
-        #myTable th,
-        #myTable td {
-            text-align: left;
-            padding: 12px;
-        }
-
-        #myTable tr {
-            border-bottom: 1px solid #ddd;
-        }
-
-        #myTable tr.header,
-        #myTable tr:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
-</head>
-
-<body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Mã Luận Văn.." title="Type in a name">
-    <script>
-        function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
-</body>
-
-</html>
-<?php
 include "function.php";
 
 //Neu chua dien cai gi thi quay tro lai header de hien loi
@@ -100,23 +25,45 @@ if (isset($_GET['search-submit'])) {
         echo $result_search_LV_Ten->num_rows . "<br>";
         echo $result_search_LV_Ma->num_rows . "<br>" . "<br>";
 
-        if(strval($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows) == "0" && strval($result_search_LV_Ten->num_rows) == "0" && strval($result_search_LV_Ma->num_rows) == "0"){
+        if (strval($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows) == "0" && strval($result_search_LV_Ten->num_rows) == "0" && strval($result_search_LV_Ma->num_rows) == "0") {
             header("Location: index.php?error=notfound");
         }
 
+        // tuy chinh id cua table nay sao cho lien ket voi css/table.css 
+        // echo "<table>";
         echo "<table id='myTable'>";
         displayLables();
-        //in ra tat ca theo query sql
+        /*
+            co 3 truong hop 
+            1.LV_Ten > 0,
+            2. LV_Ma > 0, 
+            3. GV1_Ten_GV2_Ten > 0
+            Kiem tra lan dau xem 1. co thoa khong? Sau do check tiep 2. 3. co thoa khong? if ($result_search_LV_Ten->num_rows > 0)
+            
+            Tiep theo xem 2. thoa khong? Sau do check tiep thang 3. elseif ($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows > 0)
+            */
         if ($result_search_LV_Ten->num_rows > 0) {
             while ($row = $result_search_LV_Ten->fetch_assoc()) {
                 displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-                // echo "Ten luan van: " . $row["LV_Ten"] . " " . "GV huong dan: " . $row["GV1_Ten"] . $row["GV2_Ten"] . "<br>";
-                // echo "<br>";
+            }
+            if ($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows > 0) {
+                while ($row = $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->fetch_assoc()) {
+                    displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
+                }
+            }
+            if ($result_search_LV_Ma->num_rows > 0) {
+                while ($row = $result_search_LV_Ma->fetch_assoc()) {
+                    displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
+                }
             }
         } elseif ($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows > 0) {
             while ($row = $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->fetch_assoc()) {
                 displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-                // echo "Ten Luan Van: " . $row["LV_Ten"] . "<br>" . "Giang vien huong dan 1: " . $row["GV1_Ten"] . "<br>" . "Giang vien huong dan 2: " . $row["GV2_Ten"] . "<br><br>";
+            }
+            if ($result_search_LV_Ma->num_rows > 0) {
+                while ($row = $result_search_LV_Ma->fetch_assoc()) {
+                    displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
+                }
             }
         } elseif ($result_search_LV_Ma->num_rows > 0) {
             while ($row = $result_search_LV_Ma->fetch_assoc()) {
@@ -133,4 +80,3 @@ if (isset($_GET['search-submit'])) {
     exit();
 }
 include "include/footer.php";
-    //query s LV_Ten

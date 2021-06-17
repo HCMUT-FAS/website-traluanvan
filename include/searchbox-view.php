@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Box</title>
+    <title>Tra Luan Van</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
@@ -21,7 +21,7 @@
                 <div class="col-12  col-md-10 col-lg-8 col-xl-6 text-center">
                     <form action="view.php" method="GET">
                         <div class="input-group mt-4 mb-4">
-                            <a href="http://traluanvan">
+                            <a href="http://localhost:4000">
                                 <img src="imgs/logo.png" height="30" alt="image">
                             </a>
                             <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="q">

@@ -69,7 +69,7 @@
                                 <p class="lead">Right at the coast of the Semantics, a large language ocean. A small river named Duden.</p>
                             </div>
                         </div>
-                        <form action="process.php" method="POST">
+                        <form action="process-login.php" method="POST">
                             <div class="row">
                                 <div class="col mt-4"><input type="text" class="form-control" placeholder="Username" name="user"></div>
                             </div>
