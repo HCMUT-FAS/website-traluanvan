@@ -81,19 +81,19 @@ include "function.php";
 //Neu chua dien cai gi thi quay tro lai header de hien loi
 if (isset($_GET['search-submit'])) {
     require "Database/conn.php";
-    $search = $_GET["search"];
+    $search = $_GET["q"];
 
     if (empty($search)) {
-        header("Location: index.php?error=empty-search");
+        header("Location: index.php?error=emptysearch");
         exit();
     } else {
-        $search_LV_Ten = "SELECT * FROM $table WHERE LV_Ten like '%$search%'";
+        $search_LV_Ten = "SELECT * FROM $table WHERE LV_Ten LIKE '%$search%'";
         $result_search_LV_Ten = $conn->query($search_LV_Ten);
 
-        $search_LV_Ten_theo_GV1_Ten_GV2_Ten = "select * from $table where GV1_Ten like '%$search%' or GV2_Ten like '%$search%';";
+        $search_LV_Ten_theo_GV1_Ten_GV2_Ten = "SELECT * FROM $table WHERE GV1_Ten LIKE '%$search%' OR GV2_Ten LIKE '%$search%';";
         $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten = $conn->query($search_LV_Ten_theo_GV1_Ten_GV2_Ten);
 
-        $search_LV_Ma = "SELECT * FROM $table WHERE LV_Ma like '%$search%'";
+        $search_LV_Ma = "SELECT * FROM $table WHERE LV_Ma LIKE '%$search%'";
         $result_search_LV_Ma = $conn->query($search_LV_Ma);
 
         echo $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows . "<br>";
@@ -126,7 +126,7 @@ if (isset($_GET['search-submit'])) {
         $conn->close();
     }
 } else {
-    header("Location: index.php");
+    header("Location: index.php?error=1");
     exit();
 }
 include "include/footer.php";
