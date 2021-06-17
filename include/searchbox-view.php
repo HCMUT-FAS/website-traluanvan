@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,13 +13,17 @@
     <link rel="stylesheet" href="../css/froala_blocks.min.css">
     <link rel="stylesheet" href="..css/skeleton.css">
 </head>
+
 <body>
-<section class="fdb-block bg-gray">
+    <section class="fdb-block bg-gray">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12  col-md-10 col-lg-8 col-xl-6 text-center">
                     <form action="view.php" method="GET">
                         <div class="input-group mt-4 mb-4">
+                            <a href="http://traluanvan">
+                                <img src="imgs/logo.png" height="30" alt="image">
+                            </a>
                             <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="q">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" name="search-submit">Tìm Kiếm</button>
@@ -30,4 +35,5 @@
         </div>
     </section>
 </body>
+
 </html>

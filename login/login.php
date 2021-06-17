@@ -16,7 +16,7 @@
 
 
 <body>
-<header>
+    <header>
         <div class="container">
             <nav class="navbar navbar-expand-md no-gutters">
                 <div class="col-2 text-left">
@@ -48,7 +48,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1">
                     <ul class="navbar-nav">
                         <li class="nav-item">

@@ -1,6 +1,6 @@
 <?php
-include "include/header.php";
-include "include/searchbox.php";
+// include "include/header.php";
+include "include/searchbox-view.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ include "include/searchbox.php";
         }
 
         #myInput {
-            background-image: url('/css/searchicon.png');
+            background-image: url("imgs/icons/searchicon.png");
             background-position: 10px 10px;
             background-repeat: no-repeat;
             width: 100%;
@@ -100,6 +100,9 @@ if (isset($_GET['search-submit'])) {
         echo $result_search_LV_Ten->num_rows . "<br>";
         echo $result_search_LV_Ma->num_rows . "<br>" . "<br>";
 
+        if(strval($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows) == "0" && strval($result_search_LV_Ten->num_rows) == "0" && strval($result_search_LV_Ma->num_rows) == "0"){
+            header("Location: index.php?error=notfound");
+        }
 
         echo "<table id='myTable'>";
         displayLables();

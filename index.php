@@ -18,7 +18,7 @@
 <body>
     <?php
     include "include/header.php";
-    include "include/searchbox.php";
+    include "include/searchbox-index.php";
     ?>
     <!-- contents.html -->
     <section class="fdb-block">
