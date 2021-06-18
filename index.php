@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <img alt="image" class="img-fluid" src="imgs/draws/smile.svg">
+                    <img alt="image" class="img-fluid" src="/imgs/draws/smile.svg">
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 ml-md-auto text-left">
                     <h1>Froala Blocks</h1>
