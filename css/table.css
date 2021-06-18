@@ -13,6 +13,7 @@ th {
     padding: 8px;
 }
 
+/* đổi màu cái này t coi thử xem */
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: blue;
 }
