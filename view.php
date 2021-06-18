@@ -37,7 +37,7 @@ if (isset($_GET['search-submit'])) {
         echo $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows . "<br>";
         echo $result_search_LV_Ten->num_rows . "<br>";
         echo $result_search_LV_Ma->num_rows . "<br>" . "<br>";
-
+        echo '<button onclick="">form đăng ki mượn</button>';
         if (strval($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows) == "0" && strval($result_search_LV_Ten->num_rows) == "0" && strval($result_search_LV_Ma->num_rows) == "0") {
             header("Location: index.php?error=notfound");
         }

@@ -7,10 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/table.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-
+    <span class="material-icons">
+        notifications
+    </span>
+    <span class="material-icons">
+        circle_notifications
+    </span>
+    <span class="material-icons">
+        notifications_none
+    </span>
 </body>
 
 </html>
@@ -20,6 +29,7 @@ include "Database/conn.php";
 $search_LV_Ten = "SELECT * FROM luanVan WHERE LV_Ten LIKE '%laser%';";
 $result_search_LV_Ten = $conn->query($search_LV_Ten);
 echo $result_search_LV_Ten->num_rows . "<br>";
+echo "<div>";
 echo "<table>";
 // echo "<table id='myTable'>";
 displayLables();
@@ -39,6 +49,7 @@ if ($result_search_LV_Ten->num_rows > 0) {
     }
 }
 echo "</table>";
+echo "</div>";
 $conn->close();
 
 ?>

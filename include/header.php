@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
     <link rel="stylesheet" href="../css/froala_blocks.min.css">
     <link rel="stylesheet" href="../css/skeleton.css">
@@ -22,7 +23,7 @@
             <nav class="navbar navbar-expand-md no-gutters">
                 <div class="col-2 text-left">
                     <a href="http://traluanvan">
-                        <img src="imgs/logo.png" height="30" alt="image">
+                        <img src="/imgs/logo.png" height="30" alt="image">
                     </a>
                 </div>
 
@@ -35,12 +36,19 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="http://traluanvan">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+                        
+                        <?php
+                        if (isset($_SESSION['id'])) {
+                            echo '<li class="nav-item">
+                            <a class="nav-link" href="https:/.froala.com">Đơn mượn</a>
+                        </li>';
+                        } else {
+                            echo '<li class="nav-item">
                             <a class="nav-link" href="#feature">Features</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="https:/.froala.com">Pricing</a>
-                        </li> -->
+                        </li>';
+                        }
+                        ?>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="http://traluanvan/html/teams.html">Team</a>
                         </li>
@@ -51,24 +59,16 @@
                 </div>
 
                 <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1">
-
                     <?php
                     if (isset($_SESSION['id'])) {
-                        echo '<form action="include/logout.php" method="post">
-                        <ul>
-                            <button type="submit" name="logout-submit">Logout</button>
-                        </ul>
-                    </form>';
+                        echo    '<div>
+                                    <a class="btn btn-outline-primary ml-md-3" href="http://traluanvan/include/logout.php">Logout<i class="fas fa-sign-in-alt"></i></a>
+                                </div>';
                     } else {
-                        echo   "<ul class='navbar-nav'>
-                                    <li class='nav-item'>
-                                        <a class='nav-link' href='http://traluanvan/login/login.php'>Log In <i class='fas fa-sign-in-alt'></i></a>
-                                    </li>
-                                </ul>";
+                        echo '<div><a class="btn btn-outline-primary ml-md-3" href="http://traluanvan/login/login.php">Login<i class="fas fa-sign-in-alt"></i></a></div>';
                     }
                     ?>
 
-                    
                 </div>
             </nav>
         </div>

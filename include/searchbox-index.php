@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
     <link rel="stylesheet" href="../css/froala_blocks.min.css">
-    <link rel="stylesheet" href="..css/skeleton.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
 </head>
 
 <body>
