@@ -16,48 +16,9 @@
 
 
 <body>
-    <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-md no-gutters">
-                <div class="col-2 text-left">
-                    <a href="http://localhost:4000">
-                        <img src="../imgs/logo.png" height="30" alt="image">
-                    </a>
-                </div>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
-                    <ul class="navbar-nav justify-content-center">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="http://localhost:4000">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#feature">Features</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="https:/.froala.com">Pricing</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:4000/html/teams.html">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:4000/html/contact.html">Đóng góp ý kiến</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:4000/login/login.php">Log In <i class="fas fa-sign-in-alt"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <?php
+    include "../include/header.php";
+    ?>
     <section class="fdb-block py-0">
         <div class="container py-5 my-5" style="background-image: url(../imgs/shapes/4.svg);">
             <div class=" row justify-content-end">
