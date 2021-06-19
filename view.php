@@ -1,9 +1,9 @@
 <?php
 // include "include/header.php";
 include "include/searchbox-view.php";
-include "function.php";
+include "include/function.php";
 
-//Neu chua dien cai gi thi quay tro lai header de hien loi
+// Chua biet cach hoat dong cua isset()
 if (isset($_GET['search-submit'])) {
     require "Database/conn.php";
     $search = $_GET["q"];
@@ -26,12 +26,12 @@ if (isset($_GET['search-submit'])) {
         echo $result_search_LV_Ma->num_rows . "<br>" . "<br>";
 
         if (strval($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows) == "0" && strval($result_search_LV_Ten->num_rows) == "0" && strval($result_search_LV_Ma->num_rows) == "0") {
-            header("Location: index.php?error=notfound");
+            header("Location: view.php?error=notfound");
         }
 
         // tuy chinh id cua table nay sao cho lien ket voi css/table.css 
         // echo "<table>";
-        echo "<table id='myTable'>";
+        echo "<table>";
         displayLables();
         /*
             co 3 truong hop 
