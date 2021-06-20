@@ -1,5 +1,8 @@
+<head>
+    <link rel="stylesheet" href="/css/table.css">
+</head>
 <?php
-// include "include/header.php";
+
 include "include/searchbox-view.php";
 include "include/function.php";
 
@@ -8,14 +11,13 @@ include "include/function.php";
 if (isset($_GET['search-submit'])) {
     require "Database/conn.php";
     $search = $_GET['s'];
-
     if (empty($search)) {
         header("Location: index.php?error=emptysearch");
         exit();
     } else {
         $search = "%" . $_GET['s'] . "%";
-        $stmt = $conn->prepare("SELECT * FROM $table WHERE LV_Ten LIKE ? OR GV1_Ten LIKE ? OR GV2_Ten LIKE ? OR LV_Ma LIKE ?;");
-        $stmt->bind_param('ssss', $search, $search, $search, $search);
+        $stmt = $conn->prepare("SELECT * FROM $table WHERE LV_Ten LIKE ? OR GV1_Ten LIKE ? OR GV2_Ten LIKE ? OR LV_Ma LIKE ? OR SV1_Ten LIKE ? OR SV2_Ten LIKE ? OR MSSV1 LIKE ? OR MSSV2 LIKE ?;");
+        $stmt->bind_param('ssssssss', $search, $search, $search, $search, $search, $search, $search, $search);
         $stmt->execute();
 
         if ($stmt) {
@@ -25,7 +27,7 @@ if (isset($_GET['search-submit'])) {
         }
 
         $result = $stmt->get_result();
-        printf("Có %u giá tị tìm kiếm!", $result->num_rows);
+        printf("Có %u giá trị tìm kiếm!", $result->num_rows);
         // echo $result->num_rows . "<br>";
 
         if (strval($result->num_rows) == "0") {

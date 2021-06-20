@@ -31,14 +31,8 @@ $f_Sdt = $_POST['sdt'];
 $f_NgayMuon = $_POST['d'];
 
 //Chưa có logic web
-echo $f_email;
-echo $f_Ten_SV;
-echo $f_Ma_SV;
-echo $f_Sdt;
-echo $f_NgayMuon;
-
-// if($stmt->execute()){
-//     echo "executed";
-// } else {
-//     echo "error executing";
-// }
+if($stmt->execute()){
+    echo "executed";
+} else {
+    echo "error executing";
+}
