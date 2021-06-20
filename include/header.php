@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
-    <link rel="stylesheet" href="../css/froala_blocks.min.css">
-    <link rel="stylesheet" href="../css/skeleton.css">
-    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="/css/froala_blocks.min.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/table.css">
 
 </head>
 
@@ -40,7 +40,7 @@
                         <?php
                         if (isset($_SESSION['id'])) {
                             echo '<li class="nav-item">
-                            <a class="nav-link" href="https:/.froala.com">Đơn mượn</a>
+                            <a class="nav-link" href="/form-thong-tin/form.php">Đơn mượn</a>
                         </li>';
                         } else {
                             echo '<li class="nav-item">

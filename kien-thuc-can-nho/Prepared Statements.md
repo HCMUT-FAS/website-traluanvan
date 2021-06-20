@@ -1,5 +1,7 @@
 
 # code
+## INSERT INTO
+
 ```php
 // prepare and bind
 $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
@@ -49,3 +51,33 @@ Ki hieu "sss" tuong trung cho kieu du lieu cua parameters
 - b - blob
 
 Nhung chu cai nay BAT BUOC phai de truoc ham `bind_param()` tranh tinh trang du lieu khong dung
+
+## SELECT
+
+Cách viết cấu trúc prepare tìm kiếm khác với cấu trúc `INSERT`
+
+```php
+//database
+$mysqli = new mysqli("localhost","my_user","my_password","my_db");
+
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+
+// Từ cần tìm kiếm.
+$s="%Con gà%";
+// Câu lệnh tìm kiếm
+$sql = "SELECT * FROM $table WHERE LV_Ten LIKE ? OR GV1_Ten LIKE ? OR GV2_Ten LIKE ? OR LV_Ma LIKE ?;";
+//Tạo câu lệnh prepare
+$stmt = $mysqli->prepare($sql);
+// Kết hợp các biến của "Câu lệnh tìm kiếm";
+$stmt->bind_param('ssss', $s, $s, $s, $s);
+//Thực thi 
+$stmt->execute();
+//Lấy giá trị
+$result = $stmt->get_result();
+// Create a prepared statement
+$stmt -> close();
+$mysqli -> close();
+```

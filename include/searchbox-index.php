@@ -24,7 +24,7 @@
                             <img src="imgs/logo.png" height="30" alt="image">
                         </a>
                         <div class="input-group mt-4 mb-4">
-                            <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="q">
+                            <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="s">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" name="search-submit">Tìm Kiếm</button>
                             </div>
