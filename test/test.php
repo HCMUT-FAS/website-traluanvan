@@ -1,35 +1,24 @@
 <?php
-include "../Database/conn.php";
-include "../include/function.php";
-$search = "%" . $_GET['s'] . "%";
-// $sql = "SELECT * FROM $table WHERE LV_Ten LIKE '%$search%' OR GV1_Ten LIKE '%$search%' OR GV2_Ten LIKE '%$search%' OR LV_Ma LIKE '%$search%';";
-// $result = $conn->query($sql);
+require_once "../PHPMailer/PHPMailerAutoload.php";
 
-//create a template THEN create a prepare statement
-$stmt = $conn->prepare("SELECT * FROM $table WHERE LV_Ten LIKE ? OR GV1_Ten LIKE ? OR GV2_Ten LIKE ? OR LV_Ma LIKE ?;");
-$stmt->bind_param('ssss', $search, $search, $search, $search);
-$stmt->execute();
-if ($stmt) {
-    echo "query success <br>";
-} else {
-    echo "Failed <br>";
+$mail = new PHPMailer();
+//len server chinh roi thi khong can dong $mail->isSMTP(); nua
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = 'tls';
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = '587'; //tai sao la 587 thay vi 465???
+$mail->isHTML(true);
+$mail->Username = 'banhbeocodung00@gmail.com';
+$mail->Password = '1_e8ve_980';
+$mail_setFrom = $mail->setFrom('banhbeocodung00@gmail.com');
+
+$mail->Subject = 'hello world';
+$mail->Body = 'A test email';
+
+$mail->addAddress('banhbeovodung01@gmail.com');
+if($mail->send()){
+    printf('sent');
+}else {
+    printf('not sent');
 }
-
-$result = $stmt->get_result();
-
-echo $result->num_rows . "<br>";
-
-
-echo "<table>";
-displayLables();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-    }
-} else {
-    echo "No result";
-}
-
-echo "</table>";
-$stmt->close();
-$conn->close();
