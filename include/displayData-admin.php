@@ -27,7 +27,7 @@ function displayData($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_NgayMuo
         $accept = '<td><a href="admin-accept.php?e=' . $f_email . '&mlv=' . $f_Ma_LV . '">Cho Mượn</a></td>';
         echo $accept;
     } elseif ($row_avaiable['Available'] == '0') {
-        $return = '<td><a href="admin-return.php?mlv="' . $f_Ma_LV . '>Trả Lại</a></td>';
+        $return = '<td><a href="admin-return.php?mlv=' . $f_Ma_LV . '">Trả Lại</a></td>';
         echo $return;
     } else{
         echo "<td>Khong tim thay luan van</td>";

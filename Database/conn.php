@@ -1,4 +1,4 @@
-<?
+<?php
 $servername = "remotemysql.com";
 $username = "11pvv4O6sJ";
 $password = "NWnV8A7TuL";
@@ -10,7 +10,7 @@ $formTable = "formThongTin";
 $a = "available";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
-if ($conn -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-    exit();
-  }
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }
+// echo "Connected successfully";

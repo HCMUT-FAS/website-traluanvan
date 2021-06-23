@@ -51,5 +51,5 @@ if (isset($_SESSION['id'])) {
     */
     include "../include/footer.php";
 } else {
-    header("Location: ../index.php?require=admin");
+    echo "Invalid Url";
 }

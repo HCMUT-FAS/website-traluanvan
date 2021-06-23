@@ -18,10 +18,10 @@ if (isset($_SESSION['id'])) {
         echo "khong co gia tri ma luan van";
     } else {
         include_once "../Database/conn.php";
-        $update_available = $conn->prepare("UPDATE $a SET Available = FALSE WHERE LV_Ma = ?;");
-        $update_available->bind_param('s', $mlv);
-        if (!$update_available->execute()) {
-            echo "khong update vao available duoc";
+        $available_false = $conn->prepare("UPDATE $a SET Available = FALSE WHERE LV_Ma = ?;");
+        $available_false->bind_param('s', $mlv);
+        if (!$available_false->execute()) {
+            echo "Ma luan van khong ton tai";
         } else {
             /* TINH NANG:
             - Nếu Accept cho mượn thì
@@ -56,5 +56,5 @@ if (isset($_SESSION['id'])) {
         }
     }
 } else {
-    echo "Sao may vao day duoc?";
+    echo "invalid url";
 }
