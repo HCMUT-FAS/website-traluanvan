@@ -19,19 +19,13 @@ if (isset($_GET['search-submit'])) {
         $stmt = $conn->prepare("SELECT * FROM $table WHERE LV_Ten LIKE ? OR GV1_Ten LIKE ? OR GV2_Ten LIKE ? OR LV_Ma LIKE ? OR SV1_Ten LIKE ? OR SV2_Ten LIKE ? OR MSSV1 LIKE ? OR MSSV2 LIKE ?;");
         $stmt->bind_param('ssssssss', $search, $search, $search, $search, $search, $search, $search, $search);
         $stmt->execute();
-
-        // if ($stmt) {
-        //     echo "query success <br>";
-        // } else {
-        //     echo "Failed <br>";
-        // }
-
         $result = $stmt->get_result();
         printf("Có %u giá trị tìm kiếm! <br>", $result->num_rows);
         // echo $result->num_rows . "<br>";
-
+        $s = $_GET['s'];
+        $header = 'Location: view.php?&q=' . $s . '&error=notfound2';
         if (strval($result->num_rows) == "0") {
-            header("Location: view.php?error=notfound");
+            header("$header");
             exit();
         }
         echo '<a href="/form-thong-tin/form-muon-luan-van.php">Mượn luận văn</a>';
@@ -49,7 +43,13 @@ if (isset($_GET['search-submit'])) {
         $conn->close();
     }
 } else {
-    header("Location: index.php?error=notfound");
-    exit();
+    $s = $_GET['q'];
+    echo '<p>Your Search - ' . $s . '- did not match any documents.</p>
+    <p>Suggestions:</p>
+    <ul>
+        <li>Tên Giảng Viên: Mai Hữu Xuân, Lê Quốc Khải, Trần Minh Thái,...</li>
+        <li>Mã Luận Văn: 20071002, 20181003,..</li>
+        <li>Tên Sinh Viên Thực Hiện: Bùi An Khang, Đỗ Nguyễn Minh Triết, Đặng Hoàng Phương,...</li>
+    </ul>';
 }
 include "include/footer.php";
