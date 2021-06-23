@@ -26,10 +26,17 @@
                         <img src="/imgs/logo.png" height="30" alt="image">
                     </a>
                 </div>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                    <a href="#">Home</a>
+                    <a href="#">Feature</a>
+                    <a href="#">Login</a>
+                </div>
+                <div id="main">
+                <button class="navbar-toggler" onclick="openNav()",type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon",onclick="openNav()"></span>
                 </button>
+                </div>
 
                 <div class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
                     <ul class="navbar-nav justify-content-center">
@@ -72,7 +79,21 @@
                 </div>
             </nav>
         </div>
+ <script>
+function openNav() {
+    console.log("M dang mo ne")
+  document.getElementById("mySidepanel").style.width = "250px";
+}
+
+function closeNav() {
+    console.log("M dang dong ne")
+    document.getElementById("mySidepanel").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
     </header>
+
 </body>
+
 
 </html>
