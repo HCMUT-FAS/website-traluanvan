@@ -36,7 +36,6 @@ if (isset($_POST['login-submit'])) {
       header("Location: login.php?error=wrongPwd2");
       exit();
     }
-
     $conn->close();
   }
 } else {

@@ -40,7 +40,7 @@
                         <?php
                         if (isset($_SESSION['id'])) {
                             echo '<li class="nav-item">
-                            <a class="nav-link" href="/form-thong-tin/form.php">Đơn mượn</a>
+                            <a class="nav-link" href="/admin/admin.php">Đơn mượn</a>
                         </li>';
                         } else {
                             echo '<li class="nav-item">

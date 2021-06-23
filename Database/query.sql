@@ -1,5 +1,5 @@
 create database traluanvan;
-use traluanvan;
+use luanVan;
 
 CREATE TABLE luanvan (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -14,7 +14,7 @@ GV1_Ten VARCHAR(50) CHARACTER SET UTF8MB4,
 GV2_Ten VARCHAR(50) CHARACTER SET UTF8MB4
 );
 
-select * from luanvan;
+select * from luanVan;
 
 DROP TABLE luanVan;
 

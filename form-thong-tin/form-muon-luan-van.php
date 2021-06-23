@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    <form action="process-form.php" method="post">
+    <form action="process-form-muon-luan-van.php" method="post">
         <Div class="login">
             <h2>Điền thông tin</h2>
             <p>Email</p> <br>
@@ -70,13 +70,11 @@
             <input type="text" placeholder="Số điện thoại liên lạc" name='sdt'><br>
             <p>Ngày mượn luận văn</p><br>
             <input type="datetime-local" name="d"><br>
-
             </br>
             </br>
             <button type="submit" name="form-submit">Gửi</button>
         </Div>
     </form>
-
 </body>
 
 </html>
