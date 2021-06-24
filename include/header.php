@@ -40,7 +40,7 @@
                         <?php
                         if (isset($_SESSION['id'])) {
                             echo '<li class="nav-item">
-                            <a class="nav-link" href="/admin/admin">Đơn mượn</a>
+                            <a class="nav-link" href="http://traluanvan.herokuapp.com/admin/admin">Đơn mượn</a>
                         </li>';
                         } else {
                             echo '<li class="nav-item">
