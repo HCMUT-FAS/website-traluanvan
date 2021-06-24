@@ -18,13 +18,14 @@ if (isset($_SESSION['id'])) {
     include "../Database/conn.php";
     include "../include/displayData-admin.php";
 
-    $result_form = $conn->query("SELECT * FROM $formTable");
+    $result_form = $conn->query("SELECT * FROM $formTable WHERE f_NgayTra is null");
+    echo "<h2>Bảng Đơn Yêu Cầu Mượn</h2>";
     printf("Có tổng cộng %u đơn yêu cầu mượn <br>", $result_form->num_rows);
     echo "<table>";
-    displayLabels();
+    display_labels_admin();
     if ($result_form->num_rows > 0) {
         while ($row = $result_form->fetch_assoc()) {
-            displayData($row['f_email'], $row['f_Ten_SV'], $row['f_Ma_SV'], $row['f_Ma_LV'], $row['f_Sdt'], $row['f_NgayMuon'], $row['f_vertified']);
+            display_data_admin($row['f_email'], $row['f_Ten_SV'], $row['f_Ma_SV'], $row['f_Ma_LV'], $row['f_Sdt'], $row['f_NgayMuon'], $row['f_vertified']);
         }
     }
     echo "</table>";
@@ -47,8 +48,19 @@ if (isset($_SESSION['id'])) {
     file include/displayData-admin.php la tao 2 nut Available va Unavailable
     file Admin/admin-accept.php va Admin/admin-accept.php là 2 file logic cho 2 nút ấn.
     
-    
     */
+    echo "<h2>Bảng Lịch Sử Mượn</h2>";
+    $history_form = $conn->query("SELECT * FROM $formTable WHERE f_NgayTra IS NOT NULL;");
+    printf("Có tổng cộng %u đơn yêu cầu mượn <br>", $history_form->num_rows);
+    echo "<table>";
+    display_labels_history_admin();
+    if ($history_form->num_rows > 0) {
+        while ($row = $history_form->fetch_assoc()) {
+            display_data_history_admin($row['f_email'], $row['f_Ten_SV'], $row['f_Ma_SV'], $row['f_Ma_LV'], $row['f_Sdt'], $row['f_NgayMuon'], $row['f_NgayTraDuKien'], $row["f_NgayTra"]);
+        }
+    }
+    echo "</table>";
+
     include "../include/footer.php";
 } else {
     echo "Invalid Url";

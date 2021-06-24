@@ -1,5 +1,5 @@
 <?php
-function displayData($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_NgayMuon, $verified)
+function display_data_admin($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_NgayMuon, $verified)
 {
     echo "<tr>";
     echo "<td>$f_Ten_SV</td>";
@@ -24,12 +24,14 @@ function displayData($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_NgayMuo
     $availble = $conn->query($query);
     $row_avaiable = $availble->fetch_assoc();
     if ($row_avaiable['Available'] == '1') {
-        $accept = '<td><a href="admin-accept.php?e=' . $f_email . '&mlv=' . $f_Ma_LV . '">Cho Mượn</a></td>';
+        $accept = '<td><a href="admin-accept?e=' . $f_email . '&mlv=' . $f_Ma_LV . '">Cho Mượn</a></td>';
         echo $accept;
     } elseif ($row_avaiable['Available'] == '0') {
-        $return = '<td><a href="admin-return.php?mlv=' . $f_Ma_LV . '">Trả Lại</a></td>';
+        $return = '<td><a href="admin-return?mlv=' . $f_Ma_LV . '">Trả Lại</a></td>';
         echo $return;
-    } else{
+    } else {
+        // thêm logic ở phần form thông tin với ajax rằng:
+        //  điền đúng mã luận văn sẽ tự động hiện ra tên lv
         echo "<td>Khong tim thay luan van</td>";
     }
     //Luan van mat roi
@@ -38,7 +40,7 @@ function displayData($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_NgayMuo
     echo "</tr>";
 }
 
-function displayLabels()
+function display_labels_admin()
 {
     echo "<tr>";
     echo "<th>Tên Sinh Viên</th>";
@@ -50,5 +52,32 @@ function displayLabels()
     echo "<th>Ngày Mượn</th>";
     echo "<th>Cho Mượn Luận Văn</th>";
     echo "<th>Luận Văn Mất Rồi</th>";
+    echo "</tr>";
+}
+function display_labels_history_admin()
+{
+    echo "<tr>";
+    echo "<th>Tên Sinh Viên</th>";
+    echo "<th>Mã Sinh Viên</th>";
+    echo "<th>Địa Chỉ Email</th>";
+    echo "<th>Mã Luận Văn</th>";
+    echo "<th>Số Điện Thoại</th>";
+    echo "<th>Ngày Mượn</th>";
+    echo "<th>Ngày Trả Dự Kiến</th>";
+    echo "<th>Ngày Trả</th>";
+    echo "</tr>";
+}
+
+function display_data_history_admin($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_NgayMuon, $f_NgayTraDuKien, $f_NgayTra)
+{
+    echo "<tr>";
+    echo "<td>$f_Ten_SV</td>";
+    echo "<td>$f_Ma_SV</td>";
+    echo "<td>$f_email</td>";
+    echo "<td>$f_Ma_LV</td>";
+    echo "<td>$f_Sdt</td>";
+    echo "<td>$f_NgayMuon</td>";
+    echo "<td>$f_NgayTraDuKien</td>";
+    echo "<td>$f_NgayTra</td>";
     echo "</tr>";
 }

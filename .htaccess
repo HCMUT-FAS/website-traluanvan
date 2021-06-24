@@ -1,0 +1,6 @@
+# https://www.youtube.com/watch?v=-6LyG9I-FPc
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]

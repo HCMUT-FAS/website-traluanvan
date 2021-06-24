@@ -12,7 +12,7 @@ if (isset($_GET['search-submit'])) {
     require "Database/conn.php";
     $search = $_GET['s'];
     if (empty($search)) {
-        header("Location: index.php?error=emptysearch");
+        header("Location: index?error=emptysearch");
         exit();
     } else {
         $search = "%" . $_GET['s'] . "%";
@@ -23,12 +23,12 @@ if (isset($_GET['search-submit'])) {
         printf("Có %u giá trị tìm kiếm! <br>", $result->num_rows);
         // echo $result->num_rows . "<br>";
         $s = $_GET['s'];
-        $header = 'Location: view.php?&q=' . $s . '&error=notfound2';
+        $header = 'Location: view?&q=' . $s . '&error=notfound2';
         if (strval($result->num_rows) == "0") {
             header("$header");
             exit();
         }
-        echo '<a href="/form-thong-tin/form-muon-luan-van.php">Mượn luận văn</a>';
+        echo '<a href="/form-thong-tin/form-muon-luan-van">Mượn luận văn</a>';
 
         // tuy chinh id cua table nay sao cho lien ket voi css/table.css 
         echo "<table>";

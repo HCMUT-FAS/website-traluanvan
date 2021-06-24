@@ -69,7 +69,7 @@
             <p>Số điện thoại</p> <br>
             <input type="text" placeholder="Số điện thoại liên lạc" name='sdt'><br>
             <p>Ngày mượn luận văn</p><br>
-            <input type="datetime-local" name="d"><br>
+            <input type="date" name="d"><br>
             </br>
             </br>
             <button type="submit" name="form-submit">Gửi</button>

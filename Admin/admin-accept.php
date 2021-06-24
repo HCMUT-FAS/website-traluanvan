@@ -35,10 +35,10 @@ if (isset($_SESSION['id'])) {
             $returnDate = date('Y-m-d', strtotime("+2 weeks"));
             include_once "../Database/conn.php";
             // Cap nhat ngay muon va ngay tra
-            $ngayMuon = $conn->prepare("UPDATE formThongTin SET f_NgayMuon = ?, f_NgayTra = ? WHERE f_Ma_LV = ?;");
+            $ngayMuon = $conn->prepare("UPDATE formThongTin SET f_NgayMuon = ?, f_NgayTraDuKien = ? WHERE f_Ma_LV = ?;");
             $ngayMuon->bind_param('sss', $currentDate, $returnDate, $mlv);
             if (!$ngayMuon->execute()) {
-                header("Location: admin.php?accept=failed");
+                header("Location: admin?accept=failed");
                 exit();
             } else {
                 // 2 dong nay la cap nhat lai ngay thang cho nguoi dung de hieu:
@@ -51,7 +51,7 @@ if (isset($_SESSION['id'])) {
                 $body = "Bây giờ là " . $now . ". Bạn đã mượn luận văn có mã số " . $mlv . " vào ngày " . $currentDate . " hãy trả luận văn trước ngày " . $returnDate;
                 // Hàm gửi email này rất tốn thời gian
                 sendEmail($e_user, $e_pwd, 'banhbeocodung00@gmail.com', $subject, $body, $f_email);
-                header("Location: admin.php?success=true");
+                header("Location: admin?success=true");
             }
         }
     }
