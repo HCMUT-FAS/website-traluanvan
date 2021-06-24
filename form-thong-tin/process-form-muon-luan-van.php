@@ -33,7 +33,7 @@ if (isset($_POST['form-submit'])) {
             exit();
         } else {
             require_once "../include/send-email.php";
-            $Body = '<a href="traluanvan/form-thong-tin/vertified-email.php?e=';
+            $Body = '<a href="http://traluanvan.herokuapp.com//form-thong-tin/vertified-email.php?e=';
             $Body .= $f_email;
             $Body .= '">Vertified Email!</a>';
             sendEmail('banhbeocodung00@gmail.com', 'K7z2Lk7djSskNJZuxC3q', 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
