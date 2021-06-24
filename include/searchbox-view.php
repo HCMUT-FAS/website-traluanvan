@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
-    <link rel="stylesheet" href="../css/froala_blocks.min.css">
-    <link rel="stylesheet" href="..css/skeleton.css">
+    <!-- <link type="text/css" rel="stylesheet" href="/css/froala_blocks.css"> -->
+    <!-- <link rel="stylesheet" href="/css/froala_blocks.min.css">
+    <link rel="stylesheet" href="/css/skeleton.css"> -->
 </head>
 
 <body>
@@ -24,7 +24,7 @@
                             <a href="http://traluanvan">
                                 <img src="imgs/logo.png" height="30" alt="image">
                             </a>
-                            <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="q">
+                            <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="s">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" name="search-submit">Tìm Kiếm</button>
                             </div>

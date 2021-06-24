@@ -30,13 +30,12 @@ if (isset($_POST['login-submit'])) {
       //2 thang nay la nam trong ban login voi 3 cot id, username, password
       $_SESSION['id'] = $row["id"];
       $_SESSION['username'] = $row["username"];
-      header("Location: ../index.php?login=success");
+      header("Location: ../index?login=success");
       exit();
     } else {
-      header("Location: login.php?error=wrongPwd2");
+      header("Location: login?error=wrongPwd2");
       exit();
     }
-
     $conn->close();
   }
 } else {

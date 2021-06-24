@@ -1,82 +1,55 @@
+<head>
+    <link rel="stylesheet" href="/css/table.css">
+</head>
 <?php
-// include "include/header.php";
-include "include/searchbox-view.php";
-include "function.php";
 
-//Neu chua dien cai gi thi quay tro lai header de hien loi
+include "include/searchbox-view.php";
+include "include/displayData-view.php";
+
+// Chua biet cach hoat dong cua isset()
+// Khi Search query khong co trong file view.php
 if (isset($_GET['search-submit'])) {
     require "Database/conn.php";
-    $search = $_GET["q"];
-
+    $search = $_GET['s'];
     if (empty($search)) {
-        header("Location: index.php?error=emptysearch");
+        header("Location: index?error=emptysearch");
         exit();
     } else {
-        $search_LV_Ten = "SELECT * FROM $table WHERE LV_Ten LIKE '%$search%'";
-        $result_search_LV_Ten = $conn->query($search_LV_Ten);
-
-        $search_LV_Ten_theo_GV1_Ten_GV2_Ten = "SELECT * FROM $table WHERE GV1_Ten LIKE '%$search%' OR GV2_Ten LIKE '%$search%';";
-        $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten = $conn->query($search_LV_Ten_theo_GV1_Ten_GV2_Ten);
-
-        $search_LV_Ma = "SELECT * FROM $table WHERE LV_Ma LIKE '%$search%'";
-        $result_search_LV_Ma = $conn->query($search_LV_Ma);
-
-        echo $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows . "<br>";
-        echo $result_search_LV_Ten->num_rows . "<br>";
-        echo $result_search_LV_Ma->num_rows . "<br>" . "<br>";
-
-        if (strval($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows) == "0" && strval($result_search_LV_Ten->num_rows) == "0" && strval($result_search_LV_Ma->num_rows) == "0") {
-            header("Location: index.php?error=notfound");
+        $search = "%" . $_GET['s'] . "%";
+        $stmt = $conn->prepare("SELECT * FROM $table WHERE LV_Ten LIKE ? OR GV1_Ten LIKE ? OR GV2_Ten LIKE ? OR LV_Ma LIKE ? OR SV1_Ten LIKE ? OR SV2_Ten LIKE ? OR MSSV1 LIKE ? OR MSSV2 LIKE ?;");
+        $stmt->bind_param('ssssssss', $search, $search, $search, $search, $search, $search, $search, $search);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        printf("Có %u giá trị tìm kiếm! <br>", $result->num_rows);
+        // echo $result->num_rows . "<br>";
+        $s = $_GET['s'];
+        $header = 'Location: view?&q=' . $s . '&error=notfound2';
+        if (strval($result->num_rows) == "0") {
+            header("$header");
+            exit();
         }
+        echo '<a href="/form-thong-tin/form-muon-luan-van">Mượn luận văn</a>';
 
         // tuy chinh id cua table nay sao cho lien ket voi css/table.css 
-        // echo "<table>";
-        echo "<table id='myTable'>";
+        echo "<table>";
         displayLables();
-        /*
-            co 3 truong hop 
-            1.LV_Ten > 0,
-            2. LV_Ma > 0, 
-            3. GV1_Ten_GV2_Ten > 0
-            Kiem tra lan dau xem 1. co thoa khong? Sau do check tiep 2. 3. co thoa khong? if ($result_search_LV_Ten->num_rows > 0)
-            
-            Tiep theo xem 2. thoa khong? Sau do check tiep thang 3. elseif ($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows > 0)
-            */
-        if ($result_search_LV_Ten->num_rows > 0) {
-            while ($row = $result_search_LV_Ten->fetch_assoc()) {
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
                 displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
             }
-            if ($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows > 0) {
-                while ($row = $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->fetch_assoc()) {
-                    displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-                }
-            }
-            if ($result_search_LV_Ma->num_rows > 0) {
-                while ($row = $result_search_LV_Ma->fetch_assoc()) {
-                    displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-                }
-            }
-        } elseif ($result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->num_rows > 0) {
-            while ($row = $result_search_LV_Ten_theo_GV1_Ten_GV2_Ten->fetch_assoc()) {
-                displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-            }
-            if ($result_search_LV_Ma->num_rows > 0) {
-                while ($row = $result_search_LV_Ma->fetch_assoc()) {
-                    displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-                }
-            }
-        } elseif ($result_search_LV_Ma->num_rows > 0) {
-            while ($row = $result_search_LV_Ma->fetch_assoc()) {
-                displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
-            }
-        } else {
-            echo "0 result";
         }
         echo "</table>";
+        $stmt->close();
         $conn->close();
     }
 } else {
-    header("Location: index.php?error=1");
-    exit();
+    $s = $_GET['q'];
+    echo '<p>Your Search - ' . $s . '- did not match any documents.</p>
+    <p>Suggestions:</p>
+    <ul>
+        <li>Tên Giảng Viên: Mai Hữu Xuân, Lê Quốc Khải, Trần Minh Thái,...</li>
+        <li>Mã Luận Văn: 20071002, 20181003,..</li>
+        <li>Tên Sinh Viên Thực Hiện: Bùi An Khang, Đỗ Nguyễn Minh Triết, Đặng Hoàng Phương,...</li>
+    </ul>';
 }
 include "include/footer.php";
