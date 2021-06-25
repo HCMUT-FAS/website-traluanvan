@@ -8,7 +8,7 @@ VALUEs ('20071002');
 SELECT * FROM available;
 drop table available;
 
-UPDATE available SET Available = TRUE WHERE LV_Ma = 20161038;
-SELECT * FROM available WHERE LV_Ma = '20161038';
+UPDATE available SET Available = TRUE WHERE Available = 0;
+SELECT * FROM available WHERE Available = 0;
 SELECT * FROM available WHERE LV_Ma = '20071003';
 SELECT * FROM available WHERE LV_Ma = 20161038;

@@ -3,7 +3,7 @@
 
 
 
-include "conn.php";
+include "../Database/conn.php";
 
 $stmt = $conn->prepare("INSERT INTO formThongTin(f_email, f_Ten_SV, f_Ma_SV, f_Ma_LV, f_Sdt, f_NgayMuon) VALUES (?, ?, ?, ?, ?, ?);");
 $stmt->bind_param("ssssis", $f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_NgayMuon);

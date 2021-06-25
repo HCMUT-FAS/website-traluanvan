@@ -5,7 +5,7 @@ create table formThongTin (
     f_Ten_SV VARCHAR(256) CHARACTER SET UTF8MB4 NOT NULL,
     f_Ma_SV VARCHAR(11) NOT NULL,
     f_Ma_LV INT(11) NOT NULL,
-    f_Sdt INT(20) NOT NULL,
+    f_Sdt varchar(16) NOT NULL,
     -- DATE - format YYYY-MM-DD
     f_vertified BOOLEAN DEFAULT 0,
     f_NgayMuon DATE NOT NULL,

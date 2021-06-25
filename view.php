@@ -10,8 +10,8 @@ include "include/displayData-view.php";
 // Khi Search query khong co trong file view.php
 if (isset($_GET['search-submit'])) {
     require "Database/conn.php";
-    $search = $_GET['s'];
-    if (empty($search)) {
+    // $search = $_GET['s'];
+    if (empty(str_replace(" ", "", $_GET['s']))) {
         header("Location: index?error=emptysearch");
         exit();
     } else {
