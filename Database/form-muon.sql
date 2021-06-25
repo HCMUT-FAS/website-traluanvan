@@ -13,6 +13,8 @@ create table formThongTin (
     f_NgayTra DATE
 );
 
+DELETE FROM formThongTin WHERE f_Ma_LV = 20071022;
+
 UPDATE formThongTin SET f_NgayTra = TRUE WHERE Ma_LV = '';
 UPDATE formThongTin SET f_NgayMuon = "2021-05-22", f_NgayTra = '2021-06-22' WHERE f_Ma_LV = '20071002';
 UPDATE formThongTin SET f_NgayTra = '2021-06-22' WHERE f_Ma_LV = '20071002';

@@ -51,7 +51,7 @@ if (isset($_SESSION['id'])) {
     */
     echo "<h2>Bảng Lịch Sử Mượn</h2>";
     $history_form = $conn->query("SELECT * FROM $formTable WHERE f_NgayTra IS NOT NULL;");
-    printf("Có tổng cộng %u đơn yêu cầu mượn <br>", $history_form->num_rows);
+    printf("Đã mượn %u đơn<br>", $history_form->num_rows);
     echo "<table>";
     display_labels_history_admin();
     if ($history_form->num_rows > 0) {

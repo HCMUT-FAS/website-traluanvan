@@ -50,10 +50,10 @@
                         ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="http://traluanvan.herokuapp.com//html/teams.html">Team</a>
+                            <a class="nav-link" href="http://traluanvan.herokuapp.com/html/teams.html">Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://traluanvan.herokuapp.com//html/contact.html">Đóng góp ý kiến</a>
+                            <a class="nav-link" href="http://traluanvan.herokuapp.com/html/contact.html">Đóng góp ý kiến</a>
                         </li>
                     </ul>
                 </div>
@@ -62,10 +62,10 @@
                     <?php
                     if (isset($_SESSION['id'])) {
                         echo    '<div>
-                                    <a class="btn btn-outline-primary ml-md-3" href="http://traluanvan.herokuapp.com//include/logout">Logout<i class="fas fa-sign-in-alt"></i></a>
+                                    <a class="btn btn-outline-primary ml-md-3" href="http://traluanvan.herokuapp.com/include/logout">Logout<i class="fas fa-sign-in-alt"></i></a>
                                 </div>';
                     } else {
-                        echo '<div><a class="btn btn-outline-primary ml-md-3" href="http://traluanvan.herokuapp.com//login/login">Login<i class="fas fa-sign-in-alt"></i></a></div>';
+                        echo '<div><a class="btn btn-outline-primary ml-md-3" href="http://traluanvan.herokuapp.com/login/login">Login<i class="fas fa-sign-in-alt"></i></a></div>';
                     }
                     ?>
 

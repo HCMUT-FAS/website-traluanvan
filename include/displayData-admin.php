@@ -15,7 +15,7 @@ function display_data_admin($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_
     echo "<td>$f_NgayMuon</td>";
     //Accept
     /*
-    Gui toi thang Admin/admin-accept.php
+    Gui toi thang admin/admin-accept.php
     NHIỆM VỤ:
     Nếu mà available = 0 thì hiện ra "Trả lại luận văn"
     */
@@ -35,8 +35,8 @@ function display_data_admin($f_email, $f_Ten_SV, $f_Ma_SV, $f_Ma_LV, $f_Sdt, $f_
         echo "<td>Khong tim thay luan van</td>";
     }
     //Luan van mat roi
-    $unavailable = "<td>Unavailable</td>";
-    echo $unavailable;
+    $delete = '<td><a href="../admin/admin-delete.php?mlv=' . $f_Ma_LV . '">Xóa Đơn Mượn Này</a></td>';
+    echo $delete;
     echo "</tr>";
 }
 
@@ -51,7 +51,7 @@ function display_labels_admin()
     echo "<th>Xác Thực Email</th>";
     echo "<th>Ngày Mượn</th>";
     echo "<th>Cho Mượn Luận Văn</th>";
-    echo "<th>Luận Văn Mất Rồi</th>";
+    echo "<th>Xóa Yêu Cầu</th>";
     echo "</tr>";
 }
 function display_labels_history_admin()

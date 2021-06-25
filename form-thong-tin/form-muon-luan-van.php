@@ -31,7 +31,7 @@
             width: 200px;
             height: 40px;
             border: 1px solid gray;
-            border-radius: 20px;
+            border-radius: 10px;
             padding-left: 20px;
         }
 
@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    <form action="process-form-muon-luan-van.php" method="post">
+    <form action="process-form-muon-luan-van.php" method="POST">
         <Div class="login">
             <h2>Điền thông tin</h2>
             <p>Email</p> <br>
@@ -65,7 +65,9 @@
             <p>Mã số sinh viên</p> <br>
             <input type="text" placeholder="Mã số sinh viên trường cung cấp" name="msv"><br>
             <p>Mã Luận Văn</p> <br>
-            <input type="text" placeholder="Mã Luận Văn Bạn Cần Mượn" name="mlv"><br>
+            <input type="text" placeholder="Mã Luận Văn Bạn Cần Mượn" name="mlv" id="txt1" onkeyup="showHint(this.value)">
+            <br>
+            <span id="txtHint"></span><br>
             <p>Số điện thoại</p> <br>
             <input type="text" placeholder="Số điện thoại liên lạc" name='sdt'><br>
             <p>Ngày mượn luận văn</p><br>
@@ -75,6 +77,22 @@
             <button type="submit" name="form-submit">Gửi</button>
         </Div>
     </form>
+    <script>
+        // https://www.w3schools.com/js/js_ajax_php.asp
+        function showHint(str) {
+            if (str.length == 0) {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("txtHint").innerHTML =
+                    this.responseText;
+            }
+            xhttp.open("GET", "suggestion.php?q=" + str);
+            xhttp.send();
+        }
+    </script>
 </body>
 
 </html>
