@@ -14,10 +14,10 @@
     <link type="text/css" rel="stylesheet" href="../css/skeleton.css">
 </head>
 
-
 <body>
     <?php
-    include "../include/header.php";
+    $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
+    include "$rootDir/include/header.php";
     ?>
     <section class="fdb-block py-0">
         <div class="container py-5 my-5" style="background-image: url(../imgs/shapes/4.svg);">
@@ -47,7 +47,7 @@
         </div>
     </section>
     <?php
-    include "../include/footer.php";
+    include "$rootDir/include/footer.php";
     ?>
 </body>
 

@@ -2,6 +2,7 @@
 // Form này để điện thoại gửi thông tin mượn vào.
 
 
+$rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
 
 include "../Database/conn.php";
 
@@ -19,11 +20,11 @@ if (!$stmt->execute()) {
     // sftt = submit-form-thon-tin
     echo "Không thể gửi thông tin";
 } else {
-    require_once "../include/send-email.php";
+    require_once "$rootDir/send-email.php";
     $Body = '<a href="http://traluanvan.herokuapp.com/form-thong-tin/vertified-email.php?e=';
     $Body .= $f_email;
     $Body .= '">Vertified Email!</a>';
     sendEmail('banhbeocodung00@gmail.com', 'K7z2Lk7djSskNJZuxC3q', 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
     echo "Đã gửi thông tin thành công!";
 }
-// https://traluanvan.herokuapp.com/Database/form_thong_tin_android.php?e=example@example.com&tsv=Bui%20An%20Khang&msv=1913683&mlv=20091002&sdt=0353032332&d=2021-06-19
+// https://traluanvan/.herokuapp.com/Database/form_thong_tin_android.php?e=example@example.com&tsv=Bui%20An%20Khang&msv=1913683&mlv=20091002&sdt=0353032332&d=2021-06-19

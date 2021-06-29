@@ -3,6 +3,7 @@
 </head>
 
 <?php
+$rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
 session_start();
 /*
 SƠ ĐỒ NHIỆM VỤ
@@ -14,9 +15,9 @@ SƠ ĐỒ NHIỆM VỤ
 // Phai dang nhap moi vao duoc trang nay
 if (isset($_SESSION['id'])) {
     // 1. Bảng có tất cả giá trị yêu cầu mượn
-    include "../include/header.php";
+    include "$rootDir/header.php";
     include "../Database/conn.php";
-    include "../include/displayData-admin.php";
+    include "$rootDir/displayData-admin.php";
 
     $result_form = $conn->query("SELECT * FROM $formTable WHERE f_NgayTra is null");
     echo "<h2>Bảng Đơn Yêu Cầu Mượn</h2>";
@@ -61,7 +62,7 @@ if (isset($_SESSION['id'])) {
     }
     echo "</table>";
 
-    include "../include/footer.php";
+    include "$rootDir/include/footer.php";
 } else {
     echo "Invalid Url";
 }

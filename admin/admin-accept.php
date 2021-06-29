@@ -1,4 +1,5 @@
 <?php
+$rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
 session_start();
 // Gui tu /include/displayData-admin.php
 /*
@@ -46,7 +47,7 @@ if (isset($_SESSION['id'])) {
                 $now = date("d-m-Y h:i:sa");
                 $currentDate = date("d-m-Y");
                 $returnDate = date('d-m-Y', strtotime("+2 weeks"));
-                include_once "../include/send-email.php";
+                include_once "$rootDir/send-email.php";
                 $subject = "Ngay tra luan van";
                 $body = "Bây giờ là " . $now . ". Bạn đã mượn luận văn có mã số " . $mlv . " vào ngày " . $currentDate . " hãy trả luận văn trước ngày " . $returnDate;
                 // Hàm gửi email này rất tốn thời gian

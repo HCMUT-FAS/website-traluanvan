@@ -1,12 +1,11 @@
-<head>
-    <link rel="stylesheet" href="/css/table.css">
-</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/css/table.css">
+<link rel="stylesheet" href="/css/form-thong-tin.css">
 <?php
-
+$rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
 include "include/searchbox-view.php";
 include "include/displayData-view.php";
-// Chua biet cach hoat dong cua isset()
-// Khi Search query khong co trong file view.php
+// isset là khi thằng nào truy cập vào url mà không có search-submit trước thì bị văng ra
 if (isset($_GET['search-submit'])) {
     require "Database/conn.php";
     // Khong biet sua may cai loi nay nhu nao
@@ -34,7 +33,9 @@ if (isset($_GET['search-submit'])) {
             header("$header");
             exit();
         }
-        echo '<a href="/form-thong-tin/form-muon-luan-van">Mượn luận văn</a>';
+        // Form mượn luận văn
+        include "form-thong-tin/form-thong-tin-2.0.php";
+        // echo '<a href="/form-thong-tin/form-muon-luan-van">Mượn luận văn</a>';
 
         // tuy chinh id cua table nay sao cho lien ket voi css/table.css 
         echo "<table>";
