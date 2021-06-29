@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="/css/table.css">
-<link rel="stylesheet" href="/css/form-thong-tin.css">
+<!-- <link rel="stylesheet" href="/css/form-thong-tin.css"> -->
 <?php
 $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
 include "include/searchbox-view.php";
@@ -34,18 +34,18 @@ if (isset($_GET['search-submit'])) {
             exit();
         }
         // Form mượn luận văn
-        include "form-thong-tin/form-thong-tin-2.0.php";
+        include "$rootDir/form-thong-tin/form-thong-tin-2.0.php";
         // echo '<a href="/form-thong-tin/form-muon-luan-van">Mượn luận văn</a>';
 
         // tuy chinh id cua table nay sao cho lien ket voi css/table.css 
-        echo "<table>";
+        echo "<div style='overflow-x:auto;'><table>";
         displayLables();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 displayData($row["LV_Ma"], $row["LV_Ten"], $row["LV_TenTiengAnh"], $row["SV1_Ten"], $row["MSSV1"], $row["SV2_Ten"], $row["MSSV2"], $row["GV1_Ten"], $row["GV2_Ten"]);
             }
         }
-        echo "</table>";
+        echo "</table></div>";
         $stmt->close();
         $conn->close();
     }

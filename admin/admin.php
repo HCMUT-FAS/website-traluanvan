@@ -15,9 +15,9 @@ SƠ ĐỒ NHIỆM VỤ
 // Phai dang nhap moi vao duoc trang nay
 if (isset($_SESSION['id'])) {
     // 1. Bảng có tất cả giá trị yêu cầu mượn
-    include "$rootDir/header.php";
-    include "../Database/conn.php";
-    include "$rootDir/displayData-admin.php";
+    include "$rootDir/include/header.php";
+    include "$rootDir/Database/conn.php";
+    include "$rootDir/include/displayData-admin.php";
 
     $result_form = $conn->query("SELECT * FROM $formTable WHERE f_NgayTra is null");
     echo "<h2>Bảng Đơn Yêu Cầu Mượn</h2>";

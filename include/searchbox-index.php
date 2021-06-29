@@ -20,7 +20,7 @@
             <div class="row justify-content-center">
                 <div class="col-12  col-md-10 col-lg-8 col-xl-6 text-center">
                     <form action="view.php" method="GET">
-                        <a href="http://traluanvan.herokuapp.com/">
+                        <a href="http://traluanvan/">
                             <img src="imgs/logo.png" height="30" alt="image">
                         </a>
                         <div class="input-group mt-4 mb-4">

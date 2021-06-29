@@ -41,13 +41,13 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
             <div class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
                 <ul class="navbar-nav justify-content-center">
                     <li class="nav-item active">
-                        <a class="nav-link" href="http://traluanvan.herokuapp.com/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="http://traluanvan/">Home <span class="sr-only">(current)</span></a>
                     </li>
 
                     <?php
                     if (isset($_SESSION['id'])) {
                         echo '<li class="nav-item">
-                            <a class="nav-link" href="http://traluanvan.herokuapp.com/admin/admin">Đơn mượn</a>
+                            <a class="nav-link" href="http://traluanvan/admin/admin">Đơn mượn</a>
                         </li>';
                     } else {
                         echo '<li class="nav-item">
@@ -57,10 +57,10 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
                     ?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="http://traluanvan.herokuapp.com/html/teams.html">Team</a>
+                        <a class="nav-link" href="http://traluanvan/html/teams.html">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://traluanvan.herokuapp.com/html/contact.html">Đóng góp ý kiến</a>
+                        <a class="nav-link" href="http://traluanvan/html/contact.html">Đóng góp ý kiến</a>
                     </li>
                 </ul>
             </div>
@@ -69,10 +69,10 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
                 <?php
                 if (isset($_SESSION['id'])) {
                     echo    '<div>
-                                    <a class="btn btn-outline-primary ml-md-3" href="http://traluanvan.herokuapp.com/include/logout">Logout<i class="fas fa-sign-in-alt"></i></a>
+                                    <a class="btn btn-outline-primary ml-md-3" href="http://traluanvan/include/logout">Logout<i class="fas fa-sign-in-alt"></i></a>
                                 </div>';
                 } else {
-                    echo '<div><a class="btn btn-outline-primary ml-md-3" href="http://traluanvan.herokuapp.com/login/login">Login<i class="fas fa-sign-in-alt"></i></a></div>';
+                    echo '<div><a class="btn btn-outline-primary ml-md-3" href="http://traluanvan/login/login">Login<i class="fas fa-sign-in-alt"></i></a></div>';
                 }
                 ?>
 

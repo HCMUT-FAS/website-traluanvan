@@ -8,8 +8,11 @@ NHIỆM VỤ:
     - DOME Gửi 1 email tới là sau 2 tuần phải trả lại luận văn. 
     - DONE Update ngay muon luan van la thoi diem nhan Accept.
     - Từ 2 nút Accept và Unavailable trở thành nút Đã Nhận Lại Luận Văn. SỬ DỤNG query available
-        - Nút Đã Nhận Lại Luận Văn sẽ UPDATE ngày trả lại là ngày nhấn nút.
+        - DONE Nút Đã Nhận Lại Luận Văn sẽ UPDATE ngày trả lại là ngày nhấn nút.
     - DONE UPDATE lai available cua table available = false
+    - Xóa các đơn có cùng mlv
+        - Khi ấn nút cho mượn lv thì xóa hết các đơn có cùng mlv và gửi email về với nội dung là:
+        "luận văn bạn đăng kí đã được cho mượn, vui lòng đăng kí lv lại sau 2 tuần"
 */
 if (isset($_SESSION['id'])) {
     $mlv = $_GET['mlv'];
@@ -47,7 +50,7 @@ if (isset($_SESSION['id'])) {
                 $now = date("d-m-Y h:i:sa");
                 $currentDate = date("d-m-Y");
                 $returnDate = date('d-m-Y', strtotime("+2 weeks"));
-                include_once "$rootDir/send-email.php";
+                include_once "$rootDir/include/send-email.php";
                 $subject = "Ngay tra luan van";
                 $body = "Bây giờ là " . $now . ". Bạn đã mượn luận văn có mã số " . $mlv . " vào ngày " . $currentDate . " hãy trả luận văn trước ngày " . $returnDate;
                 // Hàm gửi email này rất tốn thời gian

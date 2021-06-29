@@ -1,4 +1,10 @@
-/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_table_responsive */
+.result-search {
+    clear: both;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 5%;
+}
 
 table {
     border-collapse: collapse;
