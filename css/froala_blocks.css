@@ -1312,34 +1312,4 @@ header + header {
   background-color: #f4f7fe;
   color: #444444; }
 
-  .sidepanel  {
-    position: fixed;
-    z-index: 1;
-    height: 250px;
-    top: 0;
-    right: 0;
-    background-color:white;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    width: 0px;
-  }
-.sidepanel a {
-  padding: 8px 8px 8px 8px;
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidepanel a:hover {
-  color: #f1f1f1;
-}
-
-.sidepanel .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-}
+ 

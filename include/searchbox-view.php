@@ -12,6 +12,7 @@
     <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
     <link rel="stylesheet" href="../css/froala_blocks.min.css">
     <link rel="stylesheet" href="../css/skeleton.css">
+    
 </head>
 
 <body>

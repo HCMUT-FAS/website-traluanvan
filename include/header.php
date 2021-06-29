@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/skeleton.css">
     <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="../css/slidepanel.css">
+    <link rel="script" href="../Javascript/slidepanel.js">
 </head>
 
 <body>
@@ -83,20 +84,8 @@
                 
             </nav>
         </div>
- <script>
-function openNav() {
-    console.log("M dang mo ne")
-  document.getElementById("mySidepanel").style.width = "auto";
-}
-
-function closeNav() {
-    console.log("M dang dong ne")
-    document.getElementById("mySidepanel").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-</script>
     </header>
-
+    <script src="/Javascript/slidepannel.js"></script>
 </body>
 
 
