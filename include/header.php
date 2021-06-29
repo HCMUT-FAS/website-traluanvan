@@ -1,33 +1,40 @@
 <?php
 $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
-
 ?>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="css/froala_blocks.css">
-<link rel="stylesheet" href="css/froala_blocks.min.css">
-<link rel="stylesheet" href="css/skeleton.css">
-<link rel="stylesheet" href="css/table.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra Luan Van</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
+    <link rel="stylesheet" href="../css/froala_blocks.min.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/slidepanel.css">
+</head>
 
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-md no-gutters">
-            <div class="col-2 text-left">
-                <a href="http://traluanvan.herokuapp.com/">
-                    <img src="/imgs/logo.png" height="30" alt="image">
-                </a>
-            </div>
-            <div id="mySidepanel" class="sidepanel">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <a href="#">Home</a>
-                <a href="#">Feature</a>
-                <a href="#">Login</a>
-            </div>
-            <div id="main">
-                <button class="navbar-toggler" onclick="openNav()" ,type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" ,onclick="openNav()"></span>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-md no-gutters">
+                <div class="col-2 text-left">
+                    <a href="http://traluanvan">
+                        <img src="/imgs/logo.png" height="30" alt="image">
+                    </a>
+                </div>
+                <div id="mySidepanel" class="sidepanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                    <a href="#">Home</a>
+                    <a href="#">Feature</a>
+                    <a href="#">Login</a>
+                </div>
+                <div id="main">
+                <button class="navbar-toggler" onclick="openNav()",type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon",onclick="openNav()"></span>
                 </button>
             </div>
 
