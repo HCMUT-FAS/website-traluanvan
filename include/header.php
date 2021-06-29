@@ -15,6 +15,7 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
     <link rel="stylesheet" href="../css/skeleton.css">
     <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="../css/slidepanel.css">
+    <link rel="script" href="../Javascript/slidepanel.js">
 </head>
 
 <body>
@@ -34,7 +35,7 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
                 </div>
                 <div id="main">
                 <button class="navbar-toggler" onclick="openNav()",type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon",onclick="openNav()"></span>
+                    <span class="navbar-toggler-icon" onclick="openNav()"></span>
                 </button>
             </div>
 
@@ -44,6 +45,10 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
                         <a class="nav-link" href="http://traluanvan/">Home <span class="sr-only">(current)</span></a>
                     </li>
 
+                <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1">
+                   
+                      <a href="" <i class="fa fa-bell"  style="font-size:36px"></i></a>  
+                    
                     <?php
                     if (isset($_SESSION['id'])) {
                         echo '<li class="nav-item">
@@ -75,6 +80,13 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
                     echo '<div><a class="btn btn-outline-primary ml-md-3" href="http://traluanvan/login/login">Login<i class="fas fa-sign-in-alt"></i></a></div>';
                 }
                 ?>
+                </div>
+                
+            </nav>
+        </div>
+    </header>
+    <script src="/Javascript/slidepannel.js"></script>
+</body>
 
             </div>
         </nav>
