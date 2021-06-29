@@ -884,35 +884,6 @@ textarea.form-control {
 }
 
 .form-inline {
-<<<<<<< HEAD
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center; }
-  .form-inline .form-check {
-    width: 100%; }
-  @media (min-width: 576px) {
-
-  .sidepanel a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-    
-    .sidepanel a:hover {
-      color: #f1f1f1;
-    }
-    
-    .sidepanel .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-    }
-
-=======
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -923,7 +894,23 @@ textarea.form-control {
 }
 
 @media (min-width: 576px) {
->>>>>>> origin/main
+    .sidepanel a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    .sidepanel a:hover {
+        color: #f1f1f1;
+    }
+    .sidepanel .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+    }
     .form-inline label {
         display: flex;
         align-items: center;
@@ -1868,30 +1855,6 @@ footer a {
 }
 
 header {
-<<<<<<< HEAD
-  background-color: #FFFFFF; }
-  header .navbar-nav a.nav-link {
-    color: #777; }
-    header .navbar-nav a.nav-link:hover {
-      color: #329ef7; }
-  header .navbar-nav .active a.nav-link {
-    color: #444444; }
-  header .navbar-toggler-icon {
-    cursor: pointer;
-    border: none;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
-  header.bg-dark .navbar-nav a.nav-link {
-    color: #dcdcdc; }
-    header.bg-dark .navbar-nav a.nav-link:hover {
-      color: #329ef7; }
-  header.bg-dark .navbar-nav .active a.nav-link {
-    color: #FFFFFF; }
-  header.bg-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
-
-header + header {
-  border-top: solid 0.0625rem #EEE; }
-=======
     background-color: #FFFFFF;
 }
 
@@ -1908,6 +1871,8 @@ header .navbar-nav .active a.nav-link {
 }
 
 header .navbar-toggler-icon {
+    cursor: pointer;
+    border: none;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
@@ -1930,7 +1895,6 @@ header.bg-dark .navbar-toggler-icon {
 header+header {
     border-top: solid 0.0625rem #EEE;
 }
->>>>>>> origin/main
 
 .bg-dark {
     background-color: #2d313c;
@@ -1942,11 +1906,11 @@ header+header {
 }
 
 .bg-gray {
-<<<<<<< HEAD
-  background-color: #f4f7fe;
-  color: #444444; }
+    background-color: #f4f7fe;
+    color: #444444;
+}
 
-  .sidepanel  {
+.sidepanel {
     width: 0;
     position: fixed;
     z-index: 1;
@@ -1957,28 +1921,24 @@ header+header {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-  }
+}
+
 .sidepanel a {
-  padding: 8px 8px 8px 8px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
 .sidepanel a:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 .sidepanel .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
 }
-=======
-    background-color: #f4f7fe;
-    color: #444444;
-}
->>>>>>> origin/main
