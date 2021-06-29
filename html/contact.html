@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
+    <!-- <link type="text/css" rel="stylesheet" href="/css/froala_blocks.css"> -->
     <title>Contact form</title>
     <style>
+        .fdb-block,
+        .fdb-block .container {
+            background-position: center;
+            background-repeat: no-repeat
+        }
+        
+        .fdb-block,
+        .rounded {
+            overflow: hidden
+        }
+        
         .fdb-block {
             border-bottom: 1px solid var(--light);
         }
@@ -37,6 +48,88 @@
         
         #navigator+section {
             padding: 250px 0;
+        }
+        
+        .fdb-block {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizelegibility;
+            padding: 7.5rem 0;
+            position: relative;
+            background-size: cover;
+            background-color: #FFF
+        }
+        
+        .fdb-block.fdb-viewport,
+        .fdb-block.fdb-viewport .container {
+            min-height: calc(100% - 2 * 7.5rem)
+        }
+        
+        .fdb-block.fdb-image-bg {
+            color: #f2f2f2
+        }
+        
+        .fdb-block,
+        .fdb-block .container {
+            background-position: center;
+            background-repeat: no-repeat
+        }
+        
+        .fdb-block .container {
+            background-size: contain
+        }
+        
+        .fdb-block .container.bg-r {
+            background-position: right
+        }
+        
+        .fdb-block.fdb-viewport,
+        .fdb-block.fdb-viewport .container {
+            min-height: calc(100% - 2 * 7.5rem)
+        }
+        
+        .fdb-block .container {
+            background-size: contain
+        }
+        
+        .fdb-block .container.bg-r {
+            background-position: right
+        }
+        
+        .fdb-block.fdb-viewport,
+        .fdb-block.fdb-viewport .container {
+            min-height: calc(100% - 2 * 7.5rem)
+        }
+        
+        .btn-danger:focus,
+        .btn-danger.focus {
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+        }
+        
+        .fdb-block .fdb-box {
+            background: #FFF;
+            padding: 3.75rem 2.5rem;
+            overflow: hidden;
+            color: #444;
+            border-radius: .25rem;
+            box-shadow: 0 .3125rem .875rem 0 rgba(129, 129, 129, .2)!important
+        }
+        
+        .btn-danger.disabled,
+        .btn-danger:disabled {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        
+        .fdb-block .fdb-touch {
+            border-top: solid .3125rem #329ef7;
+            z-index: 2
+        }
+        
+        .lead {
+            font-size: 1.4rem;
+            font-weight: 400
         }
     </style>
 </head>

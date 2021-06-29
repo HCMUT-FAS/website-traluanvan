@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            background-color: rgb(159, 159, 245);
+            font-family: sans-serif;
+        }
+        
+        .login {
+            width: 350px;
+            height: 850px;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 10px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        .h2 {
+            display: inline-block;
+            color: gray;
+        }
+        
+        .login input {
+            width: 200px;
+            height: 40px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            padding-left: 20px;
+        }
+        
+        .login button {
+            width: 200px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: #97c1f8;
+            color: white;
+        }
+        
+        p {
+            display: inline-block;
+            float: left;
+            padding-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <Div class="login">
+        <h2>Điền thông tin</h2>
+        <p>Tên sinh viên</p> <br>
+        <input type="text" placeholder="Tensinhvien"><br>
+        <p>Mã số sinh viên</p> <br>
+        <input type="text" placeholder="Masosv"><br>
+        <p>Tên luận văn</p> <br>
+        <input type="text" placeholder="tenluanvan"><br>
+        <p>Số điện thoại</p> <br>
+        <input type="text" placeholder="sodt"><br>
+        <p>Ngày mượn luận văn</p><br>
+        <input type="datetime-local"><br>
+        <p>Ngày trả</p> <br>
+        <br>
+        <br>
+        <input type="datetime-local"><br>
+        <p>Email</p> <br>
+        <br>
+        <br>
+        <input type="email" placeholder="có đuôi @hcmut.edu.vn">
+        </br>
+        </br>
+        <button onclick="myFunction()">Gửi</button>
+    </Div>
+</body>
+
+</html>

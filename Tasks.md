@@ -1,4 +1,7 @@
-#TASKS
+# TASKS for 23-06-2021
 
-1. Xem session co thoi gian Expired khong?
-2. Lam cai chuong notification va hien so `->num_rows` len do.
+1. DONE Làm tab history bên trang admin/admin.php
+2. DONE xóa php ở cuối url
+3. Thêm tính năng ở form thông tin là khi nhập đúng mã lv thì hiện ra tên luận văn
+
+## HỌC OOP
