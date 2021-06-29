@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
     <link rel="stylesheet" href="../css/froala_blocks.min.css">
-    <link rel="stylesheet" href="..css/skeleton.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
                         <div class="input-group mt-4 mb-4">
                             <input type="text" class="form-control" placeholder="Tên Luận Văn, Tên Giảng Viên, Mã Luận Văn,..." name="q">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit" name="search-submit">Tìm Kiếm</button>
+                                <button class="btn btn-primary" type="submit" name="search-submit"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </form>

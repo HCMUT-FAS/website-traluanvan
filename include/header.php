@@ -34,7 +34,7 @@
                 </div>
                 <div id="main">
                 <button class="navbar-toggler" onclick="openNav()",type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon",onclick="openNav()"></span>
+                    <span class="navbar-toggler-icon" onclick="openNav()"></span>
                 </button>
                 </div>
 
@@ -66,6 +66,9 @@
                 </div>
 
                 <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1">
+                   
+                      <a href="" <i class="fa fa-bell"  style="font-size:36px"></i></a>  
+                    
                     <?php
                     if (isset($_SESSION['id'])) {
                         echo    '<div>
@@ -77,12 +80,13 @@
                     ?>
 
                 </div>
+                
             </nav>
         </div>
  <script>
 function openNav() {
     console.log("M dang mo ne")
-  document.getElementById("mySidepanel").style.width = "250px";
+  document.getElementById("mySidepanel").style.width = "auto";
 }
 
 function closeNav() {
