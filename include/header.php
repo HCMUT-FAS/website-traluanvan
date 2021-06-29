@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/froala_blocks.min.css">
     <link rel="stylesheet" href="../css/skeleton.css">
     <link rel="stylesheet" href="../css/table.css">
-
+    <link rel="stylesheet" href="../css/slidepanel.css">
 </head>
 
 <body>
