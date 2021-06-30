@@ -101,14 +101,14 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
             <div class="w3-container">
                 <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright w3-red">&times;</span>
                 <div class="container">
-                    <!-- form -->
-                    <form action="form-thong-tin/process-form-muon-luan-van.php" method="post">
+                    <!-- form thông tin -->
+                    <form action="/form-thong-tin/process-form-muon-luan-van.php" method="post">
                         <div class="row">
                             <div class="col-25">
                                 <label for="fname">Email:</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="fname" name="e" placeholder="example@hcmut.edu.vn">
+                                <input type="email" id="fname" name="e" placeholder="example@hcmut.edu.vn">
                             </div>
                         </div>
                         <div class="row">
