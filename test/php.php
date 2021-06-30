@@ -54,6 +54,14 @@
             width: 120px;
         }
 
+        .topnav input[type=password] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+            width: 120px;
+        }
+
         .topnav .login-container button {
             float: right;
             padding: 6px 10px;
@@ -70,13 +78,14 @@
             background-color: green;
         }
 
-        @media screen and (max-width: 950px) {
+        @media screen and (max-width: 1000px) {
             .topnav .login-container {
                 float: none;
             }
 
             .topnav a,
             .topnav input[type=text],
+            .topnav input[type=password],
             .topnav .login-container button {
                 float: none;
                 display: block;
@@ -88,9 +97,11 @@
             .topnav input[type=text] {
                 border: 1px solid #ccc;
             }
-        }
 
-        /* Khung tìm kiếm */
+            .topnav input[type=password] {
+                border: 1px solid #ccc;
+            }
+        }
     </style>
     <!-- Khung tìm kiếm -->
     <style>
@@ -173,7 +184,7 @@
 
     <!-- Kết quả tìm kiếm -->
     <style>
-        .result-search {
+        .search-result {
             clear: both;
             position: relative;
             margin-top: 20px;
@@ -198,19 +209,22 @@
             background-color: #f2f2f2
         }
     </style>
+
+    <!-- Footer -->
 </head>
 
 <body>
     <!-- HEADER -->
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="/index">Home</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
 
         <div class="login-container">
-            <form action="">
-                <input type="text" placeholder="Username" name="username">
-                <input type="text" placeholder="Password" name="psw">
+            <!-- Chua dien action cho form registry -->
+            <form action="/login/process-login" method="POST">
+                <input type="text" placeholder="Username" name="user">
+                <input type="password" placeholder="Password" name="pwd">
                 <button type="submit">Login</button>
             </form>
         </div>
@@ -230,7 +244,9 @@
         include "$rootDir/form-thong-tin/form-muon-luan-van-2.0.php";
         ?>
     </div>
-    <div class="result-search" style='overflow-x:auto;'>
+
+    <!-- Kết quả -->
+    <div class="search-result" style='overflow-x:auto;'>
         <table>
             <tbody>
                 <tr>
@@ -368,7 +384,6 @@
             </tbody>
         </table>
     </div>
-
 
 </body>
 

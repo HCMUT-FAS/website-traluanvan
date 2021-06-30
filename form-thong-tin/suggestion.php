@@ -1,7 +1,7 @@
 <?php
 // https://www.w3schools.com/js/js_ajax_php.asp
-include "$rootDir/Database/conn.php";
 $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
+include "$rootDir/Database/conn.php";
 $q = $_REQUEST["q"];
 
 $available = $conn->prepare("SELECT * FROM available WHERE LV_Ma = ?;");
