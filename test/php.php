@@ -219,7 +219,7 @@
     <div class="search">
         <form class="search-bar" action="">
             <button type="submit"><i class="fa fa-search" style="color:#2196F3;"></i></button>
-            <input type="text" placeholder="Search.." name="search">
+            <input type="text" id="nhap" onkeyup="myFunction()" placeholder="Search.." name="search">
         </form>
     </div>
 
@@ -230,8 +230,8 @@
         include "$rootDir/form-thong-tin/form-muon-luan-van-2.0.php";
         ?>
     </div>
-    <div class="result-search" style='overflow-x:auto;'>
-        <table>
+    <div class="result-search"   style='overflow-x:auto;'>
+        <table id="bang">
             <tbody>
                 <tr>
                     <th>Mã Luận Văn</th>
@@ -367,6 +367,29 @@
                 </tr>
             </tbody>
         </table>
+        <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("nhap");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("bang");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
     </div>
 
 
