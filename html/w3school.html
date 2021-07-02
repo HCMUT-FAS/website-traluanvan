@@ -199,7 +199,7 @@
         </div>
     </div>
     <!-- Search Bar -->
-    <div class="search" id="sticky">
+    <div class="search">
         <form class="search-bar" action="">
             <button type="submit"><i class="fa fa-search" style="color:#2196F3;"></i></button>
             <input type="text" placeholder="Search.." name="search">
@@ -348,22 +348,6 @@
             </tbody>
         </table>
     </div>
-    <script>
-        window.onscroll = function() {
-            myFunction()
-        };
-
-        var navbar = document.getElementById("sticky");
-        var sticky = navbar.offsetTop;
-
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
-        }
-    </script>
 
 </body>
 

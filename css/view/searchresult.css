@@ -2,8 +2,18 @@
     clear: both;
     position: relative;
     margin-top: 20px;
-    margin-left: 10%;
+    margin-left: 175px;
     margin-right: 10%;
+}
+
+@media (max-width: 850px) {
+    .search-result {
+        clear: both;
+        position: relative;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 table {

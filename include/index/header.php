@@ -3,12 +3,8 @@
         box-sizing: border-box;
     }
 
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
     .topnav {
+        width: 100%;
         overflow: hidden;
         background-color: #e9e9e9;
         margin-right: 0%;
@@ -70,7 +66,7 @@
         background-color: green;
     }
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 700px) {
         .topnav .login-container {
             float: none;
         }
@@ -95,14 +91,15 @@
         }
     }
 </style>
+
+
 <!-- HEADER -->
 <div class="topnav">
     <a class="active" href="/index">Home</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-
     <div class="login-container">
-        <!-- Chua dien action cho form registry -->
+        <!-- Khi Login thi hien thi LOGOUT -->
         <form action="/login/process-login" method="POST">
             <input type="text" placeholder="Username" name="user">
             <input type="password" placeholder="Password" name="pwd">

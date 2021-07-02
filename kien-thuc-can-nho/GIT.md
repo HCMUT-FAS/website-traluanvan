@@ -10,6 +10,6 @@ git merge origin/master
 
 Hoặc có thể là 
 ```
-git checkout dmgr2
+git checkout <branch name>
 git pull origin master
 ```

@@ -1,96 +1,104 @@
-<?php
-$rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
-?>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    input[type=text],
-    select,
-    textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        resize: vertical;
-    }
-
-    #d {
-        margin-top: 8px;
-        width: 100%;
-    }
-
-    label {
-        padding: 12px 12px 12px 0;
-        display: inline-block;
-    }
-
-    input[type=submit] {
-        background-color: #04AA6D;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        float: right;
-    }
-
-    input[type=submit]:hover {
-        background-color: #45a049;
-    }
-
-    .container {
-        /* width: 900px;
-    height: 435px; */
-        background-color: white;
-        /* border: 10px solid rgb(172, 172, 172); */
-        border-radius: 5px;
-        padding: 20px;
-    }
-
-    .col-25 {
-        float: left;
-        width: 25%;
-        margin-top: 6px;
-    }
-
-    .col-75 {
-        float: left;
-        width: 75%;
-        margin-top: 6px;
-    }
-
-
-    /* Clear floats after the columns */
-
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-
-    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-
-    @media screen and (max-width: 1000px) {
-
-        .col-25,
-        .col-75,
-        input[type=submit] {
-            width: 100%;
-            margin-top: 0px;
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        * {
+            box-sizing: border-box;
         }
-    }
 
-    #form-submit {
-        margin-top: 20px;
-    }
-    #btn-muon-lv{
-        margin-left: 10%;   
-    }
-</style>
+        input[type=text],
+        input[type=email],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        #d {
+            margin-top: 8px;
+            width: 100%;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            /* width: 900px;
+            height: 435px; */
+            background-color: white;
+            /* border: 10px solid rgb(172, 172, 172); */
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+
+        /* Clear floats after the columns */
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+        @media screen and (max-width: 1000px) {
+
+            .col-25,
+            .col-75,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0px;
+            }
+        }
+
+        #form-submit {
+            margin-top: 20px;
+        }
+
+        #btn-muon-lv {
+            margin-left: 170px;
+        }
+
+        @media (max-width: 850px) {
+            #btn-muon-lv {
+                margin-left: 10%;
+            }
+        }
+    </style>
+</head>
+
 
 
 <!-- Form muon luan van -->
@@ -105,18 +113,18 @@ $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
                     <form action="/form-thong-tin/process-form-muon-luan-van.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label for="fname">Email:</label>
+                                <label for="lname" id="lname">Email:</label>
                             </div>
                             <div class="col-75">
-                                <input type="email" id="fname" name="e" placeholder="example@hcmut.edu.vn">
+                                <input type="email" id="lname" name="e" placeholder="example@hcmut.edu.vn">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-25">
-                                <label for="fname">Tên sinh viên:</label>
+                                <label for="lname">Tên sinh viên:</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="fname" name="tsv" placeholder="Đỗ Nguyễn Minh Triết">
+                                <input type="text" id="lname" name="tsv" placeholder="Đỗ Nguyễn Minh Triết">
                             </div>
                         </div>
                         <div class="row">
