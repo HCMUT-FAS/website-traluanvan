@@ -100,10 +100,10 @@
     <a href="#contact">Contact</a>
     <div class="login-container">
         <!-- Khi Login thi hien thi LOGOUT -->
-        <form action="/login/process-login" method="POST">
+        <form action="/login/process-login.php" method="POST">
             <input type="text" placeholder="Username" name="user">
             <input type="password" placeholder="Password" name="pwd">
-            <button type="submit" name="login-submit">Login</button>
+            <button type="submit" name="login-submit">Login</button> 
         </form>
     </div>
 </div>
