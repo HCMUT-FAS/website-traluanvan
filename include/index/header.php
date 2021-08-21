@@ -98,12 +98,21 @@
     <a class="active" href="/index">Home</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
+    <a href="/admin/admin">Admin</a>
     <div class="login-container">
         <!-- Khi Login thi hien thi LOGOUT -->
-        <form action="/login/process-login.php" method="POST">
+        <?php 
+        if(isset($_SESSION['id'])){
+            echo '<form action="/login/logout" method="POST">
+            <button type="submit" name="login-submit">Logout</button> 
+        </form>';
+        }else{
+            echo '<form action="/login/process-login" method="POST">
             <input type="text" placeholder="Username" name="user">
             <input type="password" placeholder="Password" name="pwd">
             <button type="submit" name="login-submit">Login</button> 
-        </form>
+        </form>';
+        }
+        ?>
     </div>
 </div>

@@ -15,7 +15,7 @@ SƠ ĐỒ NHIỆM VỤ
 // Phai dang nhap moi vao duoc trang nay
 if (isset($_SESSION['id'])) {
     // 1. Bảng có tất cả giá trị yêu cầu mượn
-    include "$rootDir/include/header.php";
+    include "$rootDir/include/index/header.php";
     include "$rootDir/Database/conn.php";
     include "$rootDir/include/displayData-admin.php";
 
