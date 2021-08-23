@@ -16,10 +16,12 @@ if (isset($_POST['login-submit'])) {
     $pwd = stripslashes($pwd);
     $user = $conn->real_escape_string($user);
     $pwd = $conn->real_escape_string($pwd);
-    $sql = "SELECT * FROM $loginTable WHERE username='$user'";
-    // $result = $conn->query($sql);
-    // $row = $result->fetch_assoc();
-    $row = $conn->query($sql)->fetch_assoc();
+    // $sql = "SELECT * FROM $loginTable WHERE username='$user'";
+    $sql = $conn->prepare("SELECT * FROM $loginTable WHERE username = ?;");
+    $sql->bind_param('s', $user);
+    $sql->execute();
+    $result = $sql->get_result();
+    $row = $result->fetch_assoc();
 
     //Trong video thi or day nen them 1 dong if($row = $conn->query($sql)->fetch_assoc())
     $hashPassword = password_hash($row["password"], PASSWORD_DEFAULT);
