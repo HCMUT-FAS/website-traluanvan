@@ -12,6 +12,7 @@
 
 <body>
     <?php
+    session_start();
     $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
     include "$rootDir/include/index/header.php";
     include "$rootDir/include/index/searchbar.php";
@@ -43,6 +44,7 @@
             exit();
         } else {
             $s = $_GET['s'];
+            $s = filter_var($s, FILTER_SANITIZE_STRING);
             $search = "%" . $s . "%";
             $stmt = $conn->prepare("SELECT * FROM $table WHERE LV_Ten LIKE ? OR GV1_Ten LIKE ? OR GV2_Ten LIKE ? OR LV_Ma LIKE ? OR SV1_Ten LIKE ? OR SV2_Ten LIKE ? OR MSSV1 LIKE ? OR MSSV2 LIKE ?;");
             $stmt->bind_param('ssssssss', $search, $search, $search, $search, $search, $search, $search, $search);

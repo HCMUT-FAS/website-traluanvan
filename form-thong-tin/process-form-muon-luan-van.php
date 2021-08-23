@@ -12,17 +12,22 @@ Những việc cần làm:
 $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
 
 if (isset($_POST['form-submit'])) {
-    // Email phải có cấu trúc @hcmut.edu.vn
     $f_email = $_POST['e'];
-    // Tự động in hoa các chữ cái đầu.
     $f_Ten_SV = $_POST['tsv'];
     $f_Ma_SV = $_POST['msv'];
-    // Khi tìm mã luận văn thì tự động in ra tên luận văn nằm ở dưới.
     $f_Ma_LV = $_POST['mlv'];
     $f_Sdt = $_POST['sdt'];
     $f_NgayMuon = $_POST['d'];
+    // Bo Loc <script>
+    $f_email = filter_var($f_email, FILTER_SANITIZE_STRING);
+    $f_Ten_SV = filter_var($f_Ten_SV, FILTER_SANITIZE_STRING);
+    $f_Ma_SV = filter_var($f_Ma_SV, FILTER_SANITIZE_STRING);
+    $f_Ma_LV = filter_var($f_Ma_LV, FILTER_SANITIZE_STRING);
+    $f_Sdt = filter_var($f_Sdt, FILTER_SANITIZE_STRING);
+    $f_NgayMuon = filter_var($f_NgayMuon, FILTER_SANITIZE_STRING);
+    
     if (empty($f_email) or empty($f_Ten_SV) or empty($f_Ma_SV) or empty($f_Ma_LV) or empty($f_Sdt) or empty($f_NgayMuon)) {
-        header("Location: ../index.php?error=empty");
+        header("Location: /index.php?error=empty");
         exit();
     } else {
         include "../Database/conn.php";
@@ -37,12 +42,12 @@ if (isset($_POST['form-submit'])) {
             $Body = '<a href="http://traluanvan.herokuapp.com/form-thong-tin/vertified-email.php?e=';
             $Body .= $f_email;
             $Body .= '">Vertified Email!</a>';
-            sendEmail('banhbeocodung00@gmail.com', 'K7z2Lk7djSskNJZuxC3q', 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
-            header("Location: ../index?sftt=succeed&sftt=succeed");
+            sendEmail($e_user, $e_pwd, 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
+            header("Location: /index?sftt=succeed&sftt=succeed");
             exit();
         }
     }
 } else {
-    header("Location: ../index.php?error=empty");
+    header("Location: /index.php?error=empty");
     exit();
 }

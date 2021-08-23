@@ -62,7 +62,8 @@ if (isset($_SESSION['id'])) {
     }
     echo "</table>";
 
-    include "$rootDir/include/footer.php";
+    // include "$rootDir/include/footer.php";
 } else {
-    echo "Invalid Url";
+    header("Location: /index");
+    exit();
 }

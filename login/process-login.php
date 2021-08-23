@@ -8,7 +8,7 @@ if (isset($_POST['login-submit'])) {
   $pwd = filter_var($pwd, FILTER_SANITIZE_STRING);
 
   if (empty($user) || empty($pwd)) {
-    header("Location: login.php?error=emptyfields1");
+    header("Location: /index?error=emptyfields1");
     exit();
   } else {
     //lam gi cai string
@@ -42,6 +42,6 @@ if (isset($_POST['login-submit'])) {
     $conn->close();
   }
 } else {
-  header("Location: /index.php?error=emptyfields2");
+  header("Location: /index?error=emptyfields2");
   exit();
 }

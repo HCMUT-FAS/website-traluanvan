@@ -3,7 +3,7 @@
 $rootDir = str_replace("\\", "/", realpath($_SERVER["DOCUMENT_ROOT"]));
 include "$rootDir/Database/conn.php";
 $q = $_REQUEST["q"];
-
+$q = filter_var($q, FILTER_SANITIZE_STRING);
 $available = $conn->prepare("SELECT * FROM available WHERE LV_Ma = ?;");
 $available->bind_param('s', $q);
 $available->execute();

@@ -26,11 +26,6 @@ session_start();
             <li>Sinh viên thực hiện: Bùi An Khang, Đỗ Nguyễn Minh Triết, Đặng Hoàng Phương,...</li>
         </ul>
     </div>
-
-
-    <?php
-    include "include/footer.php";
-    ?>
 </body>
 
 </html>
