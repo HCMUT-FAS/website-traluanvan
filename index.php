@@ -16,16 +16,17 @@ session_start();
     <?php
     include "include/index/header.php";
     include "include/index/searchbar.php";
-
+    echo '<div class="search-result">
+    <p>Gợi ý tìm kiếm:</p>
+    <ul>
+        <li>Tên giảng viên: Mai Hữu Xuân, Lê Quốc Khải, Trần Minh Thái,...</li>
+        <li>Mã luận văn: 20071002, 20181003,..</li>
+        <li>Sinh viên thực hiện: Bùi An Khang, Đỗ Nguyễn Minh Triết, Đặng Hoàng Phương,...</li>
+    </ul>
+</div>';
+    include "include/contact.html";
     ?>
-    <div class="search-result">
-        <p>Gợi ý tìm kiếm:</p>
-        <ul>
-            <li>Tên giảng viên: Mai Hữu Xuân, Lê Quốc Khải, Trần Minh Thái,...</li>
-            <li>Mã luận văn: 20071002, 20181003,..</li>
-            <li>Sinh viên thực hiện: Bùi An Khang, Đỗ Nguyễn Minh Triết, Đặng Hoàng Phương,...</li>
-        </ul>
-    </div>
+    
 </body>
 
 </html>

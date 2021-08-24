@@ -80,7 +80,7 @@
         echo "Invalid URL";
     }
     // BỊ LỖI FONT NÊN KHÔNG INCLUDE VÀO ĐƯỢC
-    include "$rootDir/include/footer.php";
+    // include "$rootDir/include/footer.php";
     ?>
 </body>
 

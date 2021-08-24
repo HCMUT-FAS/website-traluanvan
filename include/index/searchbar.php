@@ -119,7 +119,7 @@
 </style>
 <div class="search">
     <form class="search-bar" action="/view.php">
-        <button type="submit" name="search-submit">><i class="fa fa-search" id="btn-search" style="color:#2196F3;"></i></button>
+        <button type="submit" name="search-submit"><i class="fa fa-search" id="btn-search" style="color:#2196F3;"></i></button>
         <input type="text" name="s" placeholder="Search.." name="search">
     </form>
 </div>
