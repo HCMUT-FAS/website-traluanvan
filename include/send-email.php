@@ -19,7 +19,13 @@ function sendEmail($user, $pwd, $setFrom, $subject, $body, $to)
     $mail->Body = $body;
 
     $mail->addAddress($to);
-    $mail->send();
+    if(!$mail->send()){
+        header("Location: /index?sendEmail=failed");
+        exit();
+    }else {
+        header("Location: /index?sendEmail=succeed");
+        exit();
+    }
 }
 $e_user = 'banhbeocodung00@gmail.com';
 $e_pwd = 'K7z2Lk7djSskNJZuxC3q';
