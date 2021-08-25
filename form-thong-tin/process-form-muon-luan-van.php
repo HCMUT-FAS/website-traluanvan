@@ -42,9 +42,15 @@ if (isset($_POST['form-submit'])) {
             $Body = '<a href="http://traluanvan.herokuapp.com/form-thong-tin/vertified-email.php?e=';
             $Body .= $f_email;
             $Body .= '">Vertified Email!</a>';
-            sendEmail($e_user, $e_pwd, 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
-            header("Location: /index?sftt=succeed&sftt=succeed");
-            exit();
+            $email = sendEmail($e_user, $e_pwd, 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
+            // Double check
+            if(!$email->send()){
+                header("Location: /index?vertified=failed");
+                exit();
+            }else {
+                header("Location: /index?vertified=succeed");
+                exit();
+            }
         }
     }
 } else {

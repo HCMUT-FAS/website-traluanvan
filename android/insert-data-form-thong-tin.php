@@ -24,7 +24,14 @@ if (!$stmt->execute()) {
     $Body = '<a href="http://traluanvan.herokuapp.com/form-thong-tin/vertified-email.php?e=';
     $Body .= $f_email;
     $Body .= '">Vertified Email!</a>';
-    sendEmail('banhbeocodung00@gmail.com', 'K7z2Lk7djSskNJZuxC3q', 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
+    $email = sendEmail('banhbeocodung00@gmail.com', 'K7z2Lk7djSskNJZuxC3q', 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
+    if(!$email->send()){
+        header("Location: /index?vertified=failed");
+        exit();
+    }else {
+        header("Location: /index?vertified=succeed");
+        exit();
+    }
     echo "Đã gửi thông tin thành công!";
 }
 // https://traluanvan/.herokuapp.com/Database/form_thong_tin_android.php?e=example@example.com&tsv=Bui%20An%20Khang&msv=1913683&mlv=20091002&sdt=0353032332&d=2021-06-19

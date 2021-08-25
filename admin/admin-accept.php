@@ -22,6 +22,7 @@ if (isset($_SESSION['id'])) {
         echo "khong co gia tri ma luan van";
     } else {
         include_once "../Database/conn.php";
+        // UPDATE 
         $available_false = $conn->prepare("UPDATE $a SET Available = FALSE WHERE LV_Ma = ?;");
         $available_false->bind_param('s', $mlv);
         if (!$available_false->execute()) {
@@ -54,8 +55,14 @@ if (isset($_SESSION['id'])) {
                 $subject = "Ngay tra luan van";
                 $body = "Bây giờ là " . $now . ". Bạn đã mượn luận văn có mã số " . $mlv . " vào ngày " . $currentDate . " hãy trả luận văn trước ngày " . $returnDate;
                 // Hàm gửi email này rất tốn thời gian
-                sendEmail($e_user, $e_pwd, 'banhbeocodung00@gmail.com', $subject, $body, $f_email);
-                header("Location: admin?success=true");
+                $email = sendEmail($e_user, $e_pwd, 'banhbeocodung00@gmail.com', $subject, $body, $f_email);
+                if(!$email->send()){
+                    header("Location: /admin/admin?sendEmail=failed");
+                    exit();
+                }else {
+                    header("Location: /admin/admin?sendEmail=succeed");
+                    exit();
+                }
             }
         }
     }
