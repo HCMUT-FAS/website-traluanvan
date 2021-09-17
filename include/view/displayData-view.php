@@ -6,22 +6,22 @@ function displayData($LV_Ma, $LV_Ten, $LV_E, $SV1_Ten, $MSSV1, $SV2_Ten, $MSSV2,
     echo "<td>$LV_Ten</td>";
     //nen viet cau lenh if rut gon
     if ($LV_E == "0") {
-        echo "<td>null</td>";
+        echo "<td></td>";
     } else {
         echo "<td>$LV_E</td>";
     }
     echo "<td>$SV1_Ten</td>";
     echo "<td>$MSSV1</td>";
     if ($SV2_Ten == "0" && $MSSV2 == "0") {
-        echo "<td>null</td>";
-        echo "<td>null</td>";
+        echo "<td></td>";
+        echo "<td></td>";
     } else {
         echo "<td>$SV2_Ten</td>";
         echo "<td>$MSSV2</td>";
     }
     echo "<td>$GV1_Ten</td>";
     if ($GV2_Ten == "0") {
-        echo "<td>null</td>";
+        echo "<td></td>";
     } else {
         echo "<td>$GV2_Ten</td>";
     }

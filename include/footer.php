@@ -1,45 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link type="text/css" rel="stylesheet" href="../css/froala_blocks.css">
-    <title>Footer</title>
-</head>
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        /* position: sticky; */
+        bottom: 0;
+        width: 100%;
+    }
 
-<body>
-    <footer class="fdb-block footer-small bg-dark">
-        <div class="container">
-            <div class="row text-center align-items-center">
-                <div class="col">
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="https://www.froala.com">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.froala.com">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.froala.com">Privacy Policy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.froala.com">Terms</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.froala.com">About</a>
-                        </li>
-                    </ul>
+    .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
 
-                    <p class="h5 mt-5">© 2013-2018 Froala</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
+    .navbar a:hover {
+        background: #f1f1f1;
+        color: black;
+    }
 
-</html>
+    .navbar a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+    .main {
+        padding: 16px;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="navbar">
+    <a href="#home" class="active">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+</div>

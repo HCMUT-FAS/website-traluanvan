@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        /*Cai cho dropdownbtn*/
+        
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #2980B9;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+        
+        .show_dropdown {
+            display: block;
+        }
+        
+        .Content {
+            float: left;
+            width: 50%;
+            padding: 10px;
+        }
+        /* Clear floats after the row */
+        
+        .Luanvan:after {
+            content: "";
+            display: table;
+            clear: both;
+            padding: 5px;
+        }
+        /*Chinh nut mo rong*/
+        
+        .Morong {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+        /*Chinh nut mo rong khi an*/
+        
+        .active,
+        .Morong:hover {
+            background-color: #555;
+        }
+        /*Chinh phan thong tin mo rong*/
+        
+        .Content_morong {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 5 ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="dropdown">
+            <button onclick="DropdownFunction()" class="dropbtn"> ☰ </button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="home">Home</a>
+                <a href="feature">Features</a>
+                <a href="login">Login</a>
+            </div>
+    </header>
+    <div class="Giaodien">
+        <div class="Luanvan">
+            <div class="Content">
+                <h2>$LV_Ten</h2>
+                <p>$LV_Ma</p>
+                <p>$SV1_Ten</p>
+                <button type="button" class="Morong">...</button>
+                <div class="Content_morong">
+                    <p>$LV_E</p>
+                    <p>$SV2_Ten</p>
+                    <p>$SV2_MSSV</p>
+                    <p>$GV1_Ten</p>
+                    <p>$SV2_Ten</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="Luanvan">
+            <div class="Content">
+                <h2>$LV_Ten</h2>
+                <p>$LV_Ma</p>
+                <p>$SV1_Ten</p>
+                <p>$SV1_MSSV</p>
+                <button type="button" class="Morong">...</button>
+                <div class="Content_morong">
+                    <p>$LV_E</p>
+                    <p>$SV2_Ten</p>
+                    <p>$SV2_MSSV</p>
+                    <p>$GV1_Ten</p>
+                    <p>$SV2_Ten</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function DropdownFunction() {
+            document.getElementById("myDropdown").classList.toggle("show_dropdown");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        var coll = document.getElementsByClassName("Morong");
+        var i;
+        console.log(coll.length)
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

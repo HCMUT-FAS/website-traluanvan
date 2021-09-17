@@ -1,4 +1,4 @@
-create database traluanvan;
+create database traluanvan/;
 use luanVan;
 
 CREATE TABLE luanvan (

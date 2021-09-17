@@ -472,6 +472,7 @@ mark,
 }
 
 .form-control {
+<<<<<<< HEAD
     display: block;
     width: 100%;
     height: calc(2.25rem + 0.25rem);
@@ -487,6 +488,21 @@ mark,
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
+=======
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 0.25rem);
+  padding: 0.375rem 0.75rem;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  /* border: 1px solid #ced4da; */
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  @media screen and (prefers-reduced-motion: reduce) {
+>>>>>>> da5918ae09dcb8806bb7d775bc656821a323d757
     .form-control {
         transition: none;
     }
@@ -502,6 +518,7 @@ mark,
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
+<<<<<<< HEAD
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
@@ -515,6 +532,15 @@ mark,
     background-color: #e9ecef;
     opacity: 1;
 }
+=======
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+  .form-control::placeholder {
+    color: red;
+    opacity: 1; }
+  .form-control:disabled, .form-control[readonly] {
+    background-color: red;
+    opacity: 1; }
+>>>>>>> da5918ae09dcb8806bb7d775bc656821a323d757
 
 select.form-control:focus::-ms-value {
     color: #495057;
@@ -894,6 +920,23 @@ textarea.form-control {
 }
 
 @media (min-width: 576px) {
+    .sidepanel a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    .sidepanel a:hover {
+        color: #f1f1f1;
+    }
+    .sidepanel .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+    }
     .form-inline label {
         display: flex;
         align-items: center;
@@ -988,6 +1031,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
+<<<<<<< HEAD
     color: #fff;
     background-color: #329ef7;
     border-color: #329ef7;
@@ -1014,6 +1058,23 @@ fieldset:disabled a.btn {
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show>.btn-primary.dropdown-toggle {
+=======
+  color: #fff;
+  background-color: red;
+  border-color: red; }
+  .btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: #0986ed; }
+  .btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(50, 158, 247, 0.5); }
+  .btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: red;
+    border-color: #329ef7; }
+  .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+  .show > .btn-primary.dropdown-toggle {
+>>>>>>> da5918ae09dcb8806bb7d775bc656821a323d757
     color: #fff;
     background-color: #0986ed;
     border-color: #097fe0;
@@ -1854,6 +1915,8 @@ header .navbar-nav .active a.nav-link {
 }
 
 header .navbar-toggler-icon {
+    cursor: pointer;
+    border: none;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
@@ -1890,3 +1953,40 @@ header+header {
     background-color: #f4f7fe;
     color: #444444;
 }
+
+<<<<<<< HEAD
+.sidepanel {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: 250px;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidepanel a {
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidepanel a:hover {
+    color: #f1f1f1;
+}
+
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+=======
+ 
+>>>>>>> da5918ae09dcb8806bb7d775bc656821a323d757
