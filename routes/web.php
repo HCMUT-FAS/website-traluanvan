@@ -12,11 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('index', [
+    return view('welcome', [
         'tittle'=>"traluanvan"
     ]);
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/search', [
+    'as' => 'search',
+    'uses' => 'LuanvanController@search'
+]);
+
+Route::resource('/form', 'FormController');
+
+// Route::post('/login/store', [LoginController::Class, 'store']);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

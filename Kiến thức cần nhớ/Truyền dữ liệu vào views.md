@@ -1,6 +1,6 @@
-Từ trang `routes/view.php` ta truyền các thông số vào trang `resources/views/trang-ta-cần-truyền-tham-số-vào`
+Từ trang `routes/web.php` ta truyền các thông số vào trang `resources/views/file.blade.php`
 
-`routes/view.php`
+`routes/web.php`
 
 ```php
 Route::GET('/login', function (){
@@ -14,4 +14,4 @@ Thì lúc này file `resources/views/login.blade.php` sẽ nhận tham số `'ti
 ```html
 <title>{{ $title }}</title>
 ```
-Lúc này chỉ cần thay giá trị title ở file `routes/view.php` là được.
+Lúc này chỉ cần thay giá trị `title` ở file `routes/view.blade.php` là được.
