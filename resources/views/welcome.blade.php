@@ -100,7 +100,7 @@
                                 @csrf
                                 <div class="input-group">
                                     <input type="search" name="search" class="form-control form-control-lg"
-                                        placeholder="Type your keywords here">
+                                        placeholder="Type your keywords here" required>
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-lg btn-default">
                                             <i class="fa fa-search"></i>
@@ -113,13 +113,13 @@
                 </div>
             </section>
             <div class="links">
-                <a href="https://laravel.com/docs">Docs</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://blog.laravel.com">Blog</a>
-                <a href="https://nova.laravel.com">Nova</a>
-                <a href="https://forge.laravel.com">Forge</a>
-                <a href="https://vapor.laravel.com">Vapor</a>
+                <a href="">Docs</a>
+                <a href="">Laracasts</a>
+                <a href="">News</a>
+                <a href="">Blog</a>
+                <a href="">Nova</a>
+                <a href="">Forge</a>
+                <a href="">Vapor</a>
                 <a href="https://github.com/Tra-Luan-Van-Tot-Nghiep-HCMUT/traluanvan">GitHub</a>
             </div>
         </div>

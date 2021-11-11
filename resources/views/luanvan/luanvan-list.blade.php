@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($luanvans as $luanvan)
+                        @foreach ($resultSearchQuery as $luanvan)
                             <tr class="expandable-body d-none">
                                 <td colspan="5">
                                     <p style="display: none;">
@@ -51,7 +51,7 @@
                     </tbody>
                 </table>
                 <div class="card-footer clearfix">
-                    {{ $luanvans->links() }}
+                    {{ $resultSearchQuery->links() }}
                 </div>
             </div>
             <!-- /.card-body -->

@@ -15,11 +15,12 @@ class LuanvanController extends Controller
      */
     public function search(Request $req)
     {
-        $numberPaging = 15;
-        $luanvans = Luanvan::where('ten_lv', 'like', '%' . $req->search . '%')
-                                        ->orwhere('ten_gv1', 'like', '%' . $req->search . '%')
-                                        ->orwhere('ten_gv2', 'like', '%' . $req->search . '%')
-                                        ->paginate($numberPaging);
-        return view('luanvan.luanvan-list', ['luanvans' => $luanvans]);
+            $numberPaging = 15;
+            $searchQuery = Luanvan::where('ten_lv', 'like', '%' . $req->search . '%')
+                                            ->orwhere('ten_gv1', 'like', '%' . $req->search . '%')
+                                            ->orwhere('ten_gv2', 'like', '%' . $req->search . '%')
+                                            ->paginate($numberPaging);
+            $searchQuery->appends($req->all());
+            return view('luanvan.luanvan-list', ['resultSearchQuery' => $searchQuery]);
     }
 }
