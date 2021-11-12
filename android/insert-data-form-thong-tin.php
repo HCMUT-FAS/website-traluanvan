@@ -21,7 +21,7 @@ if (!$stmt->execute()) {
     echo "Không thể gửi thông tin";
 } else {
     require_once "$rootDir/send-email.php";
-    $Body = '<a href="http://traluanvan.herokuapp.com/form-thong-tin/vertified-email.php?e=';
+    $Body = '<a href="https://luanvan0001.000webhostapp.com/form-thong-tin/vertified-email.php?e=';
     $Body .= $f_email;
     $Body .= '">Vertified Email!</a>';
     $email = sendEmail('banhbeocodung00@gmail.com', 'K7z2Lk7djSskNJZuxC3q', 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
@@ -32,6 +32,5 @@ if (!$stmt->execute()) {
         header("Location: /index?vertified=succeed");
         exit();
     }
-    echo "Đã gửi thông tin thành công!";
 }
 // https://traluanvan/.herokuapp.com/Database/form_thong_tin_android.php?e=example@example.com&tsv=Bui%20An%20Khang&msv=1913683&mlv=20091002&sdt=0353032332&d=2021-06-19

@@ -6,10 +6,10 @@ Database user: sql5437850
 Database password: s4kBVISWFR
 Port number: 3306
 */
-$servername = "sql5.freesqldatabase.com";
-$username = "sql5437850";
-$password = "s4kBVISWFR";
-$dbname = "sql5437850";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "traluanvan";
 $port = 3306;
 $table = "luanvan";
 $loginTable = "login";

@@ -39,16 +39,16 @@ if (isset($_POST['form-submit'])) {
             exit();
         } else {
             require_once "$rootDir/include/send-email.php";
-            $Body = '<a href="http://traluanvan.herokuapp.com/form-thong-tin/vertified-email.php?e=';
+            $Body = '<a href="https://luanvan0001.000webhostapp.com/form-thong-tin/vertified-email.php?e=';
             $Body .= $f_email;
             $Body .= '">Vertified Email!</a>';
             $email = sendEmail($e_user, $e_pwd, 'banhbeocodung00@gmail.com', 'Vertification Email', $Body, $f_email);
             // Double check
             if(!$email->send()){
-                header("Location: /index?vertified=failed");
+                header("Location: /index?vertifiedEmail=failed");
                 exit();
             }else {
-                header("Location: /index?vertified=succeed");
+                header("Location: /index?vertifiedEmail=succeed");
                 exit();
             }
         }
