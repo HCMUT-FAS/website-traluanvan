@@ -15,7 +15,7 @@ class FormController extends Controller
      */
     public function index()
     {
-
+        return view('form.form-create');
     }
 
     /**
@@ -25,7 +25,7 @@ class FormController extends Controller
      */
     public function create()
     {
-        return view('form.form-create');
+        
     }
 
     /**

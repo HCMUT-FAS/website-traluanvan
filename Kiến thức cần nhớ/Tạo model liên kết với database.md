@@ -14,3 +14,13 @@ Thì trong này có form tạo bản ta chỉnh lại theo ý thích của mình
 ``
 php artisan migrate
 ```
+
+## Tạo database
+```
+php artisan migrate
+```
+
+## Drop database
+```
+php artisan migrate:rollback
+```
