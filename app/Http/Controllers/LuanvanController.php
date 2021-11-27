@@ -15,7 +15,7 @@ class LuanvanController extends Controller
      */
     public function search(Request $req)
     {
-            $numberPaging = 15;
+            $numberPaging = 10;
             $searchQuery = Luanvan::where('ten_lv', 'like', '%' . $req->search . '%')
                                             ->orwhere('ten_gv1', 'like', '%' . $req->search . '%')
                                             ->orwhere('ten_gv2', 'like', '%' . $req->search . '%')
