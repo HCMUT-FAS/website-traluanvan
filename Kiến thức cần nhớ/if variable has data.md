@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/43774129/how-to-check-if-a-variable-has-data-in-laravel-blade
