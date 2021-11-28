@@ -80,7 +80,6 @@
         </nav>
 
         <main class="py-4">
-            @yield('search')
             @yield('content')
         </main>
     </div>
