@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFormRequest extends FormRequest
+class StoreSearchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,7 @@ class StoreFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'email:rfc,dns'],
-            'mssv' => ['required', 'max:10'],
-            'ten' => ['required', 'max:10'],
-            'sdt' => ['required', 'max:16'],
-            'ngay_muon' => ['required']
+            'search' => ['required', 'min:5'],
         ];
     }
 }

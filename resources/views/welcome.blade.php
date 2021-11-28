@@ -23,6 +23,11 @@
                     </div>
                 </div>
             </section>
+            @error('search')
+                <span class=" col-md-8 offset-md-2" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
     </div>
 @endsection
