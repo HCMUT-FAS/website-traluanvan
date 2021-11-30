@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Luanvan;
-use App\Http\Requests\StoreSearchRequest;
+use App\Http\Requests\SearchRequest;
 
 
 class LuanvanController extends Controller
@@ -16,7 +16,7 @@ class LuanvanController extends Controller
      */
     // Check Request
     // https://youtu.be/FJDQBkS1Fqw?t=9122
-    public function search(StoreSearchRequest $req)
+    public function search(SearchRequest $req)
     {
             $numberPaging = 10;
             $searchQuery = Luanvan::where('ten_lv', 'like', '%' . $req->search . '%')
