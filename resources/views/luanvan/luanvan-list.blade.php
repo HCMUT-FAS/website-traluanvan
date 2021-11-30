@@ -16,10 +16,9 @@
                 </thead>
                 <tbody>
                     @forelse ($resultSearchQuery as $luanvan)
-
                         <tr data-widget="expandable-table" aria-expanded="false">
-                            <td>{{ $luanvan->ten_lv }}</td>
-
+                            <td><a href="{{ route('luanvan-show', ['id' => $luanvan->ma_lv]) }}">{{ $luanvan->ten_lv }}</a>
+                            </td>
                             @if ($luanvan->ten_gv2 == '0')
                                 <td>{{ $luanvan->ten_gv1 }}
                                 @else
@@ -27,10 +26,10 @@
                             @endif
                         </tr>
                     @empty
-                    <tr>
-                        <td>empty</td>
-                        <td>empty</td>
-                    </tr>
+                        <tr>
+                            <td>empty</td>
+                            <td>empty</td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>

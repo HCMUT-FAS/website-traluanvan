@@ -22,6 +22,10 @@ Route::get('/search', [
     'uses' => 'LuanvanController@search'
 ]);
 
+Route::get('/show/{id}', [
+    'uses' => 'LuanvanController@show'
+])->name('luanvan-show');
+
 Route::resource('/form', 'FormController');
 
 // Route::post('/login/store', [LoginController::Class, 'store']);

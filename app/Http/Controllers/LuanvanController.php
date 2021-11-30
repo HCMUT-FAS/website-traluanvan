@@ -18,12 +18,18 @@ class LuanvanController extends Controller
     // https://youtu.be/FJDQBkS1Fqw?t=9122
     public function search(SearchRequest $req)
     {
-            $numberPaging = 10;
-            $searchQuery = Luanvan::where('ten_lv', 'like', '%' . $req->search . '%')
-                                            ->orwhere('ten_gv1', 'like', '%' . $req->search . '%')
-                                            ->orwhere('ten_gv2', 'like', '%' . $req->search . '%')
-                                            ->paginate($numberPaging);
-            $searchQuery->appends($req->all());
-            return view('luanvan.luanvan-list', ['resultSearchQuery' => $searchQuery]);
+        $numberPaging = 10;
+        $searchQuery = Luanvan::where('ten_lv', 'like', '%' . $req->search . '%')
+                            ->orwhere('ten_gv1', 'like', '%' . $req->search . '%')
+                            ->orwhere('ten_gv2', 'like', '%' . $req->search . '%')
+                            ->paginate($numberPaging);
+        $searchQuery->appends($req->all());
+        return view('luanvan.luanvan-list', ['resultSearchQuery' => $searchQuery]);
+    }
+
+    public function show($ma_lv)
+    {
+        $show = Luanvan::where('ma_lv', 'like', $ma_lv)->get();
+        return view('luanvan.luanvan-show', ['resultShowQuery' => $show]);
     }
 }
