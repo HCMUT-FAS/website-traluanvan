@@ -12,17 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome', [
-        'tittle' => "Traluanvan"
-    ]);
+    return view('welcome');
 });
 
-Route::get('/search', [
+Route::get('/luanvan/search', [
     'as' => 'search',
-    'uses' => 'LuanvanController@search'
+    'uses' => 'LuanvanController@search',
 ]);
 
-Route::get('/show/{id}', [
+Route::get('/luanvan/show/{name}-{id}', [
     'uses' => 'LuanvanController@show'
 ])->name('luanvan-show');
 

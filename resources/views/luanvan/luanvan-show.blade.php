@@ -56,8 +56,7 @@
                         </div>
                         <div class="callout callout-info">
                             <h5><i class="fas fa-info"></i> Tóm tắt</h5>
-                            This page has been enhanced for printing. Click the print button at the bottom of the invoice to
-                            test.
+                            Đây là một bản tóm tắt nhưng gì luận văn thu thập được, nó chắc phải dài ơi là dài???
                         </div>
                     </div>
                 </div>

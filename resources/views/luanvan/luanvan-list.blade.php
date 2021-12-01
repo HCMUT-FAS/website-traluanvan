@@ -17,7 +17,7 @@
                 <tbody>
                     @forelse ($resultSearchQuery as $luanvan)
                         <tr data-widget="expandable-table" aria-expanded="false">
-                            <td><a href="{{ route('luanvan-show', ['id' => $luanvan->ma_lv]) }}">{{ $luanvan->ten_lv }}</a>
+                            <td><a href="{{ route('luanvan-show', ['id' => $luanvan->ma_lv, 'name' => $luanvan->ten_lv]) }}">{{ $luanvan->ten_lv }}</a>
                             </td>
                             @if ($luanvan->ten_gv2 == '0')
                                 <td>{{ $luanvan->ten_gv1 }}

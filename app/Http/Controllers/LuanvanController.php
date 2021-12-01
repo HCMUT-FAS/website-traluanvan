@@ -27,9 +27,10 @@ class LuanvanController extends Controller
         return view('luanvan.luanvan-list', ['resultSearchQuery' => $searchQuery]);
     }
 
-    public function show($ma_lv)
+    public function show($name, $id)
     {
-        $show = Luanvan::where('ma_lv', 'like', $ma_lv)->get();
+        $show = Luanvan::where('ma_lv', '=', $id)->get();
+        // dd($show);
         return view('luanvan.luanvan-show', ['resultShowQuery' => $show]);
     }
 }
