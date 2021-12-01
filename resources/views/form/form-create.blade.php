@@ -32,18 +32,19 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="email">Email address</label>
+                                    <div>
+                                        <label for="email">Email address</label>
+                                        @error('email')
+                                            {{-- <strong>{{ $message }}</strong> --}}
+                                            <span class="form-group" role="alert">
+                                                <strong style="color: red">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                     <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                         placeholder="Enter email">
                                 </div>
-                                <div>
-                                    @error('email')
-                                        {{-- <strong>{{ $message }}</strong> --}}
-                                        <span class="form-group" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="mssv">MSSV</label>
                                     <input type="text" name="mssv" class="form-control"
