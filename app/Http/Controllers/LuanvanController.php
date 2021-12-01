@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Luanvan;
+use App\Models\luanvanAvailable;
 use App\Http\Requests\SearchRequest;
 
 
@@ -28,9 +29,9 @@ class LuanvanController extends Controller
     }
 
     public function show($name, $id)
-    {
+    {   
         $show = Luanvan::where('ma_lv', '=', $id)->get();
-        // dd($show);
-        return view('luanvan.luanvan-show', ['resultShowQuery' => $show]);
+        $available = luanvanAvailable::where('ma_lv', '=', $id)->get();
+        return view('luanvan.luanvan-show', ['resultShowQuery' => $show, 'availableQuery' => $available]);
     }
 }

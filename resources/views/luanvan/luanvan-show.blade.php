@@ -45,12 +45,19 @@
                                 <div class="col-12">
                                     {{-- <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i
                                             class="fas fa-print"></i> Print</a> --}}
-                                    <button type="button" class="btn btn-success float-right"><i
-                                            class="far fa-credit-card"></i> Mượn luận văn
-                                    </button>
-                                    {{-- <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                                        <i class="fas fa-download"></i> Generate PDF
-                                    </button> --}}
+                                    @foreach ($availableQuery as $luanvanAvailable)
+                                        @if ($luanvanAvailable->available == 1)
+                                            <button type="button" class="btn btn-success float-right">
+                                                <i class="fa fa-check"></i> Mượn luận văn
+                                            </button>
+                                        @else
+                                            <button type="button" class="btn btn-primary float-right"
+                                                style="margin-right: 5px;">
+                                                <i class="fa fa-times"></i> Luận văn đã được mượn vào ngày:
+                                                {{ $luanvanAvailable->update }}
+                                            </button>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
