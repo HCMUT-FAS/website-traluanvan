@@ -42,14 +42,12 @@
 
                             <!-- this row will not appear when printing -->
                             <div class="row no-print">
-                                <div class="col-12">
+                                <div class="col-12 py-2">
                                     {{-- <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i
                                             class="fas fa-print"></i> Print</a> --}}
                                     @foreach ($availableQuery as $luanvanAvailable)
                                         @if ($luanvanAvailable->available == 1)
-                                            <button type="button" class="btn btn-success float-right">
-                                                <i class="fa fa-check"></i> Mượn luận văn
-                                            </button>
+                                            @include('form.form-create')
                                         @else
                                             <button type="button" class="btn btn-primary float-right"
                                                 style="margin-right: 5px;">
@@ -61,9 +59,30 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="callout callout-info">
-                            <h5><i class="fas fa-info"></i> Tóm tắt</h5>
-                            Đây là một bản tóm tắt nhưng gì luận văn thu thập được, nó chắc phải dài ơi là dài???
+                        {{-- <div class="col-md-12 "> --}}
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-text-width"></i>
+                                        TÓM TẮT
+                                    </h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <h1>h1. Bootstrap heading</h1>
+
+                                    <h2>h2. Bootstrap heading</h2>
+
+                                    <h3>h3. Bootstrap heading</h3>
+                                    <h4>h4. Bootstrap heading</h4>
+                                    <h5>h5. Bootstrap heading</h5>
+                                    <h6>h6. Bootstrap heading</h6>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                         </div>
                     </div>
                 </div>

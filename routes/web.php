@@ -24,7 +24,9 @@ Route::get('/luanvan/show/{name}-{id}', [
     'uses' => 'LuanvanController@show'
 ])->name('luanvan-show');
 
-Route::resource('/form', 'FormController');
+Route::post('/luanvan/form', [
+    'uses' => 'FormController@store'
+])->name('luanvan-form');
 
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();

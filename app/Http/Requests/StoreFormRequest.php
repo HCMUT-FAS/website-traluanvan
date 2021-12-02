@@ -27,10 +27,10 @@ class StoreFormRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email:rfc,dns'],
-            'mssv' => ['required', 'max:10'],
-            'ten' => ['required', 'max:10'],
-            'sdt' => ['required', 'max:16'],
-            'ngay_muon' => ['required']
+            'mssv' => ['required'],
+            'name' => ['required'],
+            'phone' => ['required'],
+            'date' => ['required']
         ];
     }
 }
