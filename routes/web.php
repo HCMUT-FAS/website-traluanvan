@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/luanvan/search', [
-    'as' => 'search',
+    'as' => 'luanvan-search', // Same as ->name('luanvan-search')
     'uses' => 'LuanvanController@search',
 ]);
 
