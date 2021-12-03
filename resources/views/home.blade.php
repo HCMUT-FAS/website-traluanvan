@@ -26,10 +26,7 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
-                                        {{-- <th>ID</th> --}}
                                         <th>User</th>
-                                        {{-- <th>Date</th>
-                                    <th>Status</th> --}}
                                         <th>Reason</th>
                                         <th></th>
                                         <th></th>
@@ -37,20 +34,25 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        {{-- <td>183</td> --}}
+                                        @forelse ($resultSearchQuery as $form)
                                         <td>
-                                            <h4>User: SIÊU NHÂN GAO TÊN DÀI ƠI LÀ DÀI LUÔN</h4>
-                                            <p>Số điện thoại: 183 <br>
-                                            Mã số sinh viên: 11-7-2014 <br>
-                                            Email: <span class="tag tag-success">Approved</span></p>
+                                            <h4>Tên người mượn: {{ $form->ten}} </h4>
+                                            <p>Số điện thoại: {{$form->sdt}} <br>
+                                            Mã số sinh viên: {{ $form->mssv}} <br>
+                                            Email: <span class="tag tag-success">{{$form->email}} </span></p>
                                         </td>
                                         <td>
-                                            <h4>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</h4>
+                                            <h4>{{ $form->luanvan}}</h4>
+                                            <p>Ngày dự kiến mượn: {{ $form->ngay_muon }}</p>
                                         </td>
                                         <td><button type="button" class="btn btn-block btn-outline-success btn-lg">Cho
                                                 mượn</button></td>
                                         <td><button type="button" class="btn btn-block btn-outline-danger btn-lg">Xóa
                                                 Đơn</button></td>
+                                        @empty
+                                            
+                                        @endforelse
+                                        
                                     </tr>
                                 </tbody>
                             </table>

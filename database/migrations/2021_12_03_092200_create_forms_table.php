@@ -17,9 +17,11 @@ class CreateFormsTable extends Migration
             $table->bigIncrements('id');
             $table->string('email');
             $table->string('mssv');
+            $table->string('luanvan');
             $table->string('ten');
             $table->string('sdt');
             $table->date('ngay_muon');
+            $table->timestamps();
         });
     }
 

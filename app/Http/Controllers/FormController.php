@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Amin\Form;
+use App\Models\Form;
 use App\Http\Requests\StoreFormRequest;
 
 class FormController extends Controller
@@ -19,6 +19,7 @@ class FormController extends Controller
         $form = new Form;
         $form->email = $request->email;
         $form->mssv = $request->mssv;
+        $form->luanvan = $request->ma_lv;
         $form->ten = $request->name;
         $form->sdt = $request->phone;
         $form->ngay_muon = $request->date;

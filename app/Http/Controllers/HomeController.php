@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Form;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $searchQuery = Form::select('email', 'mssv', 'luanvan', 'ten', 'sdt', 'ngay_muon')->get();
+        return view('home', ['resultSearchQuery' => $searchQuery]);
     }
 }
