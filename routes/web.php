@@ -31,4 +31,4 @@ Route::post('/luanvan/form', [
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'FormController@index')->name('home');

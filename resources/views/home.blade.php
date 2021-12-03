@@ -56,6 +56,9 @@
                                     @endforelse
                                 </tbody>
                             </table>
+                            <div class="card-footer clearfix">
+                                {{ $resultSearchQuery->links() }}
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
