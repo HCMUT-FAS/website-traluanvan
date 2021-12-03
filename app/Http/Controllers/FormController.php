@@ -32,6 +32,7 @@ class FormController extends Controller
 
     public function store(StoreFormRequest $request)
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $form = new Form;
         $form->email = $request->email;
         $form->mssv = $request->mssv;
@@ -39,6 +40,7 @@ class FormController extends Controller
         $form->ten = $request->name;
         $form->sdt = $request->phone;
         $form->ngay_muon = $request->date;
+        $form->created_at = date('Y-m-d H:i:s');
         $form->save();
         return back()->with('success', 'Bạn đã đăng kí thành công, vui lòng kiểm tra email để xác nhận');
     }

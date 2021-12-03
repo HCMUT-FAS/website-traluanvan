@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Họ và Tên</label>
-                            @error('email')
+                            @error('name')
                                 <span class="form-group" role="alert">
                                     <strong style="color: red">{{ $message }}</strong>
                                 </span>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Mã số sinh viên</label>
-                            @error('email')
+                            @error('mssv')
                                 <span class="form-group" role="alert">
                                     <strong style="color: red">{{ $message }}</strong>
                                 </span>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày dự kiến đến mượn</label>
-                            @error('email')
+                            @error('date')
                                 <span class="form-group" role="alert">
                                     <strong style="color: red">{{ $message }}</strong>
                                 </span>
