@@ -33,27 +33,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        @forelse ($resultSearchQuery as $form)
-                                        <td>
-                                            <h4>Tên người mượn: {{ $form->ten}} </h4>
-                                            <p>Số điện thoại: {{$form->sdt}} <br>
-                                            Mã số sinh viên: {{ $form->mssv}} <br>
-                                            Email: <span class="tag tag-success">{{$form->email}} </span></p>
-                                        </td>
-                                        <td>
-                                            <h4>{{ $form->luanvan}}</h4>
-                                            <p>Ngày dự kiến mượn: {{ $form->ngay_muon }}</p>
-                                        </td>
-                                        <td><button type="button" class="btn btn-block btn-outline-success btn-lg">Cho
-                                                mượn</button></td>
-                                        <td><button type="button" class="btn btn-block btn-outline-danger btn-lg">Xóa
-                                                Đơn</button></td>
-                                        @empty
-                                            
-                                        @endforelse
-                                        
-                                    </tr>
+                                    @forelse ($resultSearchQuery as $form)
+                                        <tr>
+                                            <td>
+                                                <h4>Tên người mượn: {{ $form->ten }} </h4>
+                                                <p>Số điện thoại: {{ $form->sdt }} <br>
+                                                    Mã số sinh viên: {{ $form->mssv }} <br>
+                                                    Email: <span class="tag tag-success">{{ $form->email }} </span></p>
+                                            </td>
+                                            <td>
+                                                <h4>{{ $form->luanvan }}</h4>
+                                                <p>Ngày dự kiến mượn: {{ $form->ngay_muon }}</p>
+                                            </td>
+                                            <td><button type="button" class="btn btn-block btn-outline-success btn-lg">Cho
+                                                    mượn</button></td>
+                                            <td><button type="button" class="btn btn-block btn-outline-danger btn-lg">Xóa
+                                                    Đơn</button></td>
+                                        </tr>
+                                    @empty
+                                        <td>empty</td>
+                                        <td>empty</td>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
