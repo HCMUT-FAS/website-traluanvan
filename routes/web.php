@@ -31,4 +31,16 @@ Route::post('/luanvan/form', [
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
 
-Route::GET('/home', 'FormController@index')->name('home');
+Route::GET('/home', 'FormController@index')->middleware('auth')->name('home');
+
+Route::POST('/home/accept', [
+    'uses' => 'FormController@accept'
+])->middleware('auth')->name('librarian-accept');
+
+Route::POST('/home/decline', [
+    'uses' => 'FormController@decline'
+])->middleware('auth')->name('librarian-decline');
+
+Route::POST('/home/return', [
+    'uses' => 'FormController@return'
+])->middleware('auth')->name('librarian-return');
