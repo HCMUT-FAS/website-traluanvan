@@ -2,9 +2,6 @@
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
     Mượn luận văn
 </button>
-@if (Session::has('success'))
-    @include('error.success')
-@endif
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
