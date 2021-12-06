@@ -69,6 +69,7 @@
                                             <td>
                                                 <form action="{{ route('librarian-decline') }}" method="post">
                                                     @csrf
+                                                    <input type="hidden" name="ma_lv" value="{{ $form->luanvan }}">
                                                     <button type="submit"
                                                         class="btn btn-block btn-outline-danger btn-lg">Xóa
                                                         Đơn</button>
@@ -91,5 +92,4 @@
             </div>
         </div>
     </div>
-
 @endsection

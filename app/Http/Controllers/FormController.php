@@ -63,13 +63,14 @@ class FormController extends Controller
         $notAvailable = 0;
         $update = new luanvanAvailable;
         $update = luanvanAvailable::where('ma_lv', $req->ma_lv)->update(['available' => $notAvailable]);
-        return back()->with('success', 'OK, được rồi đó!');
+        return back()->with('success', 'Cho mượn thành công!');
 
     }
 
-    protected function decline()
+    protected function decline(Request $req)
     {
-        
+        $delete = Form::where('luanvan', $req->ma_lv)->delete();
+        return back()->with('success', 'Xóa đơn thành công');
     }
 
     protected function return(Request $req)
