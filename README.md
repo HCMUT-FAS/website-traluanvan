@@ -27,6 +27,7 @@
 4. Tạo server laravel
 
     `php artisan serve` để chạy dự án.
+5. Tạo file môi trường .env và copy nội dung file .env.example vào file .env
 ## Linux OS
 ### Cài đặt và sử dụng Xampp
 
@@ -74,3 +75,6 @@
 5. Tạo server laravel
 
     `php artisan serve` để chạy dự án.
+6. Tạo file môi trường .env và copy nội dung file .env.example vào file .env
+
+## Nếu có thắc mắc gì thêm thì vào [đây](https://github.com/Tra-Luan-Van-Tot-Nghiep-HCMUT/website-traluanvan/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) tìm trước khi tạo issue mới.
