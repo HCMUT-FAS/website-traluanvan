@@ -52,7 +52,7 @@
                                             <button type="button" class="btn btn-primary float-right"
                                                 style="margin-right: 5px;">
                                                 <i class="fa fa-times"></i> Luận văn đã được mượn vào ngày:
-                                                {{ $luanvanAvailable->update }}
+                                                {{ $luanvanAvailable->updated_at }}
                                             </button>
                                         @endif
                                     @endforeach

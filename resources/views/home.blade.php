@@ -33,22 +33,47 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($resultSearchQuery as $form)
+                                    @forelse ($formShowRequest as $form)
                                         <tr>
                                             <td>
                                                 <h4>Tên người mượn: {{ $form->ten }} </h4>
                                                 <p>Số điện thoại: {{ $form->sdt }} <br>
                                                     Mã số sinh viên: {{ $form->mssv }} <br>
-                                                    Email: <span class="tag tag-success">{{ $form->email }} </span></p>
+                                                    Email: <span class="tag tag-success">{{ $form->email }} </span> <br>
+                                                 </p>
                                             </td>
                                             <td>
-                                                <h4>{{ $form->luanvan }}</h4>
+                                                <h4>{{ $form->ten_lv }}</h4>
                                                 <p>Ngày dự kiến mượn: {{ $form->ngay_muon }}</p>
                                             </td>
-                                            <td><button type="button" class="btn btn-block btn-outline-success btn-lg">Cho
-                                                    mượn</button></td>
-                                            <td><button type="button" class="btn btn-block btn-outline-danger btn-lg">Xóa
-                                                    Đơn</button></td>
+                                            <td>
+                                                @if ($form->available == 0)
+                                                    <form action="{{ route('librarian-return') }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="ma_lv" value="{{ $form->luanvan }}">
+                                                        <button type="submit"
+                                                            class="btn btn-block btn-outline-success btn-lg">Trả
+                                                            Lại</button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('librarian-accept') }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="ma_lv" value="{{ $form->luanvan }}">
+                                                        <button type="submit"
+                                                            class="btn btn-block btn-outline-success btn-lg">Cho
+                                                            Mượn</button>
+                                                    </form>
+
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('librarian-decline') }}" method="post">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class="btn btn-block btn-outline-danger btn-lg">Xóa
+                                                        Đơn</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @empty
                                         <td>empty</td>
@@ -57,7 +82,7 @@
                                 </tbody>
                             </table>
                             <div class="card-footer clearfix">
-                                {{ $resultSearchQuery->links() }}
+                                {{ $formShowRequest->links() }}
                             </div>
                         </div>
                         <!-- /.card-body -->
