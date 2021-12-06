@@ -17,7 +17,7 @@ class CreateLuanvanAvailablesTable extends Migration
             $table->bigIncrements('id');
             $table->string('ma_lv');
             $table->boolean('available')->default(true);
-            $table->timestamp('update')->nullable()->useCurrent();
+            $table->timestamps();
         });
     }
 
