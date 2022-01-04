@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Luanvan extends Model
+class IssuesThesis extends Model
 {
     //
 }
