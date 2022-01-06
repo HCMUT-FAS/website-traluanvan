@@ -5,11 +5,25 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Thesis;
 use Illuminate\Http\Request;
+use Auth;
 use App\Models\IssuesThesis;
 use App\Http\Requests\SearchRequest;
+use Illuminate\Support\Facades\Gate;
 
 class IssuesThesisController extends Controller
 {
+    public function index()
+    {
+        $user = Auth::user();
+        $numberPaging = 4;
+        $issuesTheses = IssuesThesis::join('users', 'issues_theses.user_id', '=', 'users.id')
+                                    ->join('theses', 'theses.id', '=', 'issues_theses.thesis_id')
+                                    ->select('issues_theses.issuesDate', 'issues_theses.id', 'issues_theses.expectedIssuesDate', 'issues_theses.returnDate', 'issues_theses.expectedReturnDate', 'users.name', 'users.email', 'users.phone', 'users.name', 'theses.nameVN')
+                                    ->where('users.id', '=', $user->id)
+                                    ->paginate($numberPaging);
+        return view('student.index', ['issuesTheses' => $issuesTheses]);
+    }
+
     public function search(SearchRequest $req)
     {
         $numberPaging = 10;

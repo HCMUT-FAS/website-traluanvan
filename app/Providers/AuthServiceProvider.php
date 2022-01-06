@@ -24,7 +24,12 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
+        Gate::define('librarian-view', function($user){
+            if($user->role_id != 2){ // 2 is librarian's role_id
+                return false;
+            }else{
+                return true;
+            }
+        });
     }
 }

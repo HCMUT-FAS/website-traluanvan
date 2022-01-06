@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Librarian;
 use App\Http\Controllers\Controller;
 use App\Models\IssuesThesis;
 use Illuminate\Http\Request;
-
+use Auth;
+use Illuminate\Support\Facades\Gate;
 class IssuesThesisController extends Controller
 {
     public function __construct()
@@ -15,12 +16,16 @@ class IssuesThesisController extends Controller
 
     public function index()
     {
-        $numberPaging = 4;
-        $issuesTheses = IssuesThesis::join('users', 'issues_theses.user_id', '=', 'users.id')
-                                    ->join('theses', 'theses.id', '=', 'issues_theses.thesis_id')
-                                    ->select('issues_theses.issuesDate', 'issues_theses.id', 'issues_theses.expectedIssuesDate', 'issues_theses.returnDate', 'issues_theses.expectedReturnDate', 'users.name', 'users.email', 'users.phone', 'users.name', 'theses.nameVN')
-                                    ->paginate($numberPaging);
-        return view('librarian.index', ['issuesTheses' => $issuesTheses]);
+        if (Gate::allows('librarian-view')) {
+            $numberPaging = 4;
+            $issuesTheses = IssuesThesis::join('users', 'issues_theses.user_id', '=', 'users.id')
+                                        ->join('theses', 'theses.id', '=', 'issues_theses.thesis_id')
+                                        ->select('issues_theses.issuesDate', 'issues_theses.id', 'issues_theses.expectedIssuesDate', 'issues_theses.returnDate', 'issues_theses.expectedReturnDate', 'users.name', 'users.email', 'users.phone', 'users.name', 'theses.nameVN')
+                                        ->paginate($numberPaging);
+            return view('librarian.index', ['issuesTheses' => $issuesTheses]);
+        }else {
+            abort(403);
+        }
     }
 
     protected function accept(Request $req)

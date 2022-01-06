@@ -51,7 +51,11 @@
                         @else
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                                    @can('librarian-view')
+                                        <a class="nav-link" href="{{ route('librarian-index') }}">{{ __('Home') }}</a>
+                                    @else
+                                        <a class="nav-link" href="{{ route('student-index') }}">{{ __('Home') }}</a>
+                                    @endcan
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">Contact</a>
@@ -96,7 +100,7 @@
                                     <hr>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                             document.getElementById('logout-form').submit();">
+                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Đăng Xuất') }}
                                     </a>
 
@@ -121,15 +125,15 @@
     {{-- footer --}}
     @include('layouts.footer')
     <!-- jQuery -->
-    <script src=/template/plugins/jquery/jquery.min.js"></script>
+    {{-- <script src="/template/plugins/jquery/jquery.min.js"></script> --}}
     <!-- Bootstrap 4 -->
-    <script src=/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- bs-custom-file-input -->
-    <script src=/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script src="/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <!-- AdminLTE App -->
-    <script src=/template/dist/js/adminlte.min.js"></script>
+    <script src="/template/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src=/template/dist/js/demo.js"></script>
+    <script src="/template/dist/js/demo.js"></script>
     <!-- Page specific script -->
     <script>
         $(function() {

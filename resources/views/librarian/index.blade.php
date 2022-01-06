@@ -37,41 +37,47 @@
                                             <td>
                                                 <h4>Tên người mượn: {{ $issuesThesis->name }} </h4>
                                                 <p>Số điện thoại: {{ $issuesThesis->phone }} <br>
-                                                    Email: <span class="tag tag-success">{{ $issuesThesis->email }} </span> <br>
-                                                 </p>
+                                                    Email: <span class="tag tag-success">{{ $issuesThesis->email }}
+                                                    </span> <br>
+                                                </p>
                                             </td>
                                             <td>
                                                 <h4>{{ $issuesThesis->nameVN }}</h4>
                                                 <p>Ngày dự kiến mượn: {{ $issuesThesis->expectedIssuesDate }}</p>
                                             </td>
-                                            <td>
-                                                @if ($issuesThesis->issuesDate !== null)
-                                                    <form action="{{ route('librarian-return') }}" method="post">
+                                            @can('librarian-view')
+                                                <td>
+                                                    @if ($issuesThesis->issuesDate !== null)
+                                                        <form action="{{ route('librarian-return') }}" method="post">
+                                                            @csrf
+                                                            <input type="hidden" name="issues_thesis_id"
+                                                                value="{{ $issuesThesis->id }}">
+                                                            <button type="submit"
+                                                                class="btn btn-block btn-outline-success btn-lg">Trả
+                                                                Lại</button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{ route('librarian-accept') }}" method="post">
+                                                            @csrf
+                                                            <input type="hidden" name="issues_thesis_id"
+                                                                value="{{ $issuesThesis->id }}">
+                                                            <button type="submit"
+                                                                class="btn btn-block btn-outline-success btn-lg">Cho
+                                                                Mượn</button>
+                                                        </form>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <form action="{{ route('librarian-decline') }}" method="post">
                                                         @csrf
-                                                        <input type="hidden" name="issues_thesis_id" value="{{ $issuesThesis->id }}">
+                                                        <input type="hidden" name="issues_thesis_id"
+                                                            value="{{ $issuesThesis->id }}">
                                                         <button type="submit"
-                                                            class="btn btn-block btn-outline-success btn-lg">Trả
-                                                            Lại</button>
+                                                            class="btn btn-block btn-outline-danger btn-lg">Xóa
+                                                            Đơn</button>
                                                     </form>
-                                                @else
-                                                    <form action="{{ route('librarian-accept') }}" method="post">
-                                                        @csrf
-                                                        <input type="hidden" name="issues_thesis_id" value="{{ $issuesThesis->id }}">
-                                                        <button type="submit"
-                                                            class="btn btn-block btn-outline-success btn-lg">Cho
-                                                            Mượn</button>
-                                                    </form>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <form action="{{ route('librarian-decline') }}" method="post">
-                                                    @csrf
-                                                    <input type="hidden" name="issues_thesis_id" value="{{ $issuesThesis->id }}">
-                                                    <button type="submit"
-                                                        class="btn btn-block btn-outline-danger btn-lg">Xóa
-                                                        Đơn</button>
-                                                </form>
-                                            </td>
+                                                </td>
+                                            @endcan
                                         </tr>
                                     @empty
                                         <td>empty</td>
