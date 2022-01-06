@@ -15,10 +15,10 @@ class CreateIssuesThesesTable extends Migration
     {
         Schema::create('issues_theses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('issuesDate');
+            $table->date('issuesDate')->nullable();
             $table->date('expectedIssuesDate');
-            $table->date('returnDate');
-            $table->date('expectedReturnDate');
+            $table->date('returnDate')->nullable();
+            $table->date('expectedReturnDate')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->string('thesis_id');
             $table->foreign('user_id')->references('id')->on('users');
