@@ -2,7 +2,7 @@
 
 
 @section('content')
-    @forelse ($resultShowQuery as $luanvan)
+    @forelse ($theses as $thesis)
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -12,7 +12,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4>
-                                        <i class="fas fa-globe"></i> {{ $luanvan->ten_lv }}
+                                        <i class="fas fa-globe"></i> {{ $thesis->nameVN }}
                                     </h4>
                                 </div>
                                 <!-- /.col -->
@@ -21,21 +21,21 @@
                             <div class="row invoice-info">
                                 <div class="col-sm-4 invoice-col">
                                     Sinh viên thực hiện
-                                    @if ($luanvan->ten_sv2 == '0')
-                                        <br>{{ $luanvan->ten_sv1 }}<br>
+                                    @if ($thesis->student2 == '0')
+                                        <br>{{ $thesis->student1 }}<br>
                                     @else
-                                        <br>{{ $luanvan->ten_sv1 }}<br>
-                                        {{ $luanvan->ten_sv2 }}<br>
+                                        <br>{{ $thesis->student1 }}<br>
+                                        {{ $thesis->student2 }}<br>
                                     @endif
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
                                     Giảng viên hướng dẫn
-                                    @if ($luanvan->ten_gv2 == '0')
-                                        <br>{{ $luanvan->ten_gv1 }}<br>
+                                    @if ($thesis->intructor2 == '0')
+                                        <br>{{ $thesis->intructor1 }}<br>
                                     @else
-                                        <br>{{ $luanvan->ten_gv1 }}<br>
-                                        {{ $luanvan->ten_gv2 }}<br>
+                                        <br>{{ $thesis->intructor1 }}<br>
+                                        {{ $thesis->intructor2 }}<br>
                                     @endif
                                 </div>
                             </div>
@@ -43,19 +43,18 @@
                             <!-- this row will not appear when printing -->
                             <div class="row no-print">
                                 <div class="col-12 py-2">
-                                    {{-- <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i
-                                            class="fas fa-print"></i> Print</a> --}}
-                                    @foreach ($availableQuery as $luanvanAvailable)
-                                        @if ($luanvanAvailable->available == 1)
-                                            @include('form.form-create')
+                                    @include('form.form-create');
+                                    {{-- @foreach ($availableQuery as $thesisAvailable)
+                                        @if ($thesisAvailable->available == 1)
+                                            
                                         @else
                                             <button type="button" class="btn btn-primary float-right"
                                                 style="margin-right: 5px;">
                                                 <i class="fa fa-times"></i> Luận văn đã được mượn vào ngày:
-                                                {{ $luanvanAvailable->updated_at }}
+                                                {{ $thesisAvailable->updated_at }}
                                             </button>
                                         @endif
-                                    @endforeach
+                                    @endforeach --}}
                                 </div>
                             </div>
                         </div>
@@ -65,8 +64,9 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
-                                        <i class="fas fa-text-width"></i>
-                                        TÓM TẮT
+                                        {{-- <i class="fas fa-text-width"></i> --}}
+                                        <h1>TÓM TẮT</h1>
+
                                     </h3>
                                 </div>
                                 <!-- /.card-header -->

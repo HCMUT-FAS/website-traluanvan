@@ -1,6 +1,6 @@
 cần phải cài thư viện 
 
-```
+```bash
 composer require laravel/ui "^1.0" --dev
 
 php artisan ui <bootstrap> --auth

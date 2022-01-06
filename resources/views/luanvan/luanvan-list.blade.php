@@ -18,15 +18,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($resultSearchQuery as $luanvan)
+                                    @forelse ($resultSearchQuery as $thesis)
                                         <tr data-widget="expandable-table" aria-expanded="false">
                                             <td><a
-                                                    href="{{ route('luanvan-show', ['id' => $luanvan->ma_lv, 'name' => Str::slug($luanvan->ten_lv, '+')]) }}">{{ $luanvan->ten_lv }}</a>
+                                                    href="{{ route('thesis-show', ['id' => $thesis->id, 'name' => Str::slug($thesis->nameVN, '+')]) }}">{{ $thesis->nameVN }}</a>
                                             </td>
-                                            @if ($luanvan->ten_gv2 == '0')
-                                                <td>{{ $luanvan->ten_gv1 }}
+                                            @if ($thesis->intructor2 == '0')
+                                                <td>{{ $thesis->intructor1 }}
                                                 @else
-                                                <td>{{ $luanvan->ten_gv1 }} và {{ $luanvan->ten_gv2 }}</td>
+                                                <td>{{ $thesis->intructor1 }} và {{ $thesis->intructor2 }}</td>
                                             @endif
                                         </tr>
                                     @empty

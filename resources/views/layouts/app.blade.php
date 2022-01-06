@@ -44,13 +44,31 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+
                     <ul class="navbar-nav mr-auto">
                         @guest
 
                         @else
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">Quản Lý Sinh Viên</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" class="nav-link dropdown-toggle">Luận Văn</a>
+                                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                        <li><a href="#" class="dropdown-item">Tìm Luận Văn</a></li>
+                                        <li><a href="#" class="dropdown-item">Quản Lý Đơn Mượn</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         @endguest
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,9 +91,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a href="#" class="dropdown-item">{{ __('Hồ Sơ Cá Nhân') }}</a>
+                                    <a href="#" class="dropdown-item">{{ __('Quản Lý Đơn Mượn Luận Văn') }}</a>
+                                    <hr>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
+                                        {{ __('Đăng Xuất') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -83,6 +105,7 @@
                                         @csrf
                                     </form>
                                 </div>
+
                             </li>
                         @endguest
                     </ul>

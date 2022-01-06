@@ -12,54 +12,23 @@
                 <h2 class="modal-title" id="exampleModalLabel">Thông tin của bạn</h2>
             </div>
             <div class="modal-body">
-                <form action="{{ route('luanvan-form') }}" method="POST">
+                <form action="{{ route('thesis-form') }}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            @error('email')
-                                <span class="form-group" role="alert">
-                                    <strong style="color: red">{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            <input type="email" name='email' class="form-control" placeholder="Enter email"
-                                value="{{ old('email') }}">
+                            <label for="exampleInputEmail1">Tên Sinh Viên</label>
+                            <input type="text" value="{{ Auth::user()->name }}" disabled="disabled" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Họ và Tên</label>
-                            @error('name')
-                                <span class="form-group" role="alert">
-                                    <strong style="color: red">{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            <input type="text" name='name' class="form-control" placeholder="Nguyễn Văn A,..."
-                                value="{{ old('name') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Mã số sinh viên</label>
-                            @error('mssv')
-                                <span class="form-group" role="alert">
-                                    <strong style="color: red">{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            <input type="text" name='mssv' class="form-control"
-                                placeholder="191xxxx, 181xxxx. 171xxxx,..." value="{{ old('mssv') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Số điện thoại liên lạc</label>
-                            @error('phone')
-                                <span class="form-group" role="alert">
-                                    <strong style="color: red">{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            <input type="text" name='phone' class="form-control" placeholder="Số điện thoại"
-                                value="{{ old('phone') }}">
+                            <label for="exampleInputEmail1">Email Sinh Viên</label>
+                            <input type="text" value="{{ Auth::user()->email }}" disabled="disabled" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên luận văn</label>
-                            <input type="text" value="{{ $luanvan->ten_lv }}" disabled="disabled"
+                            <input type="text" value="{{ $thesis->nameVN }}" disabled="disabled" class="form-control" />
+                            <input type="hidden" name="thesis_id" value="{{ $thesis->id }}" class="form-control" />
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"
                                 class="form-control" />
-                            <input type="hidden" name="ma_lv" value="{{ $luanvan->ma_lv }}" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày dự kiến đến mượn</label>
@@ -68,7 +37,7 @@
                                     <strong style="color: red">{{ $message }}</strong>
                                 </span>
                             @enderror
-                            <input type="date" name='date' class="form-control" value="{{ old('date') }}">
+                            <input type="date" name='expected_date' class="form-control" value="{{ old('date') }}">
                         </div>
                     </div>
                     <!-- /.card-body -->
