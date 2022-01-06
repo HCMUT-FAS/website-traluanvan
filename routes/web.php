@@ -15,32 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/luanvan/search', [
-    'as' => 'luanvan-search', // Same as ->name('luanvan-search')
-    'uses' => 'LuanvanController@search',
-]);
-
-Route::get('/luanvan/show/{name}-{id}', [
-    'uses' => 'LuanvanController@show'
-])->name('luanvan-show');
-
-Route::post('/luanvan/form', [
-    'uses' => 'FormController@store'
-])->name('luanvan-form');
+Route::prefix('thesis')->namespace('Student')->group(function () {
+    Route::GET('index', 'IssuesThesisController@index')->middleware(['auth'])->name('home');
+    Route::get('search', 'IssuesThesisController@search')->name('thesis-search');
+    Route::get('show/{name}-{id}', 'IssuesThesisController@show')->name('thesis-show');
+    Route::post('form', 'IssuesThesisController@store')->middleware(['auth'])->name('thesis-form');
+});
 
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
 
-Route::GET('/home', 'FormController@index')->middleware('auth')->name('home');
 
-Route::POST('/home/accept', [
-    'uses' => 'FormController@accept'
-])->middleware('auth')->name('librarian-accept');
-
-Route::POST('/home/decline', [
-    'uses' => 'FormController@decline'
-])->middleware('auth')->name('librarian-decline');
-
-Route::POST('/home/return', [
-    'uses' => 'FormController@return'
-])->middleware('auth')->name('librarian-return');
+Route::prefix('librarian')->namespace('Librarian')->middleware(['auth'])->group(function () {
+    Route::GET('index', 'IssuesThesisController@index')->name('home');
+    Route::POST('accept', 'IssuesThesisController@accept')->name('librarian-accept');
+    Route::POST('decline', 'IssuesThesisController@decline')->name('librarian-decline');
+    Route::POST('return', 'IssuesThesisController@return')->name('librarian-return');
+});
