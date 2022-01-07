@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('thesis')->namespace('Student')->group(function () {
-    Route::GET('index', 'IssuesThesisController@index')->middleware(['auth'])->name('home');
+    Route::GET('index', 'IssuesThesisController@index')->middleware(['auth'])->name('student-index');
     Route::get('search', 'IssuesThesisController@search')->name('thesis-search');
     Route::get('show/{name}-{id}', 'IssuesThesisController@show')->name('thesis-show');
     Route::post('form', 'IssuesThesisController@store')->middleware(['auth'])->name('thesis-form');
@@ -25,9 +25,10 @@ Route::prefix('thesis')->namespace('Student')->group(function () {
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
 
+Route::get('laravel-send-email', 'EmailController@sendEMail');
 
 Route::prefix('librarian')->namespace('Librarian')->middleware(['auth'])->group(function () {
-    Route::GET('index', 'IssuesThesisController@index')->name('home');
+    Route::GET('index', 'IssuesThesisController@index')->name('librarian-index');
     Route::POST('accept', 'IssuesThesisController@accept')->name('librarian-accept');
     Route::POST('decline', 'IssuesThesisController@decline')->name('librarian-decline');
     Route::POST('return', 'IssuesThesisController@return')->name('librarian-return');
