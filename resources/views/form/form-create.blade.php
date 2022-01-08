@@ -1,5 +1,5 @@
 @guest
-
+    
 @else
     @if ($thesis->name == 'On-Hold')
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">

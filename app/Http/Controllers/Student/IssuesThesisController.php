@@ -41,7 +41,6 @@ class IssuesThesisController extends Controller
         $thesis = thesis::join('theses_status', 'theses.status', '=', 'theses_status.id')
                         ->select('theses.id','theses.nameVN','theses.student1','theses.student1','theses.instructor1','theses.instructor2', 'theses_status.name')
                         ->where('theses.id', '=', $request->id)->get();
-        // dd($thesis);
         return view('luanvan.luanvan-show', ['theses' => $thesis]);
     }
 
