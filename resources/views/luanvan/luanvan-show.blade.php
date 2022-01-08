@@ -14,6 +14,7 @@
                                     <h4>
                                         <i class="fas fa-globe"></i> {{ $thesis->nameVN }}
                                     </h4>
+                                    <p>Tình trạng: {{ $thesis->name }}</p>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -31,11 +32,11 @@
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
                                     Giảng viên hướng dẫn
-                                    @if ($thesis->intructor2 == '0')
-                                        <br>{{ $thesis->intructor1 }}<br>
+                                    @if ($thesis->instructor2 == '0')
+                                        <br>{{ $thesis->instructor1 }}<br>
                                     @else
-                                        <br>{{ $thesis->intructor1 }}<br>
-                                        {{ $thesis->intructor2 }}<br>
+                                        <br>{{ $thesis->instructor1 }}<br>
+                                        {{ $thesis->instructor2 }}<br>
                                     @endif
                                 </div>
                             </div>
@@ -44,21 +45,9 @@
                             <div class="row no-print">
                                 <div class="col-12 py-2">
                                     @include('form.form-create');
-                                    {{-- @foreach ($availableQuery as $thesisAvailable)
-                                        @if ($thesisAvailable->available == 1)
-                                            
-                                        @else
-                                            <button type="button" class="btn btn-primary float-right"
-                                                style="margin-right: 5px;">
-                                                <i class="fa fa-times"></i> Luận văn đã được mượn vào ngày:
-                                                {{ $thesisAvailable->updated_at }}
-                                            </button>
-                                        @endif
-                                    @endforeach --}}
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="col-md-12 "> --}}
 
                         <div class="col-md-12">
                             <div class="card">

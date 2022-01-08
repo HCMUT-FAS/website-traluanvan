@@ -23,10 +23,10 @@
                                             <td><a
                                                     href="{{ route('thesis-show', ['id' => $thesis->id, 'name' => Str::slug($thesis->nameVN, '+')]) }}">{{ $thesis->nameVN }}</a>
                                             </td>
-                                            @if ($thesis->intructor2 == '0')
-                                                <td>{{ $thesis->intructor1 }}
+                                            @if ($thesis->instructor2 == '0')
+                                                <td>{{ $thesis->instructor1 }}
                                                 @else
-                                                <td>{{ $thesis->intructor1 }} và {{ $thesis->intructor2 }}</td>
+                                                <td>{{ $thesis->instructor1 }} và {{ $thesis->instructor2 }}</td>
                                             @endif
                                         </tr>
                                     @empty
