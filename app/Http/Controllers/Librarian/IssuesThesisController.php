@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Librarian;
 
 use App\Http\Controllers\Controller;
 use App\Models\IssuesThesis;
+use App\Models\Thesis;
 use Illuminate\Http\Request;
 use Auth;
 use Mail;
@@ -22,7 +23,7 @@ class IssuesThesisController extends Controller
             $issuesTheses = IssuesThesis::join('users', 'issues_theses.user_id', '=', 'users.id')
                                         ->join('theses', 'theses.id', '=', 'issues_theses.thesis_id')
                                         ->whereNull('returnDate')
-                                        ->select('issues_theses.issuesDate', 'issues_theses.id', 'issues_theses.expectedIssuesDate', 'issues_theses.returnDate', 'issues_theses.expectedReturnDate', 'users.name', 'users.email', 'users.phone', 'users.name', 'theses.nameVN')
+                                        ->select('issues_theses.issuesDate', 'issues_theses.id', 'issues_theses.thesis_id', 'issues_theses.expectedIssuesDate', 'issues_theses.returnDate', 'issues_theses.expectedReturnDate', 'users.name', 'users.email', 'users.phone', 'users.name', 'theses.nameVN')
                                         ->paginate($numberPaging);
             return view('librarian.index', ['issuesTheses' => $issuesTheses]);
         }else {
@@ -32,7 +33,12 @@ class IssuesThesisController extends Controller
 
     protected function accept(Request $req)
     {
-        $user = Auth::user();
+        // Update Theses.Status
+        $updateThesis = Thesis::where('id', '=', $req->thesis_id)
+                                ->update([
+                                    'status' => 2
+                                ]);
+
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentDate = date("Y-m-d");
         $returnDate = date('Y-m-d', strtotime("+2 weeks"));
