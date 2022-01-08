@@ -19,8 +19,10 @@ class CreateThesesTable extends Migration
             $table->string('nameEN');
             $table->string('student1');
             $table->string('student2');
-            $table->string('intructor1');
-            $table->string('intructor2');
+            $table->string('instructor1');
+            $table->string('instructor2');
+            $table->unsignedBigInteger('status')->default(1);
+            $table->foreign('status')->references('id')->on('theses_status');
         });
     }
 

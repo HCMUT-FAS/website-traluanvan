@@ -29,8 +29,8 @@ class IssuesThesisController extends Controller
     {
         $numberPaging = 10;
         $searchQuery = Thesis::where('nameVN', 'like', '%' . $req->search . '%')
-                            ->orwhere('intructor1', 'like', '%' . $req->search . '%')
-                            ->orwhere('intructor2', 'like', '%' . $req->search . '%')
+                            ->orwhere('instructor1', 'like', '%' . $req->search . '%')
+                            ->orwhere('instructor2', 'like', '%' . $req->search . '%')
                             ->paginate($numberPaging);
         $searchQuery->appends($req->all());
         return view('luanvan.luanvan-list', ['resultSearchQuery' => $searchQuery]);
@@ -38,7 +38,10 @@ class IssuesThesisController extends Controller
 
     public function show(Request $request)
     {   
-        $thesis = thesis::where('id', '=', $request->id)->get();
+        $thesis = thesis::join('theses_status', 'theses.status', '=', 'theses_status.id')
+                        ->select('theses.id','theses.nameVN','theses.student1','theses.student1','theses.instructor1','theses.instructor2', 'theses_status.name')
+                        ->where('theses.id', '=', $request->id)->get();
+        // dd($thesis);
         return view('luanvan.luanvan-show', ['theses' => $thesis]);
     }
 
