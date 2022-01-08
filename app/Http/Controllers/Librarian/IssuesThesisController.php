@@ -38,7 +38,6 @@ class IssuesThesisController extends Controller
                                 ->update([
                                     'status' => 2
                                 ]);
-
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentDate = date("Y-m-d");
         $returnDate = date('Y-m-d', strtotime("+2 weeks"));
@@ -58,6 +57,11 @@ class IssuesThesisController extends Controller
 
     protected function return(Request $req)
     {
+        // Update Theses.Status
+        $updateThesis = Thesis::where('id', '=', $req->thesis_id)
+                                ->update([
+                                    'status' => 1
+                                ]);
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentDate = date("Y-m-d");
         $update = IssuesThesis::where('id', '=', $req->issues_thesis_id)

@@ -52,6 +52,8 @@
                                                             @csrf
                                                             <input type="hidden" name="issues_thesis_id"
                                                                 value="{{ $issuesThesis->id }}">
+                                                            <input type="hidden" name="thesis_id"
+                                                                value="{{ $issuesThesis->thesis_id }}">
                                                             <button type="submit"
                                                                 class="btn btn-block btn-outline-success btn-lg">Trả
                                                                 Lại</button>
