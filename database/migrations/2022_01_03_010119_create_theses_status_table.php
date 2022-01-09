@@ -14,7 +14,7 @@ class CreateThesesStatusTable extends Migration
     public function up()
     {
         Schema::create('theses_status', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->integer('id')->primary();
             $table->string('name');
         });
     }
