@@ -28,20 +28,22 @@ class IssuesThesisController extends Controller
     public function search(SearchRequest $req)
     {
         $numberPaging = 10;
-        $searchQuery = Thesis::where('nameVN', 'like', '%' . $req->search . '%')
+        $searchQuery = Thesis::join('theses_status', 'theses.status', '=', 'theses_status.id')
+                            ->select('theses.id','theses.nameVN','theses.student1','theses.student2','theses.instructor1','theses.instructor2', 'theses.description', 'theses.updated_at', 'theses_status.name', 'theses_status.id as theses_status_id')
+                            ->where('nameVN', 'like', '%' . $req->search . '%')
                             ->orwhere('instructor1', 'like', '%' . $req->search . '%')
                             ->orwhere('instructor2', 'like', '%' . $req->search . '%')
                             ->paginate($numberPaging);
         $searchQuery->appends($req->all());
-        return view('luanvan.luanvan-list', ['resultSearchQuery' => $searchQuery]);
+        return view('thesis.list', ['resultSearchQuery' => $searchQuery]);
     }
 
     public function show(Request $request)
-    {   
+    {
         $thesis = thesis::join('theses_status', 'theses.status', '=', 'theses_status.id')
-                        ->select('theses.id','theses.nameVN','theses.student1','theses.student1','theses.instructor1','theses.instructor2', 'theses_status.name', 'theses_status.id as theses_status_id')
+                        ->select('theses.id','theses.nameVN','theses.student1','theses.student2','theses.instructor1','theses.instructor2', 'theses.description', 'theses.updated_at', 'theses_status.name', 'theses_status.id as theses_status_id')
                         ->where('theses.id', '=', $request->id)->get();
-        return view('luanvan.luanvan-show', ['theses' => $thesis]);
+        return view('thesis.show', ['theses' => $thesis]);
     }
 
     public function store(Request $request)
