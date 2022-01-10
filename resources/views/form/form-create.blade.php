@@ -1,9 +1,19 @@
 @guest
     
 @else
-    @if ($thesis->name == 'On-Hold')
+    {{-- 2 is On-Hold --}}
+    @php
+        $onHold = 2;
+        $Unavailable = 3;
+    @endphp
+    @if ($thesis->theses_status_id == $onHold) 
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
             Chờ tới khi luận văn sẵn sàng!
+        </button>
+    {{-- 3 is Unavailable --}}
+    @elseif($thesis->theses_status_id == $Unavailable)
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            Luận văn không thể mượn được!!!
         </button>
     @else
         <!-- Button trigger modal -->

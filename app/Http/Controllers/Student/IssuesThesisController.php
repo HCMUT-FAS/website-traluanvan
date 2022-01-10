@@ -39,7 +39,7 @@ class IssuesThesisController extends Controller
     public function show(Request $request)
     {   
         $thesis = thesis::join('theses_status', 'theses.status', '=', 'theses_status.id')
-                        ->select('theses.id','theses.nameVN','theses.student1','theses.student1','theses.instructor1','theses.instructor2', 'theses_status.name')
+                        ->select('theses.id','theses.nameVN','theses.student1','theses.student1','theses.instructor1','theses.instructor2', 'theses_status.name', 'theses_status.id as theses_status_id')
                         ->where('theses.id', '=', $request->id)->get();
         return view('luanvan.luanvan-show', ['theses' => $thesis]);
     }
