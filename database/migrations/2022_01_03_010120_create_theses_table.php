@@ -21,7 +21,7 @@ class CreateThesesTable extends Migration
             $table->string('student2');
             $table->string('instructor1');
             $table->string('instructor2');
-            $table->string('desciption')->nullable();
+            $table->string('description')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
             $table->foreign('status')->references('id')->on('theses_status');
