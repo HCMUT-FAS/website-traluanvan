@@ -1,5 +1,6 @@
 @guest
-
+    <p>Bạn phải <a href="{{route('login')}}">đăng nhập</a> mới có thể mượn luận văn.
+    </p>
 @else
     @php
     $onHold = 2;

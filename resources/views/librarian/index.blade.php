@@ -35,14 +35,16 @@
                                     @forelse ($issuesTheses as $issuesThesis)
                                         <tr>
                                             <td>
-                                                <h4>Tên người mượn: {{ $issuesThesis->name }} </h4>
+                                                <h5>Tên người mượn: {{ $issuesThesis->name }} </h5>
+                                                {{-- <p>Tên người mượn: {{ $issuesThesis->name }}</p> --}}
                                                 <p>Số điện thoại: {{ $issuesThesis->phone }} <br>
                                                     Email: <span class="tag tag-success">{{ $issuesThesis->email }}
                                                     </span> <br>
                                                 </p>
                                             </td>
                                             <td>
-                                                <h4>{{ $issuesThesis->nameVN }}</h4>
+                                                <h5>{{ $issuesThesis->nameVN }}</h5>
+                                                {{-- <p>{{ $issuesThesis->nameVN }}</p> --}}
                                                 <p>Ngày dự kiến mượn: {{ $issuesThesis->expectedIssuesDate }}</p>
                                             </td>
                                             @can('librarian-view')

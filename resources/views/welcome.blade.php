@@ -4,7 +4,7 @@
         <div class="content">
             <section class="content">
                 <div class="container-fluid">
-                    <h3 class="text-center display-4">Tra Luận Văn</h3>
+                    <h3 class="text-center display-4">Tìm Kiếm Luận Văn Theo Chủ Đề</h3>
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
                             <form action="{{ route('thesis-search') }}" method="get">
