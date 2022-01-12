@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Thesis;
 use Illuminate\Http\Request;
-use Auth;
 use App\Models\IssuesThesis;
 use App\Http\Requests\SearchRequest;
-use Illuminate\Support\Facades\Gate;
+use App\Mail\IssuesSuccess;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class IssuesThesisController extends Controller
 {
@@ -48,12 +49,16 @@ class IssuesThesisController extends Controller
 
     public function store(Request $request)
     {
+        // send email
+        $user = Auth::user();
+        Mail::to($user->email)->send(new IssuesSuccess());
+        // store to application
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $form = new IssuesThesis;
         $form->thesis_id = $request->thesis_id;
         $form->user_id = $request->user_id;
         $form->expectedIssuesDate = $request->expected_date;
         $form->save();
-        return back()->with('success', 'Bạn đã đăng kí thành công, vui lòng kiểm tra email để xác nhận');
+        return back()->with('success', 'Bạn đã đăng kí thành công!');
     }
 }
