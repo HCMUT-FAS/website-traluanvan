@@ -11,9 +11,16 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 Route::prefix('thesis')->namespace('Student')->group(function () {
     Route::GET('index', 'IssuesThesisController@index')->middleware(['auth'])->name('student-index');
@@ -24,8 +31,6 @@ Route::prefix('thesis')->namespace('Student')->group(function () {
 
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
-
-Route::get('laravel-send-email', 'EmailController@sendEMail');
 
 Route::prefix('librarian')->namespace('Librarian')->middleware(['auth'])->group(function () {
     Route::GET('index', 'IssuesThesisController@index')->name('librarian-index');
