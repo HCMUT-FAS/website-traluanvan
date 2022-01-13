@@ -1,5 +1,5 @@
 @guest
-    <p>Bạn phải <a href="{{route('login')}}">đăng nhập</a> mới có thể mượn luận văn.
+    <p>Bạn phải <a href="{{ route('login') }}">đăng nhập</a> mới có thể mượn luận văn.
     </p>
 @else
     @php
@@ -53,13 +53,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày dự kiến đến mượn</label>
-                                    @error('date')
+                                    <input type="date" name='expected_date' class="form-control"
+                                        value="{{ old('date') }}">
+                                    @error('expected_date')
                                         <span class="form-group" role="alert">
                                             <strong style="color: red">{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <input type="date" name='expected_date' class="form-control"
-                                        value="{{ old('date') }}">
                                 </div>
                             </div>
                             <!-- /.card-body -->
