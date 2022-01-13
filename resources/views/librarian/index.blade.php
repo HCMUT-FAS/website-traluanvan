@@ -44,8 +44,7 @@
                                             </td>
                                             <td>
                                                 <h5>{{ $issuesThesis->nameVN }}</h5>
-                                                {{-- <p>{{ $issuesThesis->nameVN }}</p> --}}
-                                                <p>Ngày dự kiến mượn: {{ $issuesThesis->expectedIssuesDate }}</p>
+                                                <p>Ngày dự kiến mượn: {{ $issuesThesis->expectedIssuesDate }} </p>
                                             </td>
                                             @can('librarian-view')
                                                 <td>
@@ -67,6 +66,8 @@
                                                                 value="{{ $issuesThesis->id }}">
                                                             <input type="hidden" name="thesis_id"
                                                                 value="{{ $issuesThesis->thesis_id }}">
+                                                            <input type="hidden" name="user_email"
+                                                                value={{ $issuesThesis->email }}>
                                                             <button type="submit"
                                                                 class="btn btn-block btn-outline-success btn-lg">Cho
                                                                 Mượn</button>
