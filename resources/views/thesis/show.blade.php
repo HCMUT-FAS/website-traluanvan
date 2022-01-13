@@ -12,7 +12,11 @@
                             <div class="col-12">
                                 <h4>
                                     <i class="fas fa-globe"></i> Chi tiết luận văn
-                                    <small class="float-right">Ngày truy cập lần cuối: {{ $thesis->updated_at }}</small>
+                                    <small class="float-right">Ngày truy cập lần cuối:
+                                        @php
+                                            echo date_format($thesis->updated_at, 'd-m-Y');
+                                        @endphp
+                                    </small>
                                 </h4>
                             </div>
                         </div>
