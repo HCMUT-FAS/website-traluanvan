@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FormStoreRequest;
 use App\Models\Thesis;
 use Illuminate\Http\Request;
 use App\Models\IssuesThesis;
@@ -47,7 +48,7 @@ class IssuesThesisController extends Controller
         return view('thesis.show', ['theses' => $thesis]);
     }
 
-    public function store(Request $request)
+    public function store(FormStoreRequest $request)
     {
         // send email
         $user = Auth::user();
