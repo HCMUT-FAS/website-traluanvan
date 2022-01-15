@@ -34,20 +34,20 @@ class IssuesThesisController extends Controller
     }
 
     protected function accept(Request $req)
-    {
-        
-        // Update Theses.Status
-        $updateThesis = Thesis::where('id', '=', $req->thesis_id)
-                                ->update([
-                                    'status' => 2
-                                ]);
+    {  
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $currentDate = date("Y-m-d");
-        $returnDate = date('Y-m-d', strtotime("+2 weeks"));
+        $currentDate = date("Y-m-d H:i:s");
+        $returnDate = date('Y-m-d H:i:s', strtotime("+2 weeks"));
+        // dd($currentDate);
         $update = IssuesThesis::where('id', '=', $req->issues_thesis_id)
                                 ->update([
                                     'issuesDate' => $currentDate,
                                     'expectedReturnDate' => $returnDate
+                                ]);
+        // Update Theses.Status
+        $updateThesis = Thesis::where('id', '=', $req->thesis_id)
+                                ->update([
+                                    'status' => 2
                                 ]);
         // Send email
         $dates = [
@@ -66,13 +66,13 @@ class IssuesThesisController extends Controller
 
     protected function return(Request $req)
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $currentDate = date("Y-m-d H:i:s");
         // Update Theses.Status
         $updateThesis = Thesis::where('id', '=', $req->thesis_id)
                                 ->update([
                                     'status' => 1
                                 ]);
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $currentDate = date("Y-m-d");
         $update = IssuesThesis::where('id', '=', $req->issues_thesis_id)
                                 ->update(['returnDate' => $currentDate]);
         return back()->with('success', 'Trả lại luận văn thành công!');
