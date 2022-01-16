@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -35,12 +35,17 @@
                                             <td>
                                                 <h4>Tên người mượn: {{ $issuesThesis->name }} </h4>
                                                 <p>Số điện thoại: {{ $issuesThesis->phone }} <br>
-                                                    Email: <span class="tag tag-success">{{ $issuesThesis->email }} </span> <br>
-                                                 </p>
+                                                    Email: <span class="tag tag-success">{{ $issuesThesis->email }}</span><br>
+                                                </p>
                                             </td>
                                             <td>
                                                 <h4>{{ $issuesThesis->nameVN }}</h4>
-                                                <p>Ngày dự kiến mượn: {{ $issuesThesis->expectedIssuesDate }}</p>
+                                                <p>Ngày dự kiến mượn:
+                                                    {{-- i have no idea how this work
+                                                        https://stackoverflow.com/questions/40038521/change-the-date-format-in-laravel-view-page/40038594#40038594 
+                                                        This will return the current time if the value is null --}}
+                                                    {{ \Carbon\Carbon::parse($issuesThesis->expectedIssuesDate, 'Asia/Ho_Chi_Minh')->format('d-m-Y') }}
+                                                </p>
                                             </td>
                                         </tr>
                                     @empty
