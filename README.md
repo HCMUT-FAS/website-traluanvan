@@ -1,3 +1,7 @@
+# Công nghệ sử dụng
+- Font-end: css Bootstrap, chưa có áp dụng js nào hết.
+- Back-end: laravel (php framework)
+- Database: mysql
 # Cách cài đặt
 ## Các ứng dụng cần thiết
 - [Git](https://git-scm.com/)
