@@ -29,7 +29,7 @@
                             <li><i aria-hidden="true" class="fa fa-envelope"></i><a href="mailto:quockhai@hcmut.edu.vn"> Email</a></li>
                         </ul>
                         <h5>Phản Hồi</h5>
-                        <dd>Nếu có đóng góp hay thắc mắc thì các bạn có thể điền vào đây!</dd>
+                        <dd>Nếu có đóng góp hay thắc mắc thì các bạn có thể điền vào <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgt2JgNJ8sbFrITXqg-xK8PlHhEYR4SDI-B3oOHbXHUQvZrg/viewform?embedded=true">đây</a> !</dd>
                     </dl>
                 </div>
                 <!-- /.card-body -->
