@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
+        "node-forge": "^1.2.1",
         "postcss": "^8.4.5"
     }
 }
