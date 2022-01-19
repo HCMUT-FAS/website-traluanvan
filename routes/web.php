@@ -11,8 +11,11 @@
 |
 */
 
-use App\Mail\IssuesAccept;
+use App\Jobs\Accept;
+use App\Jobs\Success;
+use App\Mail\IssuesSuccess;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::GET('/', function () {
@@ -22,6 +25,17 @@ Route::GET('/', function () {
 Route::GET('/about', function () {
     return view('about');
 })->name('about');
+
+// Route::GET('/email', function () {
+//     // Mail::to('banhbeovodung01@gmail.com')->send(new IssuesSuccess());
+//     $email = 'test01@gmail.com';
+//     Accept::dispatch($email);
+    
+//     // Show IssuesSuccess.blade.php
+//     // return new IssuesSuccess();
+// });
+
+
 
 /**
  * Guest Route

@@ -8,6 +8,8 @@ use App\Models\Thesis;
 use Illuminate\Http\Request;
 use App\Models\IssuesThesis;
 use App\Http\Requests\SearchRequest;
+use App\Jobs\StudentIssuesSuccess;
+use App\Jobs\Success;
 use App\Mail\IssuesSuccess;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -51,8 +53,7 @@ class IssuesThesisController extends Controller
     public function store(FormStoreRequest $request)
     {
         // send email
-        $user = Auth::user();
-        Mail::to($user->email)->send(new IssuesSuccess());
+        Success::dispatch(Auth::user());
         // store to application
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $form = new IssuesThesis;

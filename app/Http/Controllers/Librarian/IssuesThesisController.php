@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Librarian;
 
 use App\Http\Controllers\Controller;
-use App\Mail\IssuesAccept;
+use App\Jobs\Accept;
 use App\Models\IssuesThesis;
 use App\Models\Thesis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Mail;
 
 class IssuesThesisController extends Controller
 {
@@ -38,7 +37,6 @@ class IssuesThesisController extends Controller
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentDate = date("Y-m-d H:i:s");
         $returnDate = date('Y-m-d H:i:s', strtotime("+2 weeks"));
-        // dd($currentDate);
         $update = IssuesThesis::where('id', '=', $req->issues_thesis_id)
                                 ->update([
                                     'issuesDate' => $currentDate,
@@ -50,11 +48,7 @@ class IssuesThesisController extends Controller
                                     'status' => 2
                                 ]);
         // Send email
-        $dates = [
-            'currentDate' => $currentDate,
-            'expectedDate' => $returnDate
-        ];
-        Mail::to($req->user_email)->send(new IssuesAccept($dates));
+        Accept::dispatch($req->user_email);
         return back()->with('success', 'Cho mượn thành công!');
     }
 
