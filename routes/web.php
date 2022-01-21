@@ -17,6 +17,7 @@ use App\Mail\IssuesSuccess;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 Route::GET('/', function () {
     return view('welcome');
@@ -56,6 +57,11 @@ Route::prefix('thesis')->namespace('Student')->group(function () {
     Route::GET('show/{name}-{id}', 'IssuesThesisController@show')->name('thesis-show');
 });
 
+Route::prefix('profile')->namespace('Users')->group(function (){
+   Route::GET('index', 'profile@index')->middleware(['auth'])->name('profile-index');
+   Route::POST('update', 'profile@update')->middleware(['auth'])->name('profile-update');
+});
+
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
 
@@ -72,3 +78,4 @@ Route::prefix('librarian')->namespace('Librarian')->middleware(['auth'])->group(
     Route::POST('decline', 'IssuesThesisController@decline')->name('librarian-decline');
     Route::POST('return', 'IssuesThesisController@return')->name('librarian-return');
 });
+
