@@ -11,52 +11,46 @@
 |
 */
 
-use App\Jobs\Accept;
-use App\Jobs\LibrarianAccept;
-use App\Jobs\Success;
-use App\Mail\IssuesSuccess;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Student\IssuesThesisController as student;
+use App\Http\Controllers\Librarian\IssuesThesisController as librarian;
+use App\Http\Controllers\Users\ProfileController as profile;
+use App\Mail\IssuesSuccess;
+use Illuminate\Support\Facades\Mail;
 
 Route::GET('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::GET('/about', function () {
-    return view('about');
+	return view('about');
 })->name('about');
 
 Route::GET('/email', function () {
-    // Mail::to('banhbeovodung01@gmail.com')->send(new IssuesSuccess());
-    $email = 'test01@gmail.com';
-    LibrarianAccept::dispatch($email);
-
-    // Show IssuesSuccess.blade.php
-    // return new IssuesSuccess();
-});
-
-Route::prefix('user')->namespace('Users')->group(function (){
-    Route::prefix('student')->namespace('Student')->group(function () {
-        Route::GET('index', 'IssuesThesisController@index')->middleware(['auth'])->name('student-index');
-        Route::POST('form', 'IssuesThesisController@store')->middleware(['auth'])->name('thesis-form');
-        Route::GET('search', 'IssuesThesisController@search')->name('thesis-search');
-        Route::GET('show/{name}-{id}', 'IssuesThesisController@show')->name('thesis-show');
-    });
-
-    Route::prefix('librarian')->namespace('Librarian')->middleware(['auth'])->group(function () {
-        Route::GET('index', 'IssuesThesisController@index')->name('librarian-index');
-        Route::POST('accept', 'IssuesThesisController@accept')->name('librarian-accept');
-        Route::POST('decline', 'IssuesThesisController@decline')->name('librarian-decline');
-        Route::POST('return', 'IssuesThesisController@return')->name('librarian-return');
-    });
-
-    Route::prefix('profile')->group(function () {
-        Route::GET('index', 'ProfileController@index')->middleware(['auth'])->name('profile-index');
-        Route::POST('update', 'ProfileController@update')->middleware(['auth'])->name('profile-update');
-    });
-});
-
+	Mail::to('banhbeovodung01@gmail.com')->send(new IssuesSuccess());
+})->name('email');
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
+
+Route::prefix('user')->middleware(['auth'])->group(function () {
+	Route::prefix('student')->group(function () {
+		Route::GET('index', [student::class, 'index'])->name('student-index');
+		Route::POST('form', [student::class, 'store'])->name('student-form');
+	});
+
+	Route::prefix('librarian')->group(function () {
+		Route::GET('index', [librarian::class, 'index'])->name('librarian-index');
+		Route::POST('accept', [librarian::class, 'accept'])->name('librarian-accept');
+		Route::POST('decline', [librarian::class, 'decline'])->name('librarian-decline');
+		Route::POST('return', [librarian::class, 'return'])->name('librarian-return');
+	});
+
+	Route::GET('index', [profile::class, 'index'])->name('user-index');
+	Route::POST('update', [profile::class, 'update'])->name('user-update');
+});
+
+Route::prefix('guest')->group(function () {
+	Route::GET('search', [student::class, 'search'])->name('thesis-search');
+	Route::GET('show/{name}-{id}', [student::class, 'show'])->name('thesis-show');
+});

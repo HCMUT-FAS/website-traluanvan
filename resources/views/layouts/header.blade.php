@@ -22,11 +22,9 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 @can('librarian-view')
-                                    <a class="nav-link"
-                                        href="{{ route('librarian-index') }}">{{ __('Home') }}</a>
+                                    <a class="nav-link" href="{{ route('librarian-index') }}">{{ __('Home') }}</a>
                                 @else
-                                    <a class="nav-link"
-                                        href="{{ route('student-index') }}">{{ __('Home') }}</a>
+                                    <a class="nav-link" href="{{ route('student-index') }}">{{ __('Home') }}</a>
                                 @endcan
                             </li>
                             <li class="nav-item">
@@ -70,9 +68,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a href="{{ route('profile-index') }}" class="dropdown-item">{{ 'Hồ Sơ Cá Nhân' }}</a>
+                                <a href=" {{ route('user-index') }} " class="dropdown-item">{{ 'Hồ Sơ Cá Nhân' }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                            document.getElementById('logout-form').submit();">
                                     {{ __('Đăng Xuất') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

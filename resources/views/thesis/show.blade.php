@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     @forelse ($theses as $thesis)
         <div class="container">
@@ -14,8 +15,9 @@
                                     <small class="float-right">Ngày truy cập lần cuối:
                                         {{-- i have no idea how this work
                                             https://stackoverflow.com/questions/40038521/change-the-date-format-in-laravel-view-page/40038594#40038594 
-                                            This will return the current time if the value is null --}}
-                                        {{ \Carbon\Carbon::parse($thesis->updated_at, 'Asia/Ho_Chi_Minh')->format('d-m-Y H:i:s') }}
+                                            This will return the current time if the value is null
+                                            --}}
+                                        {{ \Carbon\Carbon::parse($thesis->updated_at, 'Asia/Ho_Chi_Minh')->format('d-m-Y H:i:s')}}
                                     </small>
                                 </h4>
                             </div>

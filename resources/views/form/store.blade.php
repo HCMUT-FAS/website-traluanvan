@@ -29,7 +29,7 @@
                         <h2 class="modal-title" id="exampleModalLabel">Thông tin của bạn</h2>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('thesis-form') }}" method="POST">
+                        <form action="{{ route('student-form') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
