@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Mail\IssuesAccept;
 use App\Mail\IssuesSuccess;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -11,18 +10,18 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class Accept implements ShouldQueue
+class StudentIssuesSuccess implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    public $email;
+    public $user;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($email)
+    public function __construct($user)
     {
-        $this->email = $email;
+        $this->user = $user;
     }
 
     /**
@@ -32,13 +31,6 @@ class Accept implements ShouldQueue
      */
     public function handle()
     {
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $currentDate = date("Y-m-d H:i:s");
-        $returnDate = date('Y-m-d H:i:s', strtotime("+2 weeks"));
-        $dates = [
-            'currentDate' => $currentDate,
-            'expectedDate' => $returnDate
-        ];
-        Mail::to($this->email)->send(new IssuesAccept($dates));
+        Mail::to($this->user->email)->send(new IssuesSuccess());
     }
 }
