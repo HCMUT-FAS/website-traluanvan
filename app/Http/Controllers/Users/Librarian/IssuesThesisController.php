@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Librarian;
+namespace App\Http\Controllers\Users\Librarian;
 
 use App\Http\Controllers\Controller;
-use App\Jobs\Accept;
+use App\Jobs\LibrarianAccept;
 use App\Models\IssuesThesis;
 use App\Models\Thesis;
 use Illuminate\Http\Request;
@@ -21,34 +21,34 @@ class IssuesThesisController extends Controller
         if (Gate::allows('librarian-view')) {
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             $numberPaging = 4;
-                $issuesTheses = IssuesThesis::join('users', 'issues_theses.user_id', '=', 'users.id')
-                                            ->join('theses', 'theses.id', '=', 'issues_theses.thesis_id')
-                                            ->whereNull('returnDate')
-                                            ->select('issues_theses.issuesDate', 'issues_theses.id', 'issues_theses.thesis_id', 'issues_theses.expectedIssuesDate', 'issues_theses.returnDate', 'issues_theses.expectedReturnDate', 'users.name', 'users.email', 'users.phone', 'users.name', 'theses.nameVN')
-                                            ->paginate($numberPaging);
+            $issuesTheses = IssuesThesis::join('users', 'issues_theses.user_id', '=', 'users.id')
+                ->join('theses', 'theses.id', '=', 'issues_theses.thesis_id')
+                ->whereNull('returnDate')
+                ->select('issues_theses.issuesDate', 'issues_theses.id', 'issues_theses.thesis_id', 'issues_theses.expectedIssuesDate', 'issues_theses.returnDate', 'issues_theses.expectedReturnDate', 'users.name', 'users.email', 'users.phone', 'users.name', 'theses.nameVN')
+                ->paginate($numberPaging);
             return view('librarian.index', ['issuesTheses' => $issuesTheses]);
-        }else {
+        } else {
             abort(403);
         }
     }
 
     protected function accept(Request $req)
-    {  
+    {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentDate = date("Y-m-d H:i:s");
         $returnDate = date('Y-m-d H:i:s', strtotime("+2 weeks"));
         $update = IssuesThesis::where('id', '=', $req->issues_thesis_id)
-                                ->update([
-                                    'issuesDate' => $currentDate,
-                                    'expectedReturnDate' => $returnDate
-                                ]);
+            ->update([
+                'issuesDate' => $currentDate,
+                'expectedReturnDate' => $returnDate
+            ]);
         // Update Theses.Status
         $updateThesis = Thesis::where('id', '=', $req->thesis_id)
-                                ->update([
-                                    'status' => 2
-                                ]);
+            ->update([
+                'status' => 2
+            ]);
         // Send email
-        Accept::dispatch($req->user_email);
+        LibrarianAccept::dispatch($req->user_email);
         return back()->with('success', 'Cho mượn thành công!');
     }
 
@@ -64,11 +64,11 @@ class IssuesThesisController extends Controller
         $currentDate = date("Y-m-d H:i:s");
         // Update Theses.Status
         $updateThesis = Thesis::where('id', '=', $req->thesis_id)
-                                ->update([
-                                    'status' => 1
-                                ]);
+            ->update([
+                'status' => 1
+            ]);
         $update = IssuesThesis::where('id', '=', $req->issues_thesis_id)
-                                ->update(['returnDate' => $currentDate]);
+            ->update(['returnDate' => $currentDate]);
         return back()->with('success', 'Trả lại luận văn thành công!');
     }
 }
