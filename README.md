@@ -1,5 +1,5 @@
 # Công nghệ sử dụng
-- Framework: laravel 6
+- Framework: laravel 8
 - Font-end: css Bootstrap, chưa có áp dụng js nào hết.
 - Back-end: laravel (php framework)
 - Database: mysql
