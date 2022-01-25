@@ -18,6 +18,8 @@ use App\Http\Controllers\Librarian\IssuesThesisController as librarian;
 use App\Http\Controllers\Users\ProfileController as profile;
 use App\Mail\IssuesSuccess;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
+
 
 Route::GET('/', function () {
 	return view('welcome');
@@ -30,6 +32,7 @@ Route::GET('/about', function () {
 Route::GET('/email', function () {
 	Mail::to('banhbeovodung01@gmail.com')->send(new IssuesSuccess());
 })->name('email');
+
 // Route::post('/login/store', [LoginController::Class, 'store']);
 Auth::routes();
 
