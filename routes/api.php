@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Apis\AuthController;
+use App\Http\Controllers\Apis\ThesisController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::post('/token/create', [AuthController::class, 'create']);
+
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/users', 'UserController@index');
+    Route::post('/data', [ThesisController::class, 'index']);    
 });

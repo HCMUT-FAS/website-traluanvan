@@ -7,17 +7,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller 
+class AuthController extends Controller
 {
-    public function index(Request $request)
-    {
-        /**
-         * create API_token
-         */
+	public function index(Request $request)
+	{
+		/**
+		 * create API_token
+		 */
+	}
 
-    }
-    
-	public function login(Request $request) {
+	public function login(Request $request)
+	{
 		/**
 		 * Return
 		 * {
@@ -43,13 +43,33 @@ class AuthController extends Controller
 			], 404);
 		}
 
+		$response = [
+			'user' => $user,
+		];
+
+		return response($response, 200);
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create(Request $request)
+	{
+		$user = User::where('email', $request->email)->first();
+
+		if (!$user || !Hash::check($request->password, $user->password)) {
+			return response([
+				'message' => ['These credentials do not match our records.'],
+			], 404);
+		}
 		$token = $user->createToken('my-app-token')->plainTextToken;
 
 		$response = [
-			'user' => $user,
+			// 'user' => $user,
 			'token' => $token,
 		];
-
 		return response($response, 201);
 	}
 }
