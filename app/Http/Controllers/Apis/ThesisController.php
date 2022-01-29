@@ -44,7 +44,7 @@ class ThesisController extends Controller
     public function store(FormStoreRequest $request)
     {
          // send email
-         StudentIssuesSuccess::dispatch(Auth::user());
+        //  StudentIssuesSuccess::dispatch(Auth::user());
          // store to application
          date_default_timezone_set('Asia/Ho_Chi_Minh');
          $form = new IssuesThesis;
