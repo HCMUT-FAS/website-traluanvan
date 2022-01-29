@@ -20,6 +20,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/token/create', [AuthController::class, 'create']);
 
+Route::post('/form/store', [ThesisController::class, 'store']);
+
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/data', [ThesisController::class, 'index']);    
 });
