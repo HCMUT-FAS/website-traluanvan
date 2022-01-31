@@ -13,9 +13,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
-class IssuesThesisController extends Controller {
+class IssuesThesisController extends Controller
+{
 
-	public function index() {
+	public function index()
+	{
 		$user = Auth::user();
 		$numberPaging = 4;
 		$issuesTheses = IssuesThesis::join('users', 'issues_theses.user_id', '=', 'users.id')
@@ -27,7 +29,8 @@ class IssuesThesisController extends Controller {
 		return view('student.index', ['issuesTheses' => $issuesTheses]);
 	}
 
-	public function search(SearchRequest $req) {
+	public function search(SearchRequest $req)
+	{
 		$numberPaging = 10;
 		$searchQuery = Thesis::join('theses_status', 'theses.status', '=', 'theses_status.id')
 			->select('theses.id', 'theses.nameVN', 'theses.student1', 'theses.student2', 'theses.instructor1', 'theses.instructor2', 'theses.description', 'theses.updated_at', 'theses_status.name', 'theses_status.id as theses_status_id')
@@ -40,14 +43,16 @@ class IssuesThesisController extends Controller {
 		return view('thesis.list', ['resultSearchQuery' => $searchQuery]);
 	}
 
-	public function show(Request $request) {
+	public function show(Request $request)
+	{
 		$thesis = thesis::join('theses_status', 'theses.status', '=', 'theses_status.id')
 			->select('theses.id', 'theses.nameVN', 'theses.student1', 'theses.student2', 'theses.instructor1', 'theses.instructor2', 'theses.description', 'theses.updated_at', 'theses_status.name', 'theses_status.id as theses_status_id')
 			->where('theses.id', '=', $request->id)->get();
 		return view('thesis.show', ['theses' => $thesis]);
 	}
 
-	public function store(FormStoreRequest $request) {
+	public function store(FormStoreRequest $request)
+	{
 		// send email
 		StudentIssuesSuccess::dispatch(Auth::user());
 		// store to application
@@ -57,6 +62,6 @@ class IssuesThesisController extends Controller {
 		$form->user_id = $request->user_id;
 		$form->expectedIssuesDate = $request->expected_date;
 		$form->save();
-		return back()->with('success', 'Bạn đã đăng kí thành công!');
+		return back()->with('success', 'Bạn Đã Đăng Kí Thành Công! Vui Lòng Kiểm Tra Email');
 	}
 }
