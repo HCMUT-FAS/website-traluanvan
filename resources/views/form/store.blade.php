@@ -7,16 +7,17 @@
     $Unavailable = 3;
     @endphp
     @if ($thesis->theses_status_id == $onHold)
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Chờ tới khi luận văn sẵn sàng!
         </button>
     @elseif($thesis->theses_status_id == $Unavailable)
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        {{-- <button type="button" class="btn btn-alert" data-toggle="modal" data-target="#exampleModal">
             Luận văn không thể mượn được!!!
-        </button>
+        </button> --}}
+        <p class="text-danger">Luận văn không thể mượn được!!!</p>
     @else
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Mượn luận văn
         </button>
 
