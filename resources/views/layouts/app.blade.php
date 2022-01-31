@@ -32,32 +32,26 @@
 <body>
     @include('layouts.header')
 
-        <main class="py-4">
-            @yield('search')
-            @yield('content')
-        </main>
+    <main class="py-4">
+        @yield('search')
+        @yield('content')
+    </main>
     </div>
     {{-- footer --}}
     @include('layouts.footer')
     <!-- jQuery -->
-    <script src="/template/plugins/jquery/jquery.min.js"></script>
+    {{-- <script src="/template/plugins/jquery/jquery.min.js"></script> --}}
     <!-- Bootstrap 4 -->
     {{-- <script src="/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
-    <!-- bs-custom-file-input -->
-    {{-- <script src="/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script> --}}
     <!-- AdminLTE App -->
     {{-- <script src="/template/dist/js/adminlte.min.js"></script> --}}
-    <!-- AdminLTE for demo purposes -->
-    {{-- <script src="/template/dist/js/demo.js"></script> --}}
     <!-- Page specific script -->
-    {{-- <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
-    </script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     @if (Session::has('success'))
         @include('error.success')
     @endif
+
 </body>
 
 </html>
