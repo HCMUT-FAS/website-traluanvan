@@ -78,7 +78,7 @@ class ProfileController extends Controller
 			'phone' => $request->phone,
 			'email' => $request->email,
 		]);
-		return back()->with('success', 'Cập Nhật Thành Công');
+		return back()->with('success', 'Thông Tin Cá Nhân Đã Được Cập Nhật');
 	}
 
 	/**
