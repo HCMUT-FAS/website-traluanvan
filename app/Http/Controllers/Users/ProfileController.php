@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -71,14 +72,14 @@ class ProfileController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request)
+	public function update(UpdateProfile $request)
 	{
 		$user = User::where('id', $request->id)->update([
 			'name' => $request->name,
 			'phone' => $request->phone,
 			'email' => $request->email,
 		]);
-		return back()->with('success', 'Thông Tin Cá Nhân Đã Được Cập Nhật');
+		return back()->with('success', 'Cập nhật thông tin thành công!');
 	}
 
 	/**
