@@ -13,8 +13,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Student\IssuesThesisController as student;
-use App\Http\Controllers\Librarian\IssuesThesisController as librarian;
+use App\Http\Controllers\Users\Student\IssuesThesisController as student;
+use App\Http\Controllers\Users\Librarian\IssuesThesisController as librarian;
 use App\Http\Controllers\Users\ProfileController as profile;
 use App\Mail\IssuesSuccess;
 use Illuminate\Support\Facades\Mail;
