@@ -29,6 +29,7 @@ class IssuesThesisController extends Controller
                 ->paginate($numberPaging);
             return view('librarian.index', ['issuesTheses' => $issuesTheses]);
         } else {
+            return back();
             abort(403);
         }
     }
