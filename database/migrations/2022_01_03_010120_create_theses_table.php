@@ -16,11 +16,11 @@ class CreateThesesTable extends Migration
         Schema::create('theses', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('nameVN');
-            $table->string('nameEN');
+            $table->string('nameEN')->nullable();
             $table->string('student1');
-            $table->string('student2');
+            $table->string('student2')->nullable();
             $table->string('instructor1');
-            $table->string('instructor2');
+            $table->string('instructor2')->nullable();
             $table->string('description')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
