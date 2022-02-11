@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateProfile;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,9 +72,10 @@ class ProfileController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(UpdateProfile $request)
+	public function update(UpdateProfileRequest $request)
 	{
-		$user = User::where('id', $request->id)->update([
+		$user = Auth::user();
+		$update = User::where('id', $user->id)->update([
 			'name' => $request->name,
 			'phone' => $request->phone,
 			'email' => $request->email,
