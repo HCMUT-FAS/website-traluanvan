@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThesesStatusTable extends Migration
+class CreateFacultiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateThesesStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('theses_status', function (Blueprint $table) {
-            $table->integer('id')->primary();
+        Schema::create('faculties', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
         });
     }
@@ -26,6 +26,6 @@ class CreateThesesStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('theses_status');
+        Schema::dropIfExists('faculties');
     }
 }

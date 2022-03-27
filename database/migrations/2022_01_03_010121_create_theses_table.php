@@ -19,12 +19,14 @@ class CreateThesesTable extends Migration
             $table->string('nameEN')->nullable();
             $table->string('student1');
             $table->string('student2')->nullable();
-            $table->string('instructor1');
-            $table->string('instructor2')->nullable();
             $table->string('description')->nullable();
-            $table->integer('status')->default(1);
+            // status_id (FK)
+            $table->unsignedBigInteger('thesis_status_id');
+            $table->foreign('thesis_status_id')->references('id')->on('thesis_statuses');
+            // role_id (FK)
+            $table->unsignedBigInteger('thesis_role_id');
+            $table->foreign('thesis_role_id')->references('id')->on('thesis_roles');
             $table->timestamps();
-            $table->foreign('status')->references('id')->on('theses_status');
         });
     }
 
