@@ -15,9 +15,9 @@ Các Controller trong cùng một thư mục, như trong thư mục Librarian c�
 thay vì
 ```php
 Route::GET('home', 'Librarian.IssuesThesisController@index')->name('home');
-Route::GET('home', 'Librarian.IssuesThesisController@accept')->name('librarian-accept');
-Route::GET('home', 'Librarian.IssuesThesisController@decline')->name('librarian-decline');
-Route::GET('home', 'Librarian.IssuesThesisController@return')->name('librarian-return');
+Route::GET('home', 'Librarian.IssuesThesisController@accept')->name('librarian.accept');
+Route::GET('home', 'Librarian.IssuesThesisController@decline')->name('librarian.destroy');
+Route::GET('home', 'Librarian.IssuesThesisController@return')->name('librarian.return');
 ```
 Thì viết lại như thế này là ổn:
 
@@ -27,14 +27,14 @@ Route::prefix('librarian')->namespace('Librarian')->middleware(['auth'])->group(
 
     Route::POST('accept', [
         'uses' => 'IssuesThesisController@accept'
-    ])->name('librarian-accept');
+    ])->name('librarian.accept');
 
     Route::POST('decline', [
         'uses' => 'IssuesThesisController@decline'
-    ])->name('librarian-decline');
+    ])->name('librarian.destroy');
 
     Route::POST('return', [
         'uses' => 'IssuesThesisController@return'
-    ])->name('librarian-return');
+    ])->name('librarian.return');
 });
 ```
