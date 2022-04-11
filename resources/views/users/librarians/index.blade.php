@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     <div class="content">
@@ -54,7 +54,7 @@
                                             @can('librarian-view')
                                                 <td>
                                                     @if ($issuesThesis->issuesDate !== null)
-                                                        <form action="{{ route('librarian-return') }}" method="post">
+                                                        <form action="{{ route('librarian.return') }}" method="post">
                                                             @csrf
                                                             <input type="hidden" name="issues_thesis_id"
                                                                 value="{{ $issuesThesis->id }}">
@@ -65,7 +65,7 @@
                                                                 Lại</button>
                                                         </form>
                                                     @else
-                                                        <form action="{{ route('librarian-accept') }}" method="post">
+                                                        <form action="{{ route('librarian.accept') }}" method="post">
                                                             @csrf
                                                             <input type="hidden" name="issues_thesis_id"
                                                                 value="{{ $issuesThesis->id }}">
@@ -80,7 +80,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('librarian-decline') }}" method="post">
+                                                    <form action="{{ route('librarian.destroy') }}" method="post">
                                                         @csrf
                                                         <input type="hidden" name="issues_thesis_id"
                                                             value="{{ $issuesThesis->id }}">

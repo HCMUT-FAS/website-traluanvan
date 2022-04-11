@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     <section class="content">
@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <form action="{{ route('user-update') }}" method="post">
+                        <form action="{{ route('user.update') }}" method="post">
                             <div class="card-header">
                                 <div class="col-12">
                                     <h4>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     <div class="content">
@@ -48,7 +48,7 @@
                                             </td>
                                             <td>
                                                 @if ($form->available == 0)
-                                                    <form action="{{ route('librarian-return') }}" method="post">
+                                                    <form action="{{ route('librarian.return') }}" method="post">
                                                         @csrf
                                                         <input type="hidden" name="ma_lv" value="{{ $form->luanvan }}">
                                                         <button type="submit"
@@ -56,7 +56,7 @@
                                                             Lại</button>
                                                     </form>
                                                 @else
-                                                    <form action="{{ route('librarian-accept') }}" method="post">
+                                                    <form action="{{ route('librarian.accept') }}" method="post">
                                                         @csrf
                                                         <input type="hidden" name="ma_lv" value="{{ $form->luanvan }}">
                                                         <button type="submit"
@@ -66,7 +66,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <form action="{{ route('librarian-decline') }}" method="post">
+                                                <form action="{{ route('librarian.destroy') }}" method="post">
                                                     @csrf
                                                     <input type="hidden" name="ma_lv" value="{{ $form->luanvan }}">
                                                     <button type="submit"
